@@ -22,6 +22,7 @@ main{
     flex: 1fr;
     background-color: rgb(233, 233, 233);
     height: 100vh;
+    overflow-y: auto;
 }
 
 header{
@@ -29,6 +30,8 @@ header{
     width: 100%;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 4px rgb(0, 0, 0, 0.35);
+    position: sticky;
+    top: 0;
 }
 
 aside hr{
@@ -56,10 +59,43 @@ aside h5{
     display: inline-block;
     margin-top: 5px;
     margin-bottom: 5px;
+}
 
+aside h5 a {
+    text-decoration: none;
+    color: white;
 }
 
 aside h5:hover{
     background-color: rgba(255, 255, 255, 0.158);
     cursor:pointer
+}
+
+.container{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+pre{
+    background-color: rgb(29, 29, 29);
+    color: rgb(48, 198, 243);
+    padding: 15px;
+    border-radius: 7px;
+}
+
+.btn-next{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    background-color: rgba(151, 151, 151, 0.466);
+    text-align: center;
+    border-radius: 7px;
+    justify-content: center;
+    align-self: center;
+}
+
+.btn-next:hover{
+    background-color: black;
+    color: white;
 }
