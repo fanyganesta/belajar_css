@@ -44,4 +44,22 @@ aside h2{
 aside h6{
     color: rgb(129, 128, 128);
     font-weight: 500;
+    margin-bottom: 0;
+}
+
+aside h5{
+    color: white;
+    font-weight: 500;
+    margin-left: 15px;
+    border-radius: 7px;
+    padding: 7px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+aside h5:hover{
+    background-color: rgba(255, 255, 255, 0.158);
+    cursor:pointer
 }
