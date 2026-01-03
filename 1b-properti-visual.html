@@ -96,8 +96,8 @@
                 <h4>2. Cara CSS Bekerja pada Properti color</h4>
                 <p>
                     Properti <code>color</code> digunakan untuk mengatur warna teks pada elemen HTML.
-
-                    Contoh dasar:
+                    <br><br>
+                    <strong>a. Contoh dasar:</strong>
                 </p>
 
 <pre>
@@ -105,6 +105,176 @@
         color: blue;<br>
     }
 </pre>
+                <p>
+                    Cara kerjanya:
+                    <ul>
+                        <li>Browser mencari semua elemen &lt;p&gt;</li>
+                        <li>CSS menerapkan warna teks biru</li>
+                        <li>Teks dalam &lt;p&gt; berubah warna</li>
+                    </ul>
+                    <strong>b. Pewarisan warna (Inheritance)</strong>
+                    Properti color bersifat diturunkan.
+                </p>
+<pre>
+    body {<br>
+    color: #333;<br>
+    }
+</pre>
+                <p>
+                    ➡️ Semua teks di dalam <body> akan berwarna abu gelap, kecuali ditimpa aturan lain.
+                </p>
+
+                <hr>
+
+                <h3>3. Cara CSS Bekerja pada Properti background</h3>
+                <p>
+                    Properti <code>background</code> digunakan untuk mengatur latar belakang elemen.
+                    <br><br>
+                
+                    <strong>a. <code>background-color</code></strong>
+                    <br><br>
+                    Memberi warna latar belakang elemen.
+                </p>
+
+<pre>
+    div {<br>
+    background-color: lightblue;<br>
+    }
+</pre>  
+
+                <p>
+                    Cara kerja:
+                    <ul>
+                        <li>CSS hanya memberi warna pada area elemen</li>
+                        <li>Tidak diwariskan ke anak elemen</li>
+                    </ul>
+                </p>
+
+                <hr>
+                <p>
+                    <strong>b. <code>background-image</code></strong>
+                    <br><br>
+                    Menampilkan gambar sebagai latar belakang.
+                </p>
+<pre>
+        body {<br>
+        background-image: url("bg.jpg");<br>
+        }
+</pre>
+                <p>
+                    CSS akan:
+                    <ul>
+                        <li>Memuat gambar</li>
+                        <li>Mengulang gambar secara default</li>
+                        <li>Menempatkannya dari kiri atas</li>
+                    </ul>
+                </p>
+
+                <p>
+                    <strong>c. <code>background-repeat</code></strong>
+                    <br><br>
+                    Mengatur pengulangan background.
+                </p>
+<pre>
+    background-repeat: no-repeat;
+</pre>
+
+                <p>
+                    <strong>d. <code>background-position</code></strong>
+                    <br><br>
+                    Menentukan posisi background.
+                </p>
+
+<pre>
+    background-position: center;
+</pre>
+
+                <p>
+                    <strong>e. <code>background-size</code></strong>
+                    <br><br>
+                    Mengatur ukuran background.
+                </p>
+
+<pre>
+    background-size: cover;
+</pre>
+
+                <hr>
+
+                <h3>4. Hubungan Color dan Background</h3>
+
+                <p>
+                    CSS bekerja dengan memperhatikan kontras antara color dan background.
+                    <br>
+                    Contoh:
+                </p>
+
+<pre>
+    .card {<br>
+    background-color: #222;<br>
+    color: white;<br>
+    }
+</pre>
+            <p>
+                ➡️ Background gelap + teks terang = teks mudah dibaca
+            </p>
+
+            <hr>
+
+            <h3>5. Prioritas CSS pada Color dan Background</h3>
+            <p>
+                Jika satu elemen memiliki lebih dari satu aturan:
+            </p>
+
+<pre>
+    p {<br>
+    color: red;<br>
+    }
+<br>
+    .text {<br>
+    color: blue;<br>
+    }
+</pre>
+            <p>HTML:</p>
+<pre>
+    &lt;p class="text" &gt;Contoh teks&lt;/p&gt;
+</pre>
+
+            <p>
+                ➡️ Warna teks menjadi biru karena .class lebih spesifik.
+            </p>
+
+            <hr>
+
+            <h3>6. Contoh Kasus Sederhana</h3>
+<pre>
+    body {<br>
+    background-color: #f4f4f4;<br>
+    color: #333;<br>
+    }
+<br>
+    .box {<br>
+    background-color: white;<br>
+    color: black;<br>
+    }
+</pre>
+            <p>
+                Cara kerja:
+                <ul>
+                    <li><code>body</code> mengatur warna global</li>
+                    <li><code>.box</code> menimpa warna background dan teks</li>
+                    <li>CSS menerapkan dekorasi berdasarkan prioritas</li>
+                </ul>
+            </p>
+
+            <hr>
+
+            <h3>7. Kesalahan Umum dalam Penggunaan Color dan Background</h3>
+            <p>
+                ❌ Warna teks terlalu mirip background <br>
+                ❌ Mengandalkan background image tanpa background-color cadangan <br>
+                ❌ Terlalu banyak warna dalam satu halaman <br>
+            </p>
             </div>
         </main>
     </div>
