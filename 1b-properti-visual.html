@@ -16,8 +16,8 @@
 
             <h6>BAB 1: Dekorasi (Pemula)</h6>
             <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
-            <h5><a href="" id="properti-visual">2. Properti Visual</a></h5>
-            <h5><a href="" id="ukuran-besar">5. Ukuran Besar</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">5. Ukuran Besar</a></h5>
             <h5><a href="" id="box-model">4. Box Model</a></h5>
 
             <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
@@ -77,8 +77,8 @@
             </header>
 
             <div class="container">
-                <h3>A. CSS sebagai Dekorasi</h3>
-                <h4>1. Cara CSS Bekerja pada Color dan Background</h4>
+                <h2>A. CSS sebagai Dekorasi</h2>
+                <h3>1. Cara CSS Bekerja pada Color dan Background</h3>
 
                 <strong>a. Peran Color dan Background dalam CSS</strong>
                 <p>
@@ -126,7 +126,7 @@
 
                 <hr>
 
-                <h3>3. Cara CSS Bekerja pada Properti background</h3>
+                <h4>3. Cara CSS Bekerja pada Properti background</h4>
                 <p>
                     Properti <code>background</code> digunakan untuk mengatur latar belakang elemen.
                     <br><br>
@@ -201,7 +201,7 @@
 
                 <hr>
 
-                <h3>4. Hubungan Color dan Background</h3>
+                <h4>4. Hubungan Color dan Background</h4>
 
                 <p>
                     CSS bekerja dengan memperhatikan kontras antara color dan background.
@@ -221,7 +221,7 @@
 
             <hr>
 
-            <h3>5. Prioritas CSS pada Color dan Background</h3>
+            <h4>5. Prioritas CSS pada Color dan Background</h4>
             <p>
                 Jika satu elemen memiliki lebih dari satu aturan:
             </p>
@@ -246,7 +246,7 @@
 
             <hr>
 
-            <h3>6. Contoh Kasus Sederhana</h3>
+            <h4>6. Contoh Kasus Sederhana</h4>
 <pre>
     body {<br>
     background-color: #f4f4f4;<br>
@@ -269,12 +269,169 @@
 
             <hr>
 
-            <h3>7. Kesalahan Umum dalam Penggunaan Color dan Background</h3>
+            <h4>7. Kesalahan Umum dalam Penggunaan Color dan Background</h4>
             <p>
                 ❌ Warna teks terlalu mirip background <br>
                 ❌ Mengandalkan background image tanpa background-color cadangan <br>
                 ❌ Terlalu banyak warna dalam satu halaman <br>
             </p>
+
+            <hr>
+
+            <h3>2. Cara CSS Bekerja pada Font Size dan Font Family</h3>
+
+
+
+            <h4>a. Peran Font dalam Dekorasi Web</h4>
+            <p>
+                Font merupakan elemen penting dalam CSS karena berpengaruh langsung pada:
+                <ul>
+                    <li>Keterbacaan teks</li>
+                    <li>Kenyamanan pengguna</li>
+                    <li>Kesan visual (formal, santai, modern, klasik)</li>
+                </ul>
+                    CSS bekerja dengan cara mengatur ukuran dan jenis huruf pada elemen HTML melalui properti font-size dan font-family.
+            </p>
+
+            <h4>b. Cara CSS Bekerja pada font-size</h4>
+            <p>
+                Properti font-size digunakan untuk mengatur ukuran teks.
+
+                <strong>Contoh dasar:</strong>
+            </p>
+<pre>
+    p {<br>
+    font-size: 16px;<br>
+    }
+</pre>
+            <p>
+                Cara kerjanya:
+                <ul>
+                    <li>Browser menemukan elemen &lt;p&gt;</li>
+                    <li>CSS menetapkan ukuran teks 16 piksel</li>
+                    <li>Teks ditampilkan sesuai ukuran tersebut</li>
+                </ul>
+            </p>
+
+            <p>
+                <strong>i. Satuan font-size</strong><br>
+
+                CSS menyediakan beberapa satuan ukuran:
+                <table>
+                    <tr>
+                        <th>Satuan</th>
+                        <th>Keterangan</th>
+                    </tr>
+                    <tr>
+                        <td class="ct">px</td>
+                        <td>Ukuran tetap (paling umum untuk pemula)</td>
+                    </tr>
+                    <tr>
+                        <td class="ct">%</td>
+                        <td>Relatif terhadap elemen induk</td>
+                    </tr>
+                    <tr>
+                        <td class="ct">em</td>
+                        <td>Relatif terhadap ukuran font induk</td>
+                    </tr>
+                    <tr>
+                        <td class="ct">rem</td>
+                        <td>Relatif terhadap font root (html)</td>
+                    </tr>
+                </table>
+                Contoh:
+<pre>
+    body {<br>
+        font-size: 16px;<br>
+    } <br>
+
+    h1 {<br>
+        font-size: 2em; /* 32px */ <br>
+    }
+</pre>
+
+
+<br>
+                <strong>ii. Pewarisan font-size</strong>
+                
+
+                font-size bersifat diturunkan (inheritance).
+<pre>
+    body { <br>
+        font-size: 14px; <br>
+    }
+</pre>
+                ➡️ Semua teks di dalam <body> akan berukuran 14px kecuali diubah.
+            </p>
+
+
+
+
+
+
+            <h4>c. Cara CSS Bekerja pada font-family</h4>
+            <p>
+                Properti font-family digunakan untuk mengatur jenis huruf.
+
+                <strong>Contoh dasar:</strong>
+<pre>
+    body { <br>
+        font-family: Arial; <br>
+    }
+</pre>
+
+
+                <strong>Cara kerjanya:</strong>
+                <ul>
+                    <li>Browser mengecek apakah font tersedia di perangkat</li>
+                    <li>Jika tersedia → digunakan</li>
+                    <li>Jika tidak → pindah ke font cadangan</li>
+                </ul>
+
+                <strong>i. Font Family dengan Cadangan (Fallback)</strong>
+<pre>
+    p { <br>
+        font-family: "Segoe UI", Arial, sans-serif; <br>
+    }
+</pre>
+
+                <strong>Urutan kerja:</strong>
+                <ul>
+                    <li>Gunakan Segoe UI</li>
+                    <li>Jika tidak ada → Arial</li>
+                    <li>Jika tidak ada → sans-serif</li>
+                </ul>
+
+                <strong>ii. Jenis Font Family Umum</strong>
+                <table>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Contoh</th>
+                    </tr>
+                    <tr>
+                        <td class="ct">Serif</td>
+                        <td>Times New Roman</td>
+                    </tr>
+                    <tr>
+                        <td class="ct">Sans-serif</td>
+                        <td>Arial, Verdana</td>
+                    </tr>
+                    <tr>
+                        <td class="ct">Monospace</td>
+                        <td>Courier New</td>
+                    </tr>
+                    <tr>
+                        <td class="ct">Cursive</td>
+                        <td>Comic Sans MS</td>
+                    </tr>
+                    <tr>
+                        <td class="ct">Fantasy</td>
+                        <td>Impact</td>
+                    </tr>
+                </table>
+            </p>
+
+            <a href="1c-ukuran-besar.html" class="btn-next"> 3. Ukuran Besar</a>
             </div>
         </main>
     </div>
