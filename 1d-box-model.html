@@ -77,134 +77,210 @@
             </header>
 
             <div class="container">
-                <p>Menurutku, cara CSS bekerja bisa dijelaskan secara runtut dan mudah dipahami dengan alur <strong>“browser membaca aturan → menentukan prioritas → menerapkan gaya ke elemen HTML”</strong>. Penjelasan ini cocok untuk materi CSS sebagai dekorasi karena menekankan peran CSS dalam “mendandani” HTML.
-                <br><br>
-                Berikut penjelasan yang bisa kamu gunakan:
-            </p>
+                <h2>Box Model</h2>
+                <h3>A. Margin</h3>
+                1. Pengertian CSS Box Model
 
-            <h3>1. CSS Bekerja dengan Cara Memilih Elemen HTML</h3>
+Box Model adalah konsep dasar CSS yang menjelaskan bahwa setiap elemen HTML dianggap sebagai sebuah kotak (box).
 
-            <p>CSS tidak berdiri sendiri. Ia mencari elemen HTML yang ingin dihias melalui selector.</p>
+Kotak ini terdiri dari beberapa lapisan yang mengatur:
 
-            <p>Contoh:</p>
+ukuran elemen
 
-<pre>
-    p{
-        color: blue;
-    }
-</pre>
+jarak antar elemen
 
-            <p>
-                Artinya:
-                <ul>
-                    <li>CSS mencari semua</li>
-                    <li>Lalu menerapkan warna teks biru</li>
-                </ul>
-                👉 Tanpa HTML, CSS tidak punya objek untuk dihias.
-            </p>
+tampilan visual (dekorasi)
 
-            <hr>
+📦 Setiap elemen HTML = 1 box
 
-            <h3>2. Browser Membaca CSS dari Atas ke Bawah</h3>
-            <p>
-                Saat halaman dibuka:
-                <ul>
-                    <li>Browser memuat HTML</li>
-                    <li>Browser memuat CSS</li>
-                    <li>CSS dibaca berurutan <strong>dari atas ke bawah</strong></li>
-                </ul>
-                Jika ada aturan yang saling bertabrakan, aturan terakhir bisa menimpa aturan sebelumnya, tergantung prioritasnya.
-            </p>
+2. Struktur Box Model
 
-            <hr>
-            <h3>3. CSS Menggunakan Sistem Prioritas (Cascade)</h3>
+Urutan Box Model dari dalam ke luar:
 
-            <p>
-                Inilah asal nama Cascading Style Sheets.
+Content
 
-                Urutan prioritas secara sederhana:
+Padding
 
-                <ol>
-                    <li>!important</li>
-                    <li>Inline CSS <pre>(style="")</pre></li>
-                    <li>Internal CSS <pre>&lt;style&gt; ... &lt;/style&gt;</pre></li>
-                    <li>External CSS <pre>(.css) <br><br> atau <br><br> &lt;link rel="stylesheet" href="ini-file-css.css" &gt;</pre></li>
-                    <li>Urutan penulisan (yang terakhir menang)</li>    
-                </ol>
+Border
 
-                Contoh:
-            </p>
-<pre>
-    p {
-    color: red;
-    }
+Margin
 
-    p {
-    color: green;
-    }
-</pre>
+Visualisasi sederhana:
 
-                <hr>
-                <h3>4. CSS Menghitung Spesifisitas Selector</h3>
-                <p>
-                    Jika dua aturan sama-sama aktif, browser menghitung siapa yang lebih spesifik.
++----------------------+
+|       Margin         |
+|  +----------------+  |
+|  |     Border     |  |
+|  |  +----------+ |  |
+|  |  | Padding  | |  |
+|  |  | +------+ | |  |
+|  |  | |Content| | | |
+|  |  | +------+ | |  |
+|  |  +----------+ |  |
+|  +----------------+  |
++----------------------+
 
-                    Urutan spesifisitas:
-                    <ol>
-                        <li>#id</li>
-                        <li>.class</li>
-                        <li>tag</li>
-                    </ol>
-                    Contoh:
-                </p>
-    
-<pre>
-    p { color: blue; } <br>
-    .text { color: green; } <br>
-    #judul { color: red;}
+3. Fungsi Box Model dalam Dekorasi
 
-</pre>
+Box Model digunakan untuk:
 
-                <p>➡️ Elemen dengan id="judul" akan merah, meskipun punya class atau tag.</p>
+mengatur jarak antar elemen
 
-                <hr>
+membuat layout rapi
 
-                <h3>5. CSS Mewariskan Gaya (Inheritance)</h3>
-                <p>
-                    Beberapa properti CSS diturunkan ke anak elemen <br>
-                    Contoh:
-                </p>
+memberi ruang napas (whitespace)
 
-<pre>
-    body {<br>
-        font-family: arial;<br>
-        color: black;<br>
-    }
-</pre>
+menciptakan estetika desain
 
-                <p>
-                    Semua teks di dalam &lt;body&gt; otomatis:
-                    <ul>
-                        <li>Menggunakan Arial</li>
-                        <li>Berwarna hitam</li>
-                    </ul>
-                    👉 Tidak semua properti diwariskan (misalnya margin, padding).
-                </p>
+Tanpa box model → tampilan sempit dan berantakan.
 
-    <hr>
-                <h3>6. CSS Diterapkan ke Layout dan Tampilan</h3>
-                <p>
-                    Setelah aturan dipilih dan diprioritaskan, browser:
-                    <ul>
-                        <li>Menghitung ukuran (box model)</li>
-                        <li>Menentukan posisi (layout)</li>
-                        <li>Menggambar tampilan di layar (render)</li>
-                    </ul>
-                    Inilah tahap akhir CSS “bekerja” sebagai dekorasi visual.
-                </p>
+4. Fokus Materi: Margin
+4.1 Pengertian Margin
 
-                <a href="1b-properti-visual.html" class="btn-next"> Next: Properti Visual</a>
+Margin adalah jarak di luar border, digunakan untuk:
 
+memisahkan satu elemen dengan elemen lain
+
+mengatur posisi elemen dalam layout
+
+.box {
+    margin: 20px;
+}
+
+
+📌 Margin tidak memiliki warna
+📌 Margin berada paling luar pada box model
+
+5. Jenis–Jenis Margin
+5.1 Margin Satu Nilai
+.box {
+    margin: 20px;
+}
+
+
+➡ Semua sisi (atas, kanan, bawah, kiri) = 20px
+
+5.2 Margin Dua Nilai
+.box {
+    margin: 10px 20px;
+}
+
+
+atas & bawah: 10px
+
+kiri & kanan: 20px
+
+5.3 Margin Empat Nilai
+.box {
+    margin: 5px 10px 15px 20px;
+}
+
+
+Urutan:
+➡ atas → kanan → bawah → kiri
+
+5.4 Margin Per Sisi
+.box {
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+6. Margin dan Dekorasi Layout
+
+Margin sering digunakan untuk:
+
+memberi jarak antar card
+
+memisahkan section
+
+membuat layout lebih lega
+
+Contoh kartu dekoratif:
+
+.card {
+    margin: 20px;
+    border: 1px solid #ccc;
+}
+
+7. Margin Auto (Pusat Elemen)
+.box {
+    width: 300px;
+    margin: 0 auto;
+}
+
+
+📌 Elemen otomatis berada di tengah horizontal
+📌 Sangat sering digunakan pada container
+
+8. Margin Negatif
+
+Margin bisa bernilai negatif.
+
+.box {
+    margin-top: -20px;
+}
+
+
+📌 Elemen bisa saling menumpuk
+📌 Cocok untuk dekorasi khusus
+⚠ Gunakan dengan hati-hati
+
+9. Margin Collapsing (Penting!)
+
+Margin atas dan bawah bisa saling menyatu (collapse).
+
+Contoh:
+
+.box1 {
+    margin-bottom: 30px;
+}
+
+.box2 {
+    margin-top: 20px;
+}
+
+
+➡ Jarak antar box = 30px, bukan 50px
+
+📌 Hanya terjadi pada margin vertikal
+
+10. Margin vs Padding (Perbandingan Singkat)
+Aspek	Margin	Padding
+Letak	Di luar border	Di dalam border
+Memengaruhi jarak antar elemen	✔	❌
+Bisa negatif	✔	❌
+Mempengaruhi ukuran elemen	❌	✔
+11. Best Practice Penggunaan Margin
+
+✔ Gunakan margin untuk jarak antar elemen
+✔ Gunakan konsisten (misal: kelipatan 8px)
+✔ Hindari margin negatif berlebihan
+✔ Jangan campur margin & padding tanpa tujuan
+✔ Gunakan margin-bottom untuk vertikal spacing
+
+12. Studi Kasus Sederhana
+
+HTML:
+
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+
+
+CSS:
+
+.box {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+
+📌 Box tidak menempel
+📌 Tampilan lebih rapi
+📌 Mudah dikembangkan
+                
             </div>
         </main>
     </div>
