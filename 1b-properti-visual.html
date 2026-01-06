@@ -296,7 +296,7 @@
             <h4>b. Cara CSS Bekerja pada font-size</h4>
             <p>
                 Properti font-size digunakan untuk mengatur ukuran teks.
-
+                <br>
                 <strong>Contoh dasar:</strong>
             </p>
 <pre>
@@ -372,7 +372,7 @@
             <h4>c. Cara CSS Bekerja pada font-family</h4>
             <p>
                 Properti font-family digunakan untuk mengatur jenis huruf.
-
+                <br>
                 <strong>Contoh dasar:</strong>
 <pre>
     body { <br>
@@ -431,6 +431,277 @@
                 </table>
             </p>
 
+            <h4>d. Hubungan Font Size dan Font Family</h4>
+            <p>
+                CSS bekerja mengombinasikan kedua properti ini untuk menghasilkan teks yang nyaman dibaca.
+                <br>
+                <strong>Contoh:</strong>
+<pre>
+    .article { <br>
+        font-family: "Poppins", sans-serif; <br>
+        font-size: 18px; <br>
+    }
+
+</pre>
+                ➡️ Teks tampil:
+                <ul>
+                    <li>Ukuran cukup besar</li>
+                    <li>Jenis huruf modern dan rapi</li>
+                </ul>
+            </p>
+
+
+            <h4>e. Prioritas CSS pada Font</h4>
+            <p>
+                Jika ada beberapa aturan font:
+<pre>
+    p {<br>
+        font-size: 14px; <br>
+    } <br>
+
+    .text { <br>
+        font-size: 18px; <br>
+    }
+</pre>
+                HTML:
+<pre>
+    &lt;p class="text"&gt;Contoh teks&lt;/p&gt;
+</pre>              
+                ➡️ Teks berukuran 18px karena selector class lebih spesifik.
+            </p>
+
+
+
+            <h4>f. Contoh Kasus Sederhana</h4>
+            <p>
+<pre>
+    body { <br>
+        font-family: Arial, sans-serif; <br>
+        font-size: 16px; <br>
+    } <br>
+
+    h1 { <br>
+        font-size: 32px; <br>
+    } <br>
+
+    p { <br>
+        font-size: 16px; <br>
+    }
+</pre>
+                Cara kerja:
+                <ul>
+                    <li>body menentukan font global</li>
+                    <li>h1 memperbesar ukuran judul</li>
+                    <li>p menggunakan ukuran standar</li>
+                </ul>
+            </p>
+
+
+
+
+
+
+            <h4>g. Kesalahan Umum Penggunaan Font</h4>
+            <p>
+                ❌ Menggunakan terlalu banyak jenis font <br>
+                ❌ Ukuran font terlalu kecil <br>
+                ❌ Tidak menyiapkan font cadangan <br>
+                ❌ Menggunakan px saja tanpa mempertimbangkan responsivitas
+            </p>
+
+
+
+
+
+            <h4>h. Aturan Penulisan (Syntax)</h4>                
+            <ul>
+                <li>Gunakan Tanda Kutip (" "): Untuk nama font yang lebih dari satu kata (Contoh: "Open Sans", "Times New Roman").</li>
+                <li>Tanpa Tanda Kutip: Untuk satu kata (Contoh: Arial, Verdana) dan wajib tanpa kutip untuk jenis font generic (Contoh: sans-serif, serif, monospace).</li>
+                <li>Pemisah Koma: Gunakan koma untuk memisahkan daftar font.</li>
+            </ul>
+
+
+
+
+
+
+
+
+
+            <h3>Cara CSS Bekerja pada Text Align</h3>
+            <h4>a. Pengertian Text Align dalam CSS</h4>
+            <p>
+                <code>text-align</code> adalah properti CSS yang digunakan untuk mengatur perataan teks secara horizontal di dalam suatu elemen.
+                Text align berperan penting dalam dekorasi karena mempengaruhi:
+                <ul>
+                    <li>Kerapian tampilan</li>
+                    <li>Fokus pembaca</li>
+                    <li>Struktur visual halaman</li>
+                </ul>
+            </p>
+
+
+
+            <h4>b. Cara CSS Bekerja pada text-align</h4>
+            <p>
+                CSS bekerja dengan cara:
+                <ul>
+                    <li>Mencari elemen HTML yang dituju</li>
+                    <li>Mengatur posisi teks di dalam area elemen</li>
+                    <li>Meratakan teks sesuai nilai yang diberikan</li>
+                </ul>
+                Contoh:
+<pre>
+    p { <br>
+        text-align: center; <br>
+    }
+</pre>
+                ➡️ Semua teks di dalam elemen &lt;p&gt; akan berada di tengah.
+            </p>
+
+
+            <h4>c. Nilai-nilai <code>text-align</code></h4>
+            <p>
+                Berikut nilai yang umum digunakan:
+                <table>
+                    <tr>
+                        <th>Nilai</th>
+                        <th>Fungsi</th>
+                    </tr>
+                    <tr>
+                        <td class="ct"><code>left</code></td>
+                        <td>Teks rata kiri (default)</td>
+                    </tr>
+                    <tr>
+                        <td class="ct"><code>right</code></td>
+                        <td>Teks rata kanan</td>
+                    </tr>
+                    <tr>
+                        <td class="ct"><code>center</code></td>
+                        <td>Teks rata tengah</td>
+                    </tr>
+                    <tr>
+                        <td class="ct"><code>justify</code></td>
+                        <td>Teks rata kiri dan kanan</td>
+                    </tr>
+                </table>
+                <br>
+
+                Contoh Penggunaan:
+<pre>  
+    .left { <br>
+        text-align: left; <br>
+    } <br>
+
+    .center { <br>
+        text-align: center; <br>
+    } <br>
+
+    .right { <br>
+        text-align: right; <br>
+    } <br>
+
+    .justify { <br>
+        text-align: justify; <br>
+    }
+</pre>
+                
+            </p>
+
+
+
+            <h4>d. Area Kerja <code>text-align</code></h4>
+            <p>
+                <code>text-align</code> hanya bekerja pada teks dan inline content di dalam elemen, bukan memindahkan elemen itu sendiri.
+
+                Contoh yang benar:
+<pre>
+    div { <br>
+        text-align: center; <br>
+    }
+</pre>         
+                ➡️ Teks di dalam &lt;div&gt; menjadi rata tengah <br>
+                ❌ &lt;div&gt;-nya sendiri tidak berpindah posisi
+            </p>
+
+
+
+
+
+            <h4>e. Pewarisan <code>text-align</code></h4>
+            <p>
+                Properti <code>text-align</code> bersifat diturunkan (inheritance).
+            </p>
+<pre>
+    .section { <br>
+        text-align: center; <br>
+    }
+</pre>
+            <p>
+                ➡️ Semua teks di dalam <code>.section</code> akan rata tengah, kecuali ditimpa aturan lain.
+            </p>
+
+
+
+
+            <h4>f. Prioritas CSS pada Text Align</h4>
+            <p>
+            Jika satu elemen memiliki lebih dari satu aturan:
+            </p>
+
+<pre>
+    p {<br>
+        text-align: left; <br>
+    } <br>
+
+    .text { <br>
+        text-align: right; <br>
+    }
+</pre>
+            <p>
+                HTML:
+            </p>
+<pre>
+    &lt;p class="text">Contoh teks&lt;/p>
+</pre>
+            <p>
+                ➡️ Teks menjadi rata kanan karena selector class lebih spesifik.
+            </p>
+
+            <h4>g. Contoh Kasus Sederhana</h4>
+<pre>
+body {
+  text-align: center;
+}
+
+.article {
+  text-align: justify;
+}
+</pre>
+
+            <p>
+                Cara kerja:
+            </p>
+            <ul>
+                <li>Seluruh teks default rata tengah</li>
+                <li>Teks dalam <code>.article</code> diratakan kiri-kanan karena aturan lebih spesifik</li>
+            </ul>
+
+
+
+
+            <h4>h. Kesalahan Umum Penggunaan Text Align</h4>
+            <p>            
+                ❌ Menggunakan text-align untuk memusatkan &lt;div&gt; <br>
+                ❌ Terlalu sering menggunakan justify sehingga sulit dibaca <br>
+                ❌ Menggabungkan text align tanpa memahami prioritas CSS
+            </p>
+
+
+
+
+
+            
             <a href="1c-ukuran-besar.html" class="btn-next"> 3. Ukuran Besar</a>
             </div>
         </main>

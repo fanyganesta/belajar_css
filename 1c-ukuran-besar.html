@@ -77,8 +77,557 @@
             </header>
 
             <div class="container">
-                <h3></h3>
+                <h3>A. Satuan Absolute (px, cm, mm, pt, pc)</h3>
+                <h4>1. Pengertian Satuan Absolute pada CSS</h4>
+                <p>
+                    Satuan absolute dalam CSS adalah satuan ukuran yang nilainya tetap dan tidak bergantung pada ukuran layar, font induk, atau elemen lain.
+                    <br>
+                    Artinya:
+                    <ul>
+                        <li>Ukuran tidak berubah secara proporsional</li>
+                        <li>Tampilan konsisten di satu konteks</li>
+                        <li>Kurang fleksibel untuk desain responsif</li>
+                    </ul>
+                    
+                    Contoh satuan absolute:
+                    <ul>
+                        <li>px</li>
+                        <li>cm</li>
+                        <li>mm</li>
+                        <li>pt</li>
+                        <li>pc</li>
+                    </ul>
+                </p>
+
+                <h4>2. Karakteristik Utama Satuan Absolute</h4>
+                <p>
+                    ✔ Nilai ukuran pasti <br>
+                    ✔ Tidak terpengaruh parent element <br>
+                    ✔ Cocok untuk detail visual tertentu <br>
+                    ❌ Tidak ideal untuk responsive design <br>
+                    ❌ Kurang fleksibel di berbagai perangkat <br>
+                </p>
+
+
+                <h4>3. Jenis–Jenis Satuan Absolute</h4>
+                <p>
+                    <strong>3.1 px (Pixel)</strong><br>
+
+                    px adalah satuan absolute yang paling sering digunakan.
+                </p>
+<pre>
+    .box { <br>
+        width: 300px; <br>
+        height: 200px; <br>
+    }
+</pre>
+
+
+                <p>
+                    Karakteristik:
+                <ul>
+                    <li>Berbasis pixel layar</li>
+                    <li>Presisi tinggi</li>
+                    <li>Stabil untuk dekorasi visual</li>
+                </ul>
+                    📌 Paling umum untuk dekorasi besar
+                <br> <br>
+                    <strong>3.2 cm (Centimeter)</strong>
+                </p>
+<pre>
+    .box { <br>
+        width: 5cm;  <br>
+    }
+</pre>
+                <p>
+                    Karakteristik:
+                    <ul>
+                        <li>Berbasis ukuran fisik</li>
+                        <li>Jarang digunakan</li>
+                        <li>Tidak konsisten antar layar</li>
+                    </ul>
+                    📌 Lebih cocok untuk media cetak
+                     <br> <br>  
+                    <strong>3.3 mm (Millimeter)</strong>
+                </p>
+<pre>
+    .box { <br>
+        width: 50mm; <br>
+    }
+</pre>
+
+
+                <p>
+                    Karakteristik:
+                <ul>
+                    <li>Sangat jarang digunakan</li>
+                    <li>Digunakan untuk kebutuhan spesifik cetak</li>
+                </ul> <br> <br>
+                    <strong>3.4 pt (Point)</strong>
+                </p>
+<pre>
+    .text { <br>
+        font-size: 12pt; <br>
+    }
+</pre>
+                <p>
+                    Karakteristik:
+                    <ul>
+                        <li>Umum pada dunia tipografi</li>
+                        <li>1pt ≈ 1/72 inch</li>
+                        <li>Jarang dipakai di web modern</li>
+                    </ul> <br> <br>
+                    <strong>3.5 pc (Pica)</strong>
+                </p>
+<pre>
+    .box { <br>
+        width: 10pc; <br>
+    }
+</pre>
+                <p>
+                    Karakteristik:
+                    <ul>
+                        <li>1pc = 12pt</li>
+                        <li>Hampir tidak digunakan pada web</li>
+                    </ul>
+                </p>
+
+                <h4>4. Penggunaan Ukuran Besar dengan Satuan Absolute</h4>
+                <p>
+                    Satuan absolute sering digunakan untuk:
+                    <ul>
+                        <li>Banner besar</li>
+                        <li>Card statis</li>
+                        <li>Elemen dekoratif</li>
+                        <li>Ikon & ilustrasi</li>
+                        <li>Layout tetap (fixed layout)</li>
+                    </ul>
+                    Contoh:
+                </p>
+<pre>
+    .banner { <br>
+        width: 1200px; <br>
+        height: 400px; <br>
+        background-color: #052B62; <br>
+    }
+</pre>
+
+                <h4>5. Dekorasi Visual Menggunakan px</h4>
+                <p>
+                    Contoh Elemen Dekoratif Besar:
+                </p>
+<pre>
+    .decor-circle { <br>
+        width: 600px; <br>
+        height: 600px; <br>
+        background: #052B62; <br>
+        border-radius: 50%; <br>
+        position: absolute; <br>
+        top: -300px; <br>
+        left: -300px; <br>
+        opacity: 0.1; <br>
+    }
+</pre>
+                <p>
+                    📌 Digunakan untuk:
+                    <ul>
+                        <li>Background artistik</li>
+                        <li>Shape besar</li>
+                        <li>Layer dekorasi</li>
+                    </ul>
+                </p>
+
+                <h4>6. Absolute Unit dan position: absolute</h4>
+                <p>
+                    Satuan absolute sering dikombinasikan dengan position: absolute.
+                </p>
+<pre>
+    .shape { <br>
+        position: absolute; <br>
+        width: 400px; <br>
+        height: 400px; <br>
+        top: 50px; <br>
+        right: 100px; <br>
+    }
+</pre>
+                <p>
+                    📌 Memberi kontrol penuh terhadap:
+                    <ul>
+                        <li>Ukuran</li>
+                        <li>Posisi</li>
+                        <li>Layer visual</li>
+                    </ul>
+                </p>
+
+
+                <h4>7. Kelebihan Penggunaan Absolute Unit</h4>
+                <p>
+                    ✔ Presisi tinggi <br>
+                    ✔ Mudah dikontrol <br>
+                    ✔ Konsisten secara visual <br>
+                    ✔ Cocok untuk elemen dekoratif
+                </p>
+
+                <h4>8. Kekurangan Penggunaan Absolute Unit</h4>
+                <p>
+                    ❌ Tidak responsif <br>
+                    ❌ Bermasalah di layar kecil <br>
+                    ❌ Sulit di-scale <br>
+                    ❌ Berpotensi overflow
+                </p>
+
+                <h4>9. Best Practice Menggunakan Satuan Absolute</h4>
+                <p>
+                    ✔ Gunakan px untuk dekorasi, bukan layout utama <br>
+                    ✔ Hindari cm, mm, pt, pc untuk web <br>
+                    ✔ Kombinasikan dengan max-width <br>
+                    ✔ Gunakan overflow: hidden <br>
+                    ✔ Batasi ukuran besar agar tidak keluar layar <br> <br>
+
+                    Contoh:
+                </p>
+<pre>
+    .decor { <br>
+        width: 600px; <br>
+        max-width: 100%; <br>
+    }
+</pre>
+
+
+                <h4>10. Absolute vs Relative Unit (Ringkas)</h4>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Absolute</th>
+                        <th>Relative</th>
+                    </tr>
+                    <tr>
+                        <td>Flexibel</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Presisi</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Responsive</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok dekorasi</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok layout utama</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                </table>
+                	
+                <h4>11. Studi Kasus Dekorasi Besar</h4>
+<pre>
+    .hero { <br>
+        position: relative; <br>
+        height: 500px; <br>
+        overflow: hidden; <br>
+    } <br>
+ <br>
+    .hero::after { <br>
+        content: ''; <br>
+        position: absolute; <br>
+        width: 800px; <br>
+        height: 800px; <br>
+        background: #052B62; <br>
+        border-radius: 50%; <br>
+        right: -400px; <br>
+        bottom: -400px; <br>
+        opacity: 0.08; <br>
+    }
+</pre>
+                <p>
+                    📌 Ukuran besar tetap terkendali <br>
+                    📌 Dekorasi tidak merusak layout
+                </p>
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h3>B. Satuan Relative (% , em, rem, vw, vh)</h3>
+                <h4>1. Pengertian Satuan Relative pada CSS</h4>
+                
+                <p>
+                    Satuan relative dalam CSS adalah satuan ukuran yang nilainya bergantung pada elemen lain atau ukuran layar.
+                        <br>
+                    Artinya:
+                    <ul>
+                        <li>Ukuran bersifat fleksibel</li>
+                        <li>Menyesuaikan konteks</li>
+                        <li>Sangat cocok untuk dekorasi besar yang responsif</li>
+                    </ul>
+                </p>
+
+
+                <h4>2. Karakteristik Utama Satuan Relative</h4>
+                <p>
+                    ✔ Fleksibel <br>
+                    ✔ Responsif terhadap layar <br>
+                    ✔ Menyesuaikan parent / root <br>
+                    ✔ Cocok untuk dekorasi modern <br>
+                    ❌ Perlu pemahaman konteks <br>
+                    ❌ Bisa membingungkan jika nested terlalu dalam <br>
+                </p>
+
+                <h4>3. Jenis–Jenis Satuan Relative</h4>
+                <strong>3.1 % (Persen)</strong>
+                <br>
+                <p>
+                    % bergantung pada ukuran elemen parent.
+                </p>
+<pre>
+    .box { <br>
+        width: 80%; <br>
+        height: 60%; <br>
+    }
+</pre>
+                <p>
+                    📌 Cocok untuk:
+                    <ul>
+                        <li>Container dekorasi</li>
+                        <li>Background area</li>
+                        <li>Grid fleksibel</li>
+                    </ul>
+                </p>
+                <br><br>
+                <strong>3.2 em</strong>
+                <p>
+                    em relatif terhadap font-size parent.
+                </p>
+
+<pre>
+    .title { <br>
+        font-size: 2em; <br>
+    }
+</pre>
+                <p>
+                📌 Cocok untuk:
+                    <ul>
+                        <li>Heading dekoratif</li>
+                        <li>Spasi berbasis teks</li>
+                        <li>⚠ Jika nested, ukuran bisa berlipat</li>
+                    </ul>
+                </p>
+                <br>
+                <br>
+
+                <strong>3.3 rem</strong>
+                <p>
+                    rem relatif terhadap font-size root (html).
+                </p>
+<pre>
+    html { <br>
+        font-size: 16px; <br>
+    } <br>
+ <br>
+    .card { <br>
+        padding: 2rem; <br>
+    }
+</pre>
+                <p>
+                    📌 Lebih stabil dibanding em
+                </p>
+                <br>
+                <br>
+                <strong>3.4 vw (Viewport Width)</strong>
+                <p>
+                    1vw = 1% dari lebar layar.
+                </p>
+<pre>
+    .hero { <br>
+        width: 100vw; <br>
+    }
+</pre>
+                <p>
+                    📌 Sangat cocok untuk dekorasi besar & full-width
+                </p>
+                <br>
+                <br>
+                <strong>3.5 vh (Viewport Height)</strong>
+                <p>
+                    1vh = 1% dari tinggi layar.
+                </p>
+<pre>
+    .hero { <br>
+        height: 100vh; <br>
+    }
+</pre>
+                <p>
+                    📌 Cocok untuk hero section dan background besar
+                </p>
+
+                <h4>4. Dekorasi Ukuran Besar Menggunakan Satuan Relative</h4>
+                <p>
+                    Contoh Banner Responsif:
+                </p>
+<pre>
+    .banner { <br>
+        width: 100%; <br>
+        height: 60vh; <br>
+        background: linear-gradient(#052B62, #021B3A); <br>
+    }
+</pre>
+                <p>
+                    ✔ Tinggi mengikuti layar <br>
+                    ✔ Lebar penuh container
+                </p>
+
+                <h4>5. Relative Unit & Dekorasi Background</h4>
+<pre>
+    .decor {
+        width: 120%;
+        height: 120%;
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        background: radial-gradient(circle, #052B62, transparent);
+    }
+</pre>
+                <p>
+                    📌 Dekorasi bisa keluar area parent tanpa overflow kasar
+                </p>
+
+                <h4>6. Kombinasi Relative Unit dengan position</h4>
+                <p>
+                    Relative unit sering digunakan bersama position: absolute atau relative.
+                </p>
+<pre>
+    .section { <br>
+        position: relative; <br>
+        height: 80vh; <br>
+    } <br>
+ <br>
+    .shape { <br>
+        position: absolute; <br>
+        width: 50%; <br>
+        height: 50%; <br>
+        bottom: -20%; <br>
+        right: -10%; <br>
+    }
+</pre>
+                <p>
+                    📌 Posisi fleksibel <br>
+                    📌 Tidak rusak di berbagai layar
+                </p>
+
+                <h4>7. Dekorasi Teks Besar dengan Relative Unit</h4>
+<pre>
+    .hero-title { <br>
+        font-size: 8vw; <br>
+        line-height: 1; <br>
+    }
+</pre>
+                <p>
+                    📌 Ukuran teks mengikuti lebar layar <br>
+                    📌 Sangat cocok untuk landing page
+                </p>
+
+                <h4>8. Kelebihan Menggunakan Relative Unit</h4>
+                <p>
+                    ✔ Responsif otomatis <br>
+                    ✔ Lebih ramah mobile <br>
+                    ✔ Mudah di-scale <br>
+                    ✔ Cocok untuk UI modern <br>
+                </p>
+                
+                <h4>9. Kekurangan Relative Unit</h4>
+                <p>
+                    ❌ Sulit diprediksi jika nesting kompleks <br>
+                    ❌ Bisa terlalu besar di layar besar <br>
+                    ❌ Perlu kontrol tambahan (max-width, clamp())
+                    </p>
+
+                <h4>10. Best Practice Dekorasi Besar dengan Relative Unit</h4>
+                <p>
+                    ✔ Gunakan % untuk layout berbasis container <br>
+                    ✔ Gunakan vw/vh untuk hero & background <br>
+                    ✔ Gunakan rem untuk padding & spacing <br>
+                    ✔ Batasi ukuran dengan max-width / min-height <br>
+                    ✔ Kombinasikan dengan clamp()
+                </p>
+
+                <h4>11. Studi Kasus: Hero Section Dekoratif</h4>
+<pre>
+    .hero { <br>
+        height: 100vh; <br>
+        position: relative; <br>
+        overflow: hidden; <br>
+    } <br>
+ <br>
+    .hero::before { <br>
+        content: ''; <br>
+        position: absolute; <br>
+        width: 120%; <br>
+        height: 120%; <br>
+        background: radial-gradient(circle, #052B62, transparent); <br>
+        top: -10%; <br>
+        left: -10%; <br>
+    }
+</pre>
+                <p>
+                    📌 Dekorasi besar <br>
+                    📌 Tetap responsif <br>
+                    📌 Aman untuk berbagai ukuran layar
+                </p>
+
+                <h4>12. Absolute vs Relative (Ringkas)</h4>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Absolute</th>
+                        <th>Relative</th>
+                    </tr>
+                    <tr>
+                        <td>Responsif</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Flekibel</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Presisi</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok dekorasi besar</td>
+                        <td class="ct">⚠</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok layout modern</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                </table>
+
+                <a href="1d-box-model.html" class="btn-next"> 4. Box Model</a>
             </div>
         </main>
     </div>
