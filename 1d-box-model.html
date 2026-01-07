@@ -79,208 +79,273 @@
             <div class="container">
                 <h2>Box Model</h2>
                 <h3>A. Margin</h3>
-                1. Pengertian CSS Box Model
-
-Box Model adalah konsep dasar CSS yang menjelaskan bahwa setiap elemen HTML dianggap sebagai sebuah kotak (box).
-
-Kotak ini terdiri dari beberapa lapisan yang mengatur:
-
-ukuran elemen
-
-jarak antar elemen
-
-tampilan visual (dekorasi)
-
-📦 Setiap elemen HTML = 1 box
-
-2. Struktur Box Model
-
-Urutan Box Model dari dalam ke luar:
-
-Content
-
-Padding
-
-Border
-
-Margin
-
-Visualisasi sederhana:
-
-+----------------------+
-|       Margin         |
-|  +----------------+  |
-|  |     Border     |  |
-|  |  +----------+ |  |
-|  |  | Padding  | |  |
-|  |  | +------+ | |  |
-|  |  | |Content| | | |
-|  |  | +------+ | |  |
-|  |  +----------+ |  |
-|  +----------------+  |
-+----------------------+
-
-3. Fungsi Box Model dalam Dekorasi
-
-Box Model digunakan untuk:
-
-mengatur jarak antar elemen
-
-membuat layout rapi
-
-memberi ruang napas (whitespace)
-
-menciptakan estetika desain
-
-Tanpa box model → tampilan sempit dan berantakan.
-
-4. Fokus Materi: Margin
-4.1 Pengertian Margin
-
-Margin adalah jarak di luar border, digunakan untuk:
-
-memisahkan satu elemen dengan elemen lain
-
-mengatur posisi elemen dalam layout
-
-.box {
-    margin: 20px;
-}
-
-
-📌 Margin tidak memiliki warna
-📌 Margin berada paling luar pada box model
-
-5. Jenis–Jenis Margin
-5.1 Margin Satu Nilai
-.box {
-    margin: 20px;
-}
-
-
-➡ Semua sisi (atas, kanan, bawah, kiri) = 20px
-
-5.2 Margin Dua Nilai
-.box {
-    margin: 10px 20px;
-}
-
-
-atas & bawah: 10px
-
-kiri & kanan: 20px
-
-5.3 Margin Empat Nilai
-.box {
-    margin: 5px 10px 15px 20px;
-}
-
-
-Urutan:
-➡ atas → kanan → bawah → kiri
-
-5.4 Margin Per Sisi
-.box {
-    margin-top: 10px;
-    margin-right: 15px;
-    margin-bottom: 20px;
-    margin-left: 5px;
-}
-
-6. Margin dan Dekorasi Layout
-
-Margin sering digunakan untuk:
-
-memberi jarak antar card
-
-memisahkan section
-
-membuat layout lebih lega
-
-Contoh kartu dekoratif:
-
-.card {
-    margin: 20px;
-    border: 1px solid #ccc;
-}
-
-7. Margin Auto (Pusat Elemen)
-.box {
-    width: 300px;
-    margin: 0 auto;
-}
-
-
-📌 Elemen otomatis berada di tengah horizontal
-📌 Sangat sering digunakan pada container
-
-8. Margin Negatif
-
-Margin bisa bernilai negatif.
-
-.box {
-    margin-top: -20px;
-}
-
-
-📌 Elemen bisa saling menumpuk
-📌 Cocok untuk dekorasi khusus
-⚠ Gunakan dengan hati-hati
-
-9. Margin Collapsing (Penting!)
-
-Margin atas dan bawah bisa saling menyatu (collapse).
-
-Contoh:
-
-.box1 {
-    margin-bottom: 30px;
-}
-
-.box2 {
-    margin-top: 20px;
-}
-
-
-➡ Jarak antar box = 30px, bukan 50px
-
-📌 Hanya terjadi pada margin vertikal
-
-10. Margin vs Padding (Perbandingan Singkat)
-Aspek	Margin	Padding
-Letak	Di luar border	Di dalam border
-Memengaruhi jarak antar elemen	✔	❌
-Bisa negatif	✔	❌
-Mempengaruhi ukuran elemen	❌	✔
-11. Best Practice Penggunaan Margin
-
-✔ Gunakan margin untuk jarak antar elemen
-✔ Gunakan konsisten (misal: kelipatan 8px)
-✔ Hindari margin negatif berlebihan
-✔ Jangan campur margin & padding tanpa tujuan
-✔ Gunakan margin-bottom untuk vertikal spacing
-
-12. Studi Kasus Sederhana
-
-HTML:
-
-<div class="box">Box 1</div>
-<div class="box">Box 2</div>
-
-
-CSS:
-
-.box {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid black;
-}
-
-
-📌 Box tidak menempel
-📌 Tampilan lebih rapi
-📌 Mudah dikembangkan
+                <h4>1. Pengertian CSS Box Model</h4>
+                <p>
+                    Box Model adalah konsep dasar CSS yang menjelaskan bahwa setiap elemen HTML dianggap sebagai sebuah kotak (box).
+                    <br>
+                    Kotak ini terdiri dari beberapa lapisan yang mengatur:
+                    <ul>
+                        <li>ukuran elemen</li>
+                        <li>jarak antar elemen</li>
+                        <li>tampilan visual (dekorasi)</li>
+                        <li>📦 Setiap elemen HTML = 1 box</li>
+                    </ul>
+                </p>
+                <h4>2. Struktur Box Model</h4>
+                <p>
+                    Urutan Box Model dari dalam ke luar:
+                    <ul>
+                        <li>Content</li>
+                        <li>Padding</li>
+                        <li>Border</li>
+                        <li>Margin</li>
+                    </ul>
+                    
+                    Visualisasi sederhana:
+                    </p>
+<pre>
+    +-----------------------+
+    |         Margin        |
+    |  +-----------------+  |
+    |  |      Border     |  |
+    |  |  +-----------+  |  |
+    |  |  |  Padding  |  |  |
+    |  |  | +-------+ |  |  |
+    |  |  | |Content| |  |  |
+    |  |  | +-------+ |  |  |
+    |  |  +-----------+  |  |
+    |  +-----------------+  |
+    +-----------------------+
+</pre>
+    
+                <h4>3. Fungsi Box Model dalam Dekorasi</h4>
+                <p>
+                    Box Model digunakan untuk:
+                    <ul>
+                        <li>mengatur jarak antar elemen</li>
+                        <li>membuat layout rapi</li>
+                        <li>memberi ruang napas (whitespace)</li>
+                        <li>menciptakan estetika desain</li>
+                    </ul>
+                    Tanpa box model → tampilan sempit dan berantakan.
+                </p>
+                <h4>4. Fokus Materi: Margin</h4>
+                <p>
+                    <strong>4.1 Pengertian Margin</strong>
+                    <br>
+                    Margin adalah jarak di luar border, digunakan untuk:
+                    <ul>
+                        <li>memisahkan satu elemen dengan elemen lain</li>
+                        <li>mengatur posisi elemen dalam layout</li>
+                    </ul>
+                </p>
+<pre>
+    .box { <br>
+        margin: 20px; <br>
+    }
+</pre>
+
+
+                <p>
+                    📌 Margin tidak memiliki warna <br>
+                    📌 Margin berada paling luar pada box model
+                </p>
+
+                <h4>5. Jenis–Jenis Margin</h4>
+                <p>
+                    <strong>5.1 Margin Satu Nilai</strong>
+                </p>
+<pre>
+    .box { <br>
+        margin: 20px; <br>
+    }
+</pre>
+                <p>
+                    ➡ Semua sisi (atas, kanan, bawah, kiri) = 20px
+                </p>
+                <p>
+                    <strong>5.2 Margin Dua Nilai</strong>
+                </p>
+<pre>
+    .box { <br>
+        margin: 10px 20px; <br>
+    }
+</pre>
+                <ul>
+                    <li>atas & bawah: 10px</li>
+                    <li>kiri & kanan: 20px</li>
+                </ul>
                 
+
+                
+                <p>
+                    <strong>5.3 Margin Empat Nilai</strong>
+                </p>
+<pre>
+    .box { <br>
+        margin: 5px 10px 15px 20px; <br>
+    }
+</pre>
+                <p>
+                    Urutan: <br>
+                    ➡ atas → kanan → bawah → kiri
+                </p>
+                <p>
+                    <strong>5.4 Margin Per Sisi</strong>
+                </p>
+<pre>
+    .box { <br>
+        margin-top: 10px; <br>
+        margin-right: 15px; <br>
+        margin-bottom: 20px; <br>
+        margin-left: 5px; <br>
+    }
+</pre>
+                <h4>6. Margin dan Dekorasi Layout</h4>
+                <p>
+                    Margin sering digunakan untuk:
+                    <ul>
+                        <li>memberi jarak antar card</li>
+                        <li>memisahkan section</li>
+                        <li>membuat layout lebih lega</li>
+                    </ul>
+                    Contoh kartu dekoratif:
+                </p>
+<pre>
+    .card { <br>
+        margin: 20px; <br>
+        border: 1px solid #ccc; <br>
+    }
+</pre>
+                <h4>7. Margin Auto (Pusat Elemen)</h4>
+<pre>
+    .box { <br>
+        width: 300px; <br>
+        margin: 0 auto; <br>
+    }
+</pre>
+                <p>
+                    📌 Elemen otomatis berada di tengah horizontal <br>
+                    📌 Sangat sering digunakan pada container
+                </p>
+                
+                <h4>8. Margin Negatif</h4>
+                <p>
+                    Margin bisa bernilai negatif.
+                </p>
+<pre>
+    .box { <br>
+        margin-top: -20px; <br>
+    }
+</pre>
+                <p>
+                    📌 Elemen bisa saling menumpuk <br>
+                    📌 Cocok untuk dekorasi khusus <br>
+                    ⚠ Gunakan dengan hati-hati
+                </p>
+
+                <h4>9. Margin Collapsing (Penting!)</h4>
+                <p>
+                    Margin atas dan bawah bisa saling menyatu (collapse).
+                    <br>
+                    Contoh:
+                </p>
+<pre>
+    .box1 { <br>
+        margin-bottom: 30px; <br>
+    } <br>
+ <br>
+    .box2 { <br>
+        margin-top: 20px; <br>
+    }
+</pre>
+
+
+                <p>
+                    ➡ Jarak antar box = 30px, bukan 50px <br>
+                    📌 Hanya terjadi pada margin vertikal
+                </p>
+                
+                <h4>10. Margin vs Padding (Perbandingan Singkat)</h4>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Margin</th>
+                        <th>Padding</th>
+                    </tr>
+                    <tr>
+                        <td>Letak</td>
+                        <td class="ct">Di luar border</td>
+                        <td class="ct">Di dalam border</td>
+                    </tr>
+                    <tr>
+                        <td>Memengaruhi jarak antar elemen</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                    <tr>
+                        <td>Bisa negatif</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                    <tr>
+                        <td>Mempengaruhi ukuran elemen</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                </table>
+                
+                <h4>11. Best Practice Penggunaan Margin</h4>
+                <p>
+                    ✔ Gunakan margin untuk jarak antar elemen <br>
+                    ✔ Gunakan konsisten (misal: kelipatan 8px) <br>
+                    ✔ Hindari margin negatif berlebihan <br>
+                    ✔ Jangan campur margin & padding tanpa tujuan <br>
+                    ✔ Gunakan margin-bottom untuk vertikal spacing
+                </p>
+                <h4>12. Studi Kasus Sederhana</h4>
+                <p>
+                    HTML:
+                </p>
+<pre>
+    &lt;div class="box">Box 1&lt;/div> <br>
+    &lt;div class="box">Box 2&lt;/div>
+</pre>
+                <p>
+                    CSS:
+                </p>
+<pre>
+    .box { <br>
+        margin-bottom: 20px; <br>
+        padding: 15px; <br>
+        border: 1px solid black;
+    }
+</pre>
+
+
+                <p>
+                    📌 Box tidak menempel <br>
+                    📌 Tampilan lebih rapi <br>
+                    📌 Mudah dikembangkan
+                </p>
+
+
+
+
+
+
+
+
+                <!-- BREAK
+                    
+                
+                    MARGIN DONE
+                    
+                    
+                    BREAK -->
+
+
+                    
             </div>
         </main>
     </div>
