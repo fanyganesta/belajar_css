@@ -18,10 +18,10 @@
             <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
             <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
             <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
-            <h5><a href="" id="box-model">4. Box Model</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
 
             <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
-            <h5><a href="" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
             <h5><a href="" id="display">2. Display</a></h5>
             <h5><a href="" id="width-dan-constrain">3. Width dan Constrain</a></h5>
             <h5><a href="" id="overvlow">4. Overflow</a></h5>
@@ -345,7 +345,638 @@
                     BREAK -->
 
 
-                    
+
+
+
+
+                    <h3>B. Padding</h3>
+
+                    <h4>1. Pengertian Padding</h4>
+                    <p>
+                        Padding adalah jarak di dalam elemen, tepatnya jarak antara content dan border.
+                        <br>
+
+                        📌 Padding memberi ruang napas pada isi elemen <br>
+                        📌 Padding memengaruhi ukuran total elemen
+                        <br>
+                        Contoh sederhana:
+                    </p>
+<pre>
+    .box { <br>
+        padding: 20px; <br>
+    }
+</pre>
+                    <h4>2. Posisi Padding dalam Box Model</h4>
+                    <p>
+                        Urutan Box Model:
+                        <br>
+                        Content → Padding → Border → Margin
+
+                        <br>
+                        Visualisasi:
+                    </p>
+<pre>
+    +-----------------------+
+    |         Margin        |
+    |  +-----------------+  |
+    |  |      Border     |  |
+    |  |  +-----------+  |  |
+    |  |  |  Padding  |  |  |
+    |  |  | +-------+ |  |  |
+    |  |  | |Content| |  |  |
+    |  |  | +-------+ |  |  |
+    |  |  +-----------+  |  |
+    |  +-----------------+  |
+    +-----------------------+
+</pre>
+                    <p>
+                        Padding selalu berada di dalam border.
+                    </p>
+
+                    <h4>3. Fungsi Padding dalam Dekorasi</h4>
+                    <p>
+                        Padding digunakan untuk:
+                        <ul>
+                            <li>membuat teks tidak menempel ke border</li>
+                            <li>memperindah tombol (button)</li>
+                            <li>memperbesar area klik</li>
+                            <li>meningkatkan kenyamanan visual (UX)</li>
+                        </ul>
+                        <br>
+
+                        Tanpa padding: <br>
+                        ❌ tampilan sempit <br>
+                        ❌ sulit dibaca
+                    </p>
+                    <h4>4. Cara Menulis Padding</h4>
+                    <p><strong>4.1 Padding Satu Nilai</strong></p>
+<pre>
+    .box { <br>
+        padding: 15px; <br>
+    }
+</pre>
+                    <p>
+                        ➡ Semua sisi: 15px
+                        <br>
+                        <br>
+
+                        <strong>4.2 Padding Dua Nilai</strong>
+                    </p>
+<pre>
+    .box { <br>
+        padding: 10px 20px; <br>
+    }
+</pre>
+                    <p>
+                        <ul>
+                            <li>atas & bawah: 10px</li>
+                            <li>kiri & kanan: 20px</li>
+                        </ul>
+
+                         <br> <br>
+
+                        <strong>4.3 Padding Empat Nilai</strong>
+                    </p>
+<pre>
+    .box { <br>
+        padding: 5px 10px 15px 20px; <br>
+    }
+</pre>
+                    <p>
+                        Urutan: <br>
+                        ➡ atas → kanan → bawah → kiri <br> <br>
+
+                        <strong>4.4 Padding Per Sisi</strong>
+                    </p>
+<pre>
+    .box { <br>
+        padding-top: 10px; <br>
+        padding-right: 15px; <br>
+        padding-bottom: 20px; <br>
+        padding-left: 5px; <br>
+    }
+</pre>
+
+
+                    <h4>5. Padding dan Ukuran Elemen</h4>
+                    <p>
+                        Padding menambah ukuran elemen secara default.
+                        <br>
+                        Contoh:
+                    </p>
+<pre>
+    .box { <br>
+        width: 200px; <br>
+        padding: 20px; <br>
+    }
+</pre>
+                    <p>
+                        ➡ Lebar total = 200 + 20 + 20 = 240px
+                        <br>
+                        📌 Ini sering menjadi sumber kebingungan pemula.
+                    </p>
+
+                    <h4>6. Padding vs Margin (Perbedaan Penting)</h4>
+                    <table>
+                        <tr>
+                            <th>Aspek</th>
+                            <th>Padding</th>
+                            <th>Margin</th>
+                        </tr>
+                        <tr>
+                            <td>Letak</td>
+                            <td class="ct">Di dalam border</td>
+                            <td class="ct">Di luar border</td>
+                        </tr>
+                        <tr>
+                            <td>Mempengaruhi ukuran elemen</td>
+                            <td class="ct">✔</td>
+                            <td class="ct">❌</td>
+                        </tr>
+                        <tr>
+                            <td>Bisa negatif</td>
+                            <td class="ct">❌</td>
+                            <td class="ct">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Area background ikut</td>
+                            <td class="ct">✔</td>
+                            <td class="ct">❌</td>
+                        </tr>
+                        <tr>
+                            <td>Digunakan untuk</td>
+                            <td class="ct">Ruang isi</td>
+                            <td class="ct">Jarak antar elemen</td>
+                        </tr>
+                    </table>
+
+                    <h4>7. Padding dan Background</h4>
+                    <p>
+                        Background ikut mengisi area padding.
+                    </p>
+<pre>
+    .box { <br>
+        padding: 20px; <br>
+        background-color: lightblue; <br>
+    }
+</pre>
+                    <p>
+                        ➡ Warna background terlihat sampai padding <br>
+                        ➡ Padding membuat elemen tampak lebih besar
+                    </p>
+
+                    <h4>8. Padding pada Elemen Umum</h4>
+                    <p><strong>8.1 Button</strong></p>
+<pre>
+    button { <br>
+        padding: 10px 20px; <br>
+    }
+</pre>
+                    <p>
+                        📌 Area klik lebih besar <br>
+                        📌 Tampilan lebih elegan <br> <br>
+
+                        <strong>8.2 Card / Box</strong>
+                    </p>
+<pre>
+    .card { <br>
+        padding: 20px; <br>
+        border: 1px solid #ccc; <br>
+    }
+</pre>
+                    <p>
+                        📌 Konten tidak menempel ke border <br>
+                        📌 Cocok untuk dashboard & blog
+                    </p>
+
+                    <h4>9. Padding dalam Layout Responsif</h4>
+                    <p>
+                        Gunakan padding untuk: 
+                        <ul>
+                            <li>jarak aman pada mobile</li>
+                            <li>kenyamanan baca</li>
+                        </ul>
+                        Contoh:
+                    </p>
+<pre>
+    .container { <br>
+        padding: 16px; <br>
+    }
+</pre>
+                    <p>
+                        📌 Lebih fleksibel daripada margin untuk isi
+                    </p>
+
+                    <h4>10. Box-Sizing dan Padding (Sekilas)</h4>
+                    <p>
+                        Default:
+                    </p>
+<pre>
+    box-sizing: content-box;
+</pre>
+                    <p>
+                        Alternatif lebih aman:
+                    </p>
+<pre>
+    box-sizing: border-box;
+</pre>
+                    <p>
+                        Dengan border-box:
+                        <ul>
+                            <li>padding tidak menambah ukuran elemen</li>
+                            <li>layout lebih stabil</li>
+                        </ul>
+                    </p>
+<pre>
+    .box { <br>
+        width: 300px; <br>
+        padding: 20px; <br>
+        box-sizing: border-box; <br>
+    }
+</pre>
+                    <h4>11. Best Practice Penggunaan Padding</h4>
+                    <p>
+                        ✔ Gunakan padding untuk isi elemen <br>
+                        ✔ Gunakan nilai konsisten (8px, 16px, 24px)  <br>
+                        ✔ Gunakan border-box untuk layout kompleks <br>
+                        ✔ Jangan menggantikan fungsi margin dengan padding <br>
+                        ✔ Perhatikan ukuran total elemen
+                    </p>
+
+                    <h4>12. Studi Kasus Sederhana</h4>
+                    <p>
+                        HTML:
+                    </p>
+<pre>
+    &lt;div class="card">
+        &lt;h3>Judul&lt;/h3>
+        &lt;p>Ini adalah konten card.&lt;/p>
+    &lt;/div>
+</pre>
+                    <p>
+                        CSS:
+                    </p>
+<pre>
+    .card { <br>
+        padding: 20px; <br>
+        border: 1px solid black; <br>
+    }
+</pre>
+                    <p>
+                        📌 Tampilan rapi <br>
+                        📌 Mudah dikembangkan <br>
+                        📌 Nyaman dibaca
+                    </p>
+
+
+
+
+
+
+
+                    <!-- PADDING ENDS -->
+
+
+
+
+                    <h3>B. Border</h3>
+                    <h4>1. Pengertian Border</h4>
+                    <p>
+                        Border adalah garis pembatas yang mengelilingi elemen, terletak di antara padding dan margin.
+                        <br>
+                        Urutan Box Model:
+                        <br>
+                        Content → Padding → Border → Margin
+
+                        <br> <br>
+                        📌 Border digunakan untuk:
+                        <ul>
+                            <li>memberi batas visual</li>
+                            <li>memperjelas struktur elemen</li>
+                            <li>memperindah tampilan (dekorasi)</li>
+                            <li>membantu debugging layout</li>
+                        </ul>
+                    </p>
+                    <h4>2. Posisi Border dalam Box Model</h4>
+                    <p>
+                        Visualisasi:
+                    </p>
+<pre>
+    +-----------------------+
+    |         Margin        |
+    |  +-----------------+  |
+    |  |      Border     |  |
+    |  |  +-----------+  |  |
+    |  |  |  Padding  |  |  |
+    |  |  | +-------+ |  |  |
+    |  |  | |Content| |  |  |
+    |  |  | +-------+ |  |  |
+    |  |  +-----------+  |  |
+    |  +-----------------+  |
+    +-----------------------+
+</pre>
+                    <p>
+                        ➡ Border membungkus padding dan content <br>
+                        ➡ Background elemen tidak menembus border
+                    </p>
+
+                    <h4>3. Struktur Properti Border</h4>
+                    <p>
+                        Border memiliki 3 komponen utama:
+                    </p>
+<pre>
+    border: width style color;
+</pre>
+
+
+                    <p>
+                        Contoh:
+                    </p>
+<pre>
+    .box { <br>
+        border: 2px solid black; <br>
+    }
+</pre>
+
+                    <table>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Fungsi</th>
+                        </tr>
+                        <tr>
+                            <td class="ct">width</td>
+                            <td>ketebalan garis</td>
+                        </tr>
+                        <tr>
+                            <td class="ct">style</td>
+                            <td>jenis garis</td>
+                        </tr>
+                        <tr>
+                            <td class="ct">color</td>
+                            <td>warna border</td>
+                        </tr>
+                    </table>
+
+                    <h4>4. Border Width (Ketebalan)</h4>
+                    <p>
+                        Contoh:
+                    </p>
+<pre>
+    .box { <br>
+        border-width: 1px; <br>
+    }
+</pre>
+                    <p>
+                        Nilai yang umum:
+                        <ul>
+                            <li><code>1px</code></li>
+                            <li><code>2px</code></li>
+                            <li><code>thin</code>, <code>medium</code>, <code>thick</code></li>
+                            <li><code>border-width: 2px;</code></li>
+                        </ul>
+                    </p>
+                    <h4>5. Border Style (Jenis Garis)</h4>
+                    <p>
+                        Jenis border yang sering digunakan:
+                        <table>
+                            <tr>
+                                <th>Style</th>
+                                <th>Keterangan</th>
+                            </tr>
+                            <tr>
+                                <td>solid</td>
+                                <td>garis lurus</td>
+                            </tr>
+                            <tr>
+                                <td>dashed</td>
+                                <td>garis putus-putus</td>
+                            </tr>
+                            <tr>
+                                <td>dotted</td>
+                                <td>titik-titik</td>
+                            </tr>
+                            <tr>
+                                <td>double</td>
+                                <td>garis ganda</td>
+                            </tr>
+                            <tr>
+                                <td>groove</td>
+                                <td>efek cekung</td>
+                            </tr>
+                            <tr>
+                                <td>ridge</td>
+                                <td>efek timbul</td>
+                            </tr>
+                            <tr>
+                                <td>inset</td>
+                                <td>masuk ke dalam</td>
+                            </tr>
+                            <tr>
+                                <td>outset</td>
+                                <td>keluar</td>
+                            </tr>
+                        </table>
+                        <br>
+
+                        Contoh:
+                    </p>
+<pre>
+    .box { <br>
+        border: 2px dashed red; <br>
+    }
+</pre>
+
+
+                    <p>
+                        📌 Tanpa border-style, border tidak akan muncul.
+                    </p>
+
+                    <h4>6. Border Color (Warna)</h4>
+                    <p>
+                        Contoh:
+                    </p>
+<pre>
+    .box {  <br>
+        border-color: blue; <br>
+    }
+</pre>
+
+
+                    <p>
+                        Bisa menggunakan:
+                        <ul>
+                            <li>nama warna (red)</li>
+                            <li>hex (#333)</li>
+                            <li>rgb / rgba</li>
+                            <li>hsl</li>
+                        </ul>
+                    </p>
+
+                    <h4>7. Border per Sisi</h4>
+                    <p>
+                        Border dapat diatur per sisi:
+                    </p>
+<pre>
+    .box { <br>
+        border-top: 2px solid red;  <br>
+        border-right: 2px solid green; <br>
+        border-bottom: 2px solid blue; <br>
+        border-left: 2px solid black; <br>
+    }
+</pre>
+                    <p>
+                        📌 Berguna untuk:
+                        <ul>
+                            <li>underline custom</li>
+                            <li>separator</li>
+                            <li>efek hover</li>
+                        </ul>
+                    </p>
+
+                    <h4>8. Border Radius (Sudut Membulat)</h4>
+                    <p>
+                        Digunakan untuk membuat sudut membulat:
+                    </p>
+<pre>
+    .box { <br>
+        border-radius: 10px; <br>
+    }
+</pre>
+                    <p>
+                        Variasi:
+                    </p>
+<pre>
+    border-radius: 50%; /* lingkaran */ <br>
+    border-radius: 8px 12px;
+</pre>
+                    <p>
+                        📌 Sangat umum untuk:
+                        <ul>
+                            <li>card</li>
+                            <li>button</li>
+                            <li>input form</li>
+                        </ul>
+                    </p>
+
+                    <h4>9. Border dan Ukuran Elemen</h4>
+                    <p>
+                        Border menambah ukuran elemen (default).
+                    </p>
+<pre>
+    .box { <br>
+        width: 200px; <br>
+        border: 5px solid black; <br>
+    }
+</pre>
+                    <p>
+                        ➡ Lebar total = 210px
+                        <br>
+                        📌 Sama seperti padding, border memengaruhi ukuran elemen.
+                    </p>
+                    <h4>10. Border dan box-sizing</h4>
+                    <p>
+                        Dengan border-box:
+                    </p>
+<pre>
+    .box { <br>
+        box-sizing: border-box; <br>
+    }
+</pre>
+                    <p>
+                        ✔ Border tidak menambah ukuran elemen <br>
+                        ✔ Layout lebih mudah dikontrol
+                    </p>
+
+                    <h4>11. Border sebagai Dekorasi UI</h4>
+                    <p>
+                        <strong>11.1 Card</strong>
+                    </p>
+<pre>
+    .card { <br>
+        border: 1px solid #ddd; <br>
+        padding: 16px; <br>
+        border-radius: 8px; <br>
+    }
+</pre>
+                    <p>
+                        📌 Tampilan rapi & profesional
+                        <br> <br>
+                        <strong>11.2 Button</strong>
+                    </p>
+<pre>
+    button { <br>
+        border: 2px solid #052B62; <br>
+        padding: 8px 16px; <br>
+        background: transparent; <br>
+    }
+</pre>
+                    <p>
+                        📌 Cocok untuk outline button
+                        <br> <br>
+
+                        <strong>11.3 Input Form</strong>
+                    </p>
+<pre>
+    input { <br>
+        border: 1px solid #ccc; <br>
+    }
+</pre>
+                    <p>
+                        Focus effect:
+                    </p>
+<pre>
+    input:focus { <br>
+        border-color: blue; <br>
+    }
+</pre>
+
+
+                    <h4>12. Border untuk Debugging</h4>
+                    <p>
+                        Border sering dipakai untuk melihat struktur layout:
+                    </p>
+<pre>
+    * { <br>
+        border: 1px solid red; <br>
+    }
+</pre>
+                    <p>
+                        📌 Sangat membantu memahami box model
+                    </p>
+
+                    <h4>13. Border vs Outline</h4>
+                    <table>
+                        <tr>
+                            <th>Border</th>
+                            <th>Outline</th>
+                        </tr>
+                        <tr>
+                            <td>Masuk box model</td>
+                            <td>Tidak masuk box model</td>
+                        </tr>
+                        <tr>
+                            <td>Mempengaruhi ukuran</td>
+                            <td>Tidak</td>
+                        </tr>
+                        <tr>
+                            <td>Bisa radius</td>
+                            <td class="ct">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Digunakan untuk UI</td>
+                            <td class="ct">✔</td>
+                        </tr>
+                    </table>
+                    <h4>14. Best Practice Border</h4>
+                    <p>
+                        ✔ Gunakan border tipis (1px) <br>
+                        ✔ Hindari terlalu banyak warna <br>
+                        ✔ Gunakan border-radius konsisten <br>
+                        ✔ Kombinasikan dengan padding <br>
+                        ✔ Gunakan outline untuk fokus, border untuk struktur
+                    </p>
+                    <br><br>
+                    <a class="btn-next" href="2a-box-model-advanced.html"></a>
             </div>
         </main>
     </div>

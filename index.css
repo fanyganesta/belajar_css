@@ -119,3 +119,7 @@ table th, table td{
 table {
     border-collapse: collapse;
 }
+
+ul li{
+    margin-top: 3px;
+}
