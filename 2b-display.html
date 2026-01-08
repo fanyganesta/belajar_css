@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="" id="align-items">4. Align Items</a></h5>
+            <h5><a href="" id="gap">5. Gap</a></h5>
+            <h5><a href="" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
+            <h5><a href="" id="grid-template-column">2. Grid Template Columns</a></h5>
+            <h5><a href="" id="fraction-unit">3. Fraction Unit</a></h5>
+            <h5><a href="" id="auto-fit-dan-min-max">4. Auto Fit dan Min Max</a></h5>
+            <h5><a href="" id="grid-gap">5. Grid Gap</a></h5>
+            <h5><a href="" id="spanning">6. Spanning</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="" id="absolute">2. Absolute</a></h5>
+            <h5><a href="" id="sticky">3. Sticky</a></h5>
+            <h5><a href="" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>A. Display</h2>
+                <h3>1. Apa itu Display dalam CSS?</h3>
+                <p>
+                    display adalah properti CSS yang menentukan:
+                    <ul>
+                        <li>bagaimana sebuah elemen ditampilkan dan bagaimana ia mengambil ruang di halaman</li>
+                    </ul>
+
+                    Display mengatur:
+                    <ul>
+                        <li>apakah elemen berada satu baris sendiri atau sebaris</li>
+                        <li>apakah elemen bisa diatur width & height</li>
+                        <li>bagaimana elemen berinteraksi dengan elemen lain</li>
+                    </ul>
+
+                    📌 Display adalah fondasi layout CSS <br>
+                    📌 Salah memahami display → layout kacau
+                </p>
+                <h3>2. Peran Display dalam Mengatur Ruang</h3>
+                <p>
+                    Display menentukan:
+                    <ul>
+                        <li>alur dokumen (document flow)</li>
+                        <li>pola susunan elemen</li>
+                        <li>perilaku margin, padding, width, height</li>
+                    </ul>
+
+                    Tanpa memahami display:
+                    <ul>
+                        <li>margin “tidak bekerja”</li>
+                        <li>width/height “diabaikan”</li>
+                        <li>elemen sulit disejajarkan</li>
+                    </ul>
+                </p>
+                <h3>3. Kategori Umum Display</h3>
+                <p>
+                    Secara konseptual, display dapat dibagi menjadi:
+                    <ul>
+                        <li>Block-level</li>
+                        <li>Inline-level</li>
+                        <li>Inline-block</li>
+                        <li>None</li>
+                    </ul>
+                    ➡ Kita mulai dari yang paling fundamental: block
+                </p>
+                <h2>B. Display: block</h2>
+                
+                <h3>1 Pengertian <code>display: block</code></h3>
+                <p>
+                    <br>
+                    Elemen dengan <code>display: block</code>:
+                    <ul>
+                        <li>selalu memulai baris baru</li>
+                        <li>mengambil lebar penuh container (default)</li>
+                    </ul>
+
+                    bisa diatur:
+                    <ul>
+                        <li><code>width</code></li>
+                        <li><code>height</code></li>
+                        <li><code>margin</code></li>
+                        <li><code>padding</code></li>
+                    </ul>
+                
+                    📌 Block adalah elemen penyusun struktur utama layout
+                </p>
+
+                <h3>2. Elemen Default Block</h3>
+                <p>
+                    Beberapa elemen HTML yang secara default block:
+                    <ul>
+                        <li><code>&lt;div></code></li>
+                        <li><code>&lt;p></code></li>
+                        <li><code>&lt;h1> – &lt;h6></code></li>
+                        <li><code>&lt;section></code></li>
+                        <li><code>&lt;article></code></li>
+                        <li><code>&lt;header></code></li>
+                        <li><code>&lt;footer></code></li>
+                        <li><code>&lt;ul>, &lt;ol>, &lt;li></code></li>
+                    </ul>
+                    Contoh:
+                </p>
+<pre>
+    &lt;div>Box 1&lt;/div>
+    &lt;div>Box 2&lt;/div>
+</pre>
+                <p>
+                    ➡ Box 2 selalu muncul di bawah Box 1
+                </p>
+                <h3>3. Karakteristik display: block</h3>
+                <p>
+                    <h4>a. Memulai baris baru</h4>
+                </p>
+<pre>
+    .box { <br>
+        display: block; <br>
+    }
+</pre>
+                <p>
+                    Setiap elemen block:
+                    <ul>
+                        <li>berdiri sendiri</li>
+                        <li>tidak sejajar dengan block lain</li>
+                    </ul>
+                    <br>
+
+                    <h4>b. Lebar penuh secara default</h4>
+                </p>
+<pre>
+    .box { <br>
+        background: lightblue; <br>
+    }
+</pre>
+                <p>
+                    ➡ Elemen otomatis selebar container
+                    <br> <br>
+                    <h4>c. Width & Height Berfungsi</h4>
+                </p>
+<pre>
+    .box { <br>
+        width: 300px; <br>
+        height: 150px; <br>
+    }
+</pre>
+                <p>
+                    📌 Ini tidak berlaku pada inline
+                    <br> <br>
+                    <h4>d. Margin dan Padding Lengkap</h4>
+                </p>
+<pre>
+    .box { <br>
+        margin: 20px; <br>
+        padding: 15px; <br>
+    }
+</pre>
+                <p>
+                    ✔ Semua sisi bekerja normal
+                </p>
+
+                <h3>4. Mengubah Elemen Menjadi Block</h3>
+                <p>
+                    Elemen inline bisa diubah menjadi block:
+                </p>
+<pre>
+    span { <br>
+        display: block; <br>
+    }
+</pre>
+                <p>
+                    Contoh:
+                </p>
+<pre>
+    &lt;span>Item 1&lt;/span>
+    &lt;span>Item 2&lt;/span>
+</pre>
+                <p>
+                    ➡ Kini span tampil ke bawah, bukan sebaris
+                </p>
+
+                <h3>5. Display: block dalam Layout</h3>
+                <h4>a Struktur Halaman</h4>
+                
+<pre>
+    header, <br>
+    main, <br>
+    footer { <br>
+        display: block; <br>
+    }
+</pre>
+                <p>
+                    📌 Digunakan untuk:
+                    <ul>
+                        <li><code>header</code></li>
+                        <li><code>sidebar</code></li>
+                        <li><code>content</code></li>
+                        <li><code>footer</code></li>
+                    </ul>
+                </p>
+                <h4>b Sidebar & Content</h4>
+<pre>
+    .sidebar {  <br>
+        width: 250px; <br>
+    } <br>
+ <br>
+    .content { <br>
+        width: calc(100% - 250px); <br>
+    }
+</pre>
+                <p>
+                    📌 Block memudahkan pengaturan ukuran
+                </p>
+
+                <h3>6. Masalah Umum dengan Block</h3>
+                <h4>a. Terlalu “boros ruang”</h4>
+                <p>
+                    Block selalu ke baris baru:
+                    <ul>
+                        <li>sulit membuat elemen sejajar</li>
+                        <li>membutuhkan flex/grid untuk alignment</li>
+                    </ul>
+
+                    <strong>b. Vertical Margin Collapsing</strong>
+
+                    Margin atas & bawah antar block bisa collapse:
+                </p>
+<pre>
+    p { <br>
+        margin: 20px 0; <br>
+    }
+</pre>
+                <p>
+                    📌 Ini perilaku khas block element
+                </p>
+
+                <h3>7. Kapan Menggunakan display: block?</h3>
+                <p>
+                    Gunakan block jika: <br>
+                    ✔ Elemen adalah bagian struktur <br>
+                    ✔ Butuh lebar penuh <br>
+                    ✔ Butuh kontrol width & height <br>
+                    ✔ Elemen harus berada di baris sendiri <br>
+ <br> <br>
+                    Contoh:
+                    <ul>
+                        <li>container</li>
+                        <li>card</li>
+                        <li>section</li>
+                        <li>row layout</li>
+                    </ul>
+                </p>
+                <h3>8. Studi Kasus Sederhana</h3>
+                <p>
+                    HTML:
+                </p>
+<pre>
+    &lt;div class="card">Card 1&lt;/div>
+    &lt;div class="card">Card 2&lt;/div>
+</pre>
+                <p>
+                    CSS:
+                </p>
+<pre>
+    .card { <br>
+        display: block;  <br>
+        padding: 20px;  <br>
+        margin-bottom: 15px;  <br>
+        border: 1px solid #ccc; <br>
+    }
+</pre>
+                <p>
+                    📌 Tampilan rapi <br>
+                    📌 Mudah dikembangkan
+                </p>
+
+
+
+
+
+                <!-- Block Done -->
+
+
+
+
+
+                <h2>C. Inline</h2>
+                <h3>1. Pengertian display: inline</h3>
+                <p>Elemen dengan display: inline:</p>
+                
+                <ul>
+                    <li>tidak memulai baris baru</li>
+                    <li>berada sebaris dengan teks lain</li>
+                    <li>hanya mengambil ruang sebesar kontennya</li>
+                    <li>tidak bisa diatur width & height</li>
+                </ul>
+                <p>
+                    📌 Inline digunakan untuk teks dan elemen kecil di dalam alur teks
+                </p>
+
+                <h3>2. Elemen Default Inline</h3>
+
+                Beberapa elemen HTML yang secara default inline:
+                <ul>
+                    <li>&lt;span></li>
+                    <li>&lt;a></li>
+                    <li>&lt;strong></li>
+                    <li>&lt;em></li>
+                    <li>&lt;b></li>
+                    <li>&lt;i></li>
+                    <li>&lt;small></li>
+                    <li>&lt;label></li>
+                </ul>
+                <p>Contoh:</p>
+<pre>
+    &lt;p>
+    Ini adalah &lt;span>teks&lt;/span> dan &lt;a href="#">link&lt;/a>.
+    &lt;/p>
+</pre>
+                <p>
+                    ➡ Semua tampil dalam satu baris
+                </p>
+
+                <h3>3. Karakteristik display: inline</h3>
+
+                <h4>a. Tidak Membuat Baris Baru</h4>
+<pre>
+    &lt;span>Item 1&lt;/span>
+    &lt;span>Item 2&lt;/span>
+    &lt;span>Item 3&lt;/span>
+</pre>
+                <p>➡ Semua sejajar dalam satu baris</p>
+
+                <h4>b. Lebar Sesuai Konten</h4>
+<pre>
+    span {
+        background: yellow;
+    }
+</pre>
+                <p>➡ Background hanya selebar teks</p>
+
+                <h4>c. Width & Height Tidak Berlaku</h4>
+<pre>
+    span {
+        width: 200px;
+        height: 100px;
+    }
+</pre>
+                <p>
+                    ❌ Diabaikan oleh browser
+                    <br>
+                    📌 Ini perilaku utama inline
+                </p>
+                <h4>d. Padding & Margin Terbatas</h4>
+<pre>
+    span { <br>
+        padding: 10px; <br>
+        margin: 10px; <br>
+    }
+</pre>
+                <p>
+                    ✔ Padding kiri & kanan berfungsi <br>
+                    ❌ Padding atas & bawah tidak mendorong elemen lain <br>
+                    <br> <br>
+                    📌 Inline tidak memengaruhi tinggi baris secara penuh
+                </p>
+
+                <h3>4. Inline dalam Alur Teks (Inline Formatting Context)</h3>
+
+                Inline mengikuti:
+                <ul>
+                    <li>tinggi baris (line-height)</li>
+                    <li>baseline teks</li>
+                    <li>flow paragraf</li>
+                </ul>
+                <p>Contoh:</p>
+<pre>
+    span { <br>
+        font-size: 20px; <br>
+        line-height: 1.5; <br>
+    }
+</pre>
+                <p>➡ Tinggi baris ditentukan oleh teks, bukan elemen</p>
+                
+
+                <h3>5. Mengubah Elemen Menjadi Inline</h3>
+                <p>Elemen block bisa diubah menjadi inline:</p>
+<pre>
+    div { <br>
+        display: inline; <br>
+    }
+</pre>
+                <p>Dampaknya:</p>
+                
+                <ul>
+                    <li>div tidak lagi ke baris baru</li>
+                    <li>width & height tidak berlaku</li>
+                    <li>perilaku seperti teks</li>
+                </ul>
+
+                <p>📌 Jarang digunakan pada layout besar</p>
+
+                <h3>6. Inline vs Block (Perbandingan Singkat)</h3>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Inline</th>
+                        <th>Block</th>
+                    </tr>
+                    <tr>
+                        <td>Baris baru</td>
+                        <td>❌</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Width/Height</td>
+                        <td>❌</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Lebar default</td>
+                        <td>Konten</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr>
+                        <td>Margin atas/bawah</td>
+                        <td>❌</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Digunakan untuk</td>
+                        <td>Teks</td>
+                        <td>Struktur</td>
+                    </tr>
+                </table>
+
+                <h3>7. Kapan Menggunakan display: inline?</h3>
+                <p>
+                    Gunakan inline jika: <br>
+                    ✔ Elemen berada di dalam teks <br>
+                    ✔ Tidak butuh width/height <br>
+                    ✔ Ingin elemen mengalir seperti teks <br>
+                    ✔ Fokus pada konten kecil <br>  <br> 
+                Contoh penggunaan:
+                </p>
+
+                <ul>
+                    <li>highlight kata</li>
+                    <li>link dalam paragraf</li>
+                    <li>icon kecil di teks</li>
+                </ul>
+
+                <h3>8. Masalah Umum display: inline</h3>
+                <h4>a. Tidak Bisa Mengatur Ukuran</h4>
+                <p>
+                    Pemula sering bertanya:
+                    <br><br>
+                    “Kenapa width tidak berfungsi?”
+                    <br><br>
+                    Jawaban:<br>
+                    ➡ Karena elemen inline
+                </p>
+                <h4>b. Padding Vertikal Tidak Berefek</h4>
+<pre>
+    span { <br>
+        padding-top: 20px; <br>
+    }
+</pre>
+                <p>
+                ❌ Tidak menambah jarak vertikal <br>
+                    <br>
+                📌 Solusi: gunakan inline-block
+                </p>
+
+                <h3>9. Studi Kasus</h3>
+                <p>
+                    HTML:
+                </p>
+<pre>
+    &lt;p>
+        Harga: &lt;span class="price">Rp 50.000&lt;/span>
+    &lt;/p>
+</pre>
+                <p>CSS:</p>
+<pre>
+    .price { <br>
+        color: red; <br>
+        font-weight: bold; <br>
+    }
+</pre>
+                <p>
+                    📌 Inline cocok untuk dekorasi teks <br>
+                    📌 Tidak mengganggu layout
+                </p>
+
+
+
+
+                <!-- Inline Done  -->
+
+
+
+
+
+                <h2>D. Inline-block</h2>
+                <h3>1. Pengertian display: inline-block</h3>
+                <p>
+                    <code>display: inline-block</code> adalah gabungan perilaku inline dan block.
+                    <br>
+                    Artinya:
+                </p>
+                <ul>
+                    <li>elemen tetap sebaris (seperti inline)</li>
+                    <li>tetapi mendukung width & height (seperti block)</li>
+                </ul>
+                
+                <p>📌 Inline-block sangat berguna untuk membuat elemen:</p>
+                
+                <ul>
+                    <li>sejajar</li>
+                    <li>bisa diatur ukurannya</li>
+                    <li>tanpa memaksa baris baru</li>
+                </ul>
+                <h3>2. Karakteristik display: inline-block</h3>
+                
+                <p>Elemen dengan display: <code>inline-block</code>:</p>
+                
+                <ul>
+                    <li>tidak memulai baris baru</li>
+                    <li>bisa berdampingan secara horizontal</li>
+                </ul>
+                    
+                <br>
+                
+                <p>mendukung:</p>
+                
+                <ul>
+                    <li><code>width</code></li>
+                    <li><code>height</code></li>
+                    <li><code>margin</code></li>
+                    <li><code>padding</code></li>
+                </ul>
+
+                <p>ukurannya terkontrol</p>
+
+                <h3>3. Elemen Default Inline-block</h3>
+
+                <p>Secara default, elemen ini bersifat inline-block:</p>
+                
+                <ul>
+                    <li><code>&lt;img></code></li>
+                    <li><code>&lt;input></code></li>
+                    <li><code>&lt;button></code></li>
+                    <li><code>&lt;select></code></li>
+                    <li><code>&lt;textarea></code></li>
+                </ul>
+
+                <p>📌 Ini alasan mengapa elemen form bisa diatur ukurannya dan tetap sejajar.</p>
+
+                <h3>4. Perbandingan Inline vs Inline-block</h3>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Inline</th>
+                        <th>Inline-block</th>
+                    </tr>
+                    <tr>
+                        <td>Baris baru</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>Width/Height</td>
+                        <td>❌</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Padding vertikal</td>
+                        <td>❌</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Margin vertikal</td>
+                        <td>❌</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Lebar default</td>
+                        <td>Konten</td>
+                        <td>Konten</td>
+                    </tr>
+                </table>
+                <h3>5. Contoh Dasar Inline-block</h3>
+
+                <p>HTML:</p>
+                
+<pre>
+    &lt;span class="box">Box 1&lt;/span>
+    &lt;span class="box">Box 2&lt;/span>
+    &lt;span class="box">Box 3&lt;/span>
+</pre>
+
+                <p>CSS:</p>
+                
+<pre>
+    .box {
+        display: inline-block;
+        width: 120px;
+        height: 80px;
+        background: lightblue;
+        margin: 10px;
+    }
+</pre>
+
+                <p>➡ Semua box sejajar dan memiliki ukuran</p>
+
+                <h3>6. Inline-block dan Spasi Tak Terduga</h3>
+
+                <p>Masalah umum:</p>
+                
+<pre>
+    &lt;span class="box">1&lt;/span>
+    &lt;span class="box">2&lt;/span>
+</pre>
+
+                <p>➡ Muncul spasi kecil di antara elemen <br> <br>
+
+                📌 Ini karena inline-block mengikuti spasi HTML <br> <br>
+
+                Solusi Spasi Inline-block</p>
+                
+
+                <h4>1. Hilangkan spasi di HTML</h4>
+<pre>
+    &lt;span class="box">1&lt;/span>&lt;span class="box">2&lt;/span>
+</pre>
+                <h4>2. Gunakan font-size: 0 pada parent</h4>
+<pre>
+    .container { <br>
+        font-size: 0; <br>
+    } <br>
+    .box { <br>
+        font-size: 16px; <br>
+    }
+</pre>
+
+
+                <h3>7. Inline-block vs Flexbox (Sekilas)</h3>
+                
+                <p>
+                    Inline-block:
+                    <ul>
+                        <li>sederhana</li>
+                        <li>cocok untuk komponen kecil</li>
+                        <li>tidak fleksibel untuk alignment kompleks</li>
+                    </ul>
+                    <br>
+                    Flexbox:
+                    <ul>
+                        <li>modern</li>
+                        <li>powerful</li>
+                        <li>solusi layout kompleks</li>
+                    </ul>
+
+                    <br>
+
+                    📌 Inline-block masih relevan untuk:
+                    <ul>
+                        <li>badge</li>
+                        <li>button</li>
+                        <li>navbar sederhana</li>
+                    </ul>
+                </p>
+
+                <h3>8. Mengubah Elemen Menjadi Inline-block</h3>
+<pre>
+    div { <br>
+        display: inline-block; <br>
+    }
+</pre>
+
+                <p>
+                    ➡ div bisa sejajar <br>
+                    ➡ tetap bisa diberi ukuran
+                </p>
+
+                <h3>9. Studi Kasus: Tombol Navigasi</h3>
+
+                <p>
+                    HTML:
+                </p>
+
+<pre>
+    &lt;a href="#" class="btn">Home&lt;/a>
+    &lt;a href="#" class="btn">About&lt;/a>
+    &lt;a href="#" class="btn">Contact&lt;/a>
+</pre>
+                <p>
+                    CSS:
+                </p>
+<pre>
+    .btn { <br>
+        display: inline-block; <br>
+        padding: 10px 20px; <br>
+        border: 1px solid black; <br>
+        text-decoration: none; <br>
+    }
+</pre>
+                <p>
+                    📌 Tanpa inline-block, padding vertikal tidak bekerja <br>
+                    📌 Inline-block membuat tombol rapi
+                </p>
+
+                <h3>10. Inline-block dalam Layout Lama</h3>
+
+                <p>
+                    Sebelum Flexbox/Grid:
+                    <ul>
+                        <li>inline-block adalah solusi utama grid</li>
+                        <li>digunakan untuk kolom & card</li>
+                    </ul>
+                    <br>
+                    📌 Sekarang lebih sering digantikan Flex/Grid, tapi konsepnya tetap penting
+                </p>
+
+                <h3>11. Kapan Menggunakan inline-block?</h3>
+                <p>
+                    Gunakan inline-block jika: <br>
+                    ✔ Elemen perlu sejajar <br>
+                    ✔ Perlu width & height <br>
+                    ✔ Tidak butuh alignment kompleks <br>
+                    ✔ Ingin solusi ringan tanpa flex <br>
+                </p>
+
+
+
+
+
+                <!-- Inline Block Done -->
+
+
+
+
+
+                E. None
+                1. Pengertian display: none
+
+                display: none digunakan untuk menyembunyikan elemen sepenuhnya dari layout halaman.
+
+                Artinya:
+
+                elemen tidak terlihat
+
+                elemen tidak mengambil ruang sama sekali
+
+                layout di sekitarnya menutup celahnya
+
+                📌 Berbeda dengan sekadar membuat elemen transparan, display: none benar-benar “menghapus” elemen dari alur layout.
+
+                2. Perilaku Utama display: none
+
+                Ketika elemen diberi:
+
+                display: none;
+
+
+                Maka:
+
+                elemen tidak dirender di halaman
+
+                browser bertindak seolah elemen tidak ada
+
+                elemen lain bergeser otomatis
+
+                3. Perbandingan display: none vs visible
+
+                Contoh:
+
+                .box {
+                    display: none;
+                }
+
+
+                ➡ Elemen hilang total
+                ➡ Tidak ada ruang kosong tersisa
+
+                4. display: none vs visibility: hidden
+                Aspek	display: none	visibility: hidden
+                Elemen terlihat	❌	❌
+                Ruang di layout	❌	✔
+                Bisa diklik	❌	❌
+                Menggeser layout	✔	❌
+
+                📌 Ini adalah perbedaan paling krusial dan sering ditanya.
+
+                5. Contoh Perbandingan Nyata
+
+                HTML:
+
+                <div class="box a">A</div>
+                <div class="box b">B</div>
+
+
+                CSS:
+
+                .box {
+                    width: 100px;
+                    height: 100px;
+                    background: lightblue;
+                    margin: 10px;
+                }
+
+                .a {
+                    display: none;
+                }
+
+                .b {
+                    visibility: hidden;
+                }
+
+
+                Hasil:
+
+                Box A hilang, layout menutup
+
+                Box B tidak terlihat, tapi ruangnya tetap ada
+
+                6. display: none pada Elemen Inline & Block
+
+                display none berlaku untuk semua elemen:
+
+                span {
+                    display: none;
+                }
+
+
+                ➡ inline hilang
+                ➡ block juga hilang
+
+                📌 Tidak ada perbedaan perilaku, semuanya disembunyikan total.
+
+                7. Mengembalikan Elemen dari display: none
+
+                Untuk menampilkan kembali elemen:
+
+                .element {
+                    display: block;
+                }
+
+
+                atau
+
+                display: inline;
+                display: inline-block;
+                display: flex;
+
+
+                📌 display harus dikembalikan ke tipe yang sesuai
+
+                8. display: none dalam Interaksi (UI)
+
+                Umum digunakan untuk:
+
+                dropdown menu
+
+                modal
+
+                tab content
+
+                sidebar toggle
+
+                Contoh:
+
+                .menu {
+                    display: none;
+                }
+
+                .menu.active {
+                    display: block;
+                }
+
+
+                📌 Sangat sering dikombinasikan dengan JavaScript
+
+                9. display: none dan JavaScript
+                element.style.display = "none";
+                element.style.display = "block";
+
+
+                📌 Saat display: none, elemen:
+
+                tidak bisa diukur (offsetWidth = 0)
+
+                tidak bisa di-scroll
+
+                tidak bisa difokuskan
+
+                10. display: none dan Accessibility (A11y)
+
+                Penting:
+
+                Screen reader tidak membaca elemen dengan display: none
+
+                Elemen dianggap tidak ada
+
+                📌 Jangan sembunyikan konten penting tanpa alternatif akses.
+
+                11. display: none vs opacity: 0
+                Properti	Ruang	Terlihat	Bisa diklik
+                display: none	❌	❌	❌
+                visibility: hidden	✔	❌	❌
+                opacity: 0	✔	❌	✔
+
+                📌 opacity: 0 sering digunakan untuk animasi
+
+                12. Kesalahan Umum
+
+                ❌ Lupa mengembalikan display
+                ❌ Mengharapkan animasi (display tidak bisa dianimasikan)
+                ❌ Salah memilih antara none dan hidden
+
+                13. Kapan Menggunakan display: none?
+
+                Gunakan jika:
+                ✔ Elemen benar-benar tidak dibutuhkan
+                ✔ Layout harus menutup ruang
+                ✔ Konten bersifat kondisional
+
+                Hindari jika:
+                ❌ Perlu animasi halus
+                ❌ Konten harus tetap terdeteksi layout
+            </div>
+        </main>
+    </div>
+</body>
+</html>
