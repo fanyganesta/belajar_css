@@ -799,193 +799,263 @@
 
 
 
-                E. None
-                1. Pengertian display: none
-
-                display: none digunakan untuk menyembunyikan elemen sepenuhnya dari layout halaman.
-
-                Artinya:
-
-                elemen tidak terlihat
-
-                elemen tidak mengambil ruang sama sekali
-
-                layout di sekitarnya menutup celahnya
-
-                📌 Berbeda dengan sekadar membuat elemen transparan, display: none benar-benar “menghapus” elemen dari alur layout.
-
-                2. Perilaku Utama display: none
-
-                Ketika elemen diberi:
-
-                display: none;
-
-
-                Maka:
-
-                elemen tidak dirender di halaman
-
-                browser bertindak seolah elemen tidak ada
-
-                elemen lain bergeser otomatis
-
-                3. Perbandingan display: none vs visible
-
-                Contoh:
-
-                .box {
-                    display: none;
-                }
-
-
-                ➡ Elemen hilang total
-                ➡ Tidak ada ruang kosong tersisa
-
-                4. display: none vs visibility: hidden
-                Aspek	display: none	visibility: hidden
-                Elemen terlihat	❌	❌
-                Ruang di layout	❌	✔
-                Bisa diklik	❌	❌
-                Menggeser layout	✔	❌
-
-                📌 Ini adalah perbedaan paling krusial dan sering ditanya.
-
-                5. Contoh Perbandingan Nyata
-
-                HTML:
-
-                <div class="box a">A</div>
-                <div class="box b">B</div>
-
-
-                CSS:
-
-                .box {
-                    width: 100px;
-                    height: 100px;
-                    background: lightblue;
-                    margin: 10px;
-                }
-
-                .a {
-                    display: none;
-                }
-
-                .b {
-                    visibility: hidden;
-                }
-
-
-                Hasil:
-
-                Box A hilang, layout menutup
-
-                Box B tidak terlihat, tapi ruangnya tetap ada
-
-                6. display: none pada Elemen Inline & Block
-
-                display none berlaku untuk semua elemen:
-
-                span {
-                    display: none;
-                }
-
-
-                ➡ inline hilang
-                ➡ block juga hilang
-
-                📌 Tidak ada perbedaan perilaku, semuanya disembunyikan total.
-
-                7. Mengembalikan Elemen dari display: none
-
-                Untuk menampilkan kembali elemen:
-
-                .element {
-                    display: block;
-                }
-
-
-                atau
-
-                display: inline;
-                display: inline-block;
-                display: flex;
-
-
-                📌 display harus dikembalikan ke tipe yang sesuai
-
-                8. display: none dalam Interaksi (UI)
-
-                Umum digunakan untuk:
-
-                dropdown menu
-
-                modal
-
-                tab content
-
-                sidebar toggle
-
-                Contoh:
-
-                .menu {
-                    display: none;
-                }
-
-                .menu.active {
-                    display: block;
-                }
-
-
-                📌 Sangat sering dikombinasikan dengan JavaScript
-
-                9. display: none dan JavaScript
-                element.style.display = "none";
-                element.style.display = "block";
-
-
-                📌 Saat display: none, elemen:
-
-                tidak bisa diukur (offsetWidth = 0)
-
-                tidak bisa di-scroll
-
-                tidak bisa difokuskan
-
-                10. display: none dan Accessibility (A11y)
-
-                Penting:
-
-                Screen reader tidak membaca elemen dengan display: none
-
-                Elemen dianggap tidak ada
-
-                📌 Jangan sembunyikan konten penting tanpa alternatif akses.
-
-                11. display: none vs opacity: 0
-                Properti	Ruang	Terlihat	Bisa diklik
-                display: none	❌	❌	❌
-                visibility: hidden	✔	❌	❌
-                opacity: 0	✔	❌	✔
-
-                📌 opacity: 0 sering digunakan untuk animasi
-
-                12. Kesalahan Umum
-
-                ❌ Lupa mengembalikan display
-                ❌ Mengharapkan animasi (display tidak bisa dianimasikan)
-                ❌ Salah memilih antara none dan hidden
-
-                13. Kapan Menggunakan display: none?
-
-                Gunakan jika:
-                ✔ Elemen benar-benar tidak dibutuhkan
-                ✔ Layout harus menutup ruang
-                ✔ Konten bersifat kondisional
-
-                Hindari jika:
-                ❌ Perlu animasi halus
-                ❌ Konten harus tetap terdeteksi layout
+                <h2>E. None</h2>
+                <h3>1. Pengertian display: none</h3>
+                <p>
+                    display: none digunakan untuk menyembunyikan elemen sepenuhnya dari layout halaman.
+
+                    Artinya:
+                </p>
+                <ul>
+                    <li>elemen tidak terlihat</li>
+                    <li>elemen tidak mengambil ruang sama sekali</li>
+                    <li>layout di sekitarnya menutup celahnya</li>
+                </ul>
+
+                <p>
+                    📌 Berbeda dengan sekadar membuat elemen transparan, display: none benar-benar “menghapus” elemen dari alur layout.
+                </p>
+
+                <h3>2. Perilaku Utama display: none</h3>
+                
+                <p>Ketika elemen diberi:</p>
+                
+<pre>
+    display: none;
+</pre>
+                <p>Maka:</p>
+                
+                <ul>
+                    <li>elemen tidak dirender di halaman</li>
+                    <li>browser bertindak seolah elemen tidak ada</li>
+                    <li>elemen lain bergeser otomatis</li>
+                </ul>
+
+                <h3>3. Perbandingan display: none vs visible</h3>
+
+                <p>Contoh:</p>
+                
+<pre>
+    .box { <br>
+        display: none; <br>
+    }
+</pre>
+                <p>
+                    ➡ Elemen hilang total <br>
+                    ➡ Tidak ada ruang kosong tersisa
+                </p>
+
+                <h3>4. <code>display: none</code> vs <code>visibility: hidden</code></h3>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>display: none</th>
+                        <th>visibility: hidden</th>
+                    </tr>
+                    <tr>
+                        <td>Elemen terlihat</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                    <tr>
+                        <td>Ruang di layout</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Bisa diklik</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                    <tr>
+                        <td>Menggeser layout</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                </table>
+
+                <p>📌 Ini adalah perbedaan paling krusial dan sering ditanya.</p>
+                
+
+                <h3>5. Contoh Perbandingan Nyata</h3>
+
+                <p>HTML:</p>
+                
+<pre>
+    &lt;div class="box a">A&lt;/div>
+    &lt;div class="box b">B&lt;/div>
+</pre>
+
+                <p>CSS:</p>
+                
+<pre>
+    .box { <br>
+        width: 100px; <br>
+        height: 100px; <br>
+        background: lightblue; <br>
+        margin: 10px; <br>
+    } <br>
+ <br>
+    .a { <br>
+        display: none; <br>
+    } <br>
+ <br>
+    .b { <br>
+        visibility: hidden; <br>
+    }
+</pre>
+                <p>Hasil:</p>
+                
+                <ul>
+                    <li>Box A hilang, layout menutup</li>
+                    <li>Box B tidak terlihat, tapi ruangnya tetap ada</li>
+                </ul>
+
+                <h3>6. display: none pada Elemen Inline & Block</h3>
+
+                <p>display none berlaku untuk semua elemen:</p>
+                
+<pre>
+    span { <br>
+        display: none; <br>
+    }
+</pre>
+
+
+                <p>
+                    ➡ inline hilang <br>
+                    ➡ block juga hilang
+                </p>
+                
+                <p>📌 Tidak ada perbedaan perilaku, semuanya disembunyikan total.</p>
+                
+
+                <h3>7. Mengembalikan Elemen dari display: none</h3>
+
+                <p>Untuk menampilkan kembali elemen:</p>
+                
+<pre>
+    .element { <br>
+        display: block; <br>
+    }
+</pre>
+                <p>atau</p>
+                
+<pre> 
+    display: inline; <br>
+    display: inline-block; <br>
+    display: flex;
+</pre>
+                <p>📌 display harus dikembalikan ke tipe yang sesuai</p>
+                
+
+                <h3>8. display: none dalam Interaksi (UI)</h3>
+
+                <p>Umum digunakan untuk:</p>
+                
+                <ul>
+                    <li>dropdown menu</li>
+                    <li>modal</li>
+                    <li>tab content</li>
+                    <li>sidebar toggle</li>
+                </ul>
+
+                <p>Contoh:</p>
+                
+<pre>
+    .menu { <br>
+        display: none; <br>
+    } <br>
+ <br>
+    .menu.active { <br>
+        display: block; <br>
+    }
+</pre>
+                <p>📌 Sangat sering dikombinasikan dengan JavaScript</p>
+                
+
+                <h3>9. display: none dan JavaScript</h3>
+<pre>
+    element.style.display = "none"; <br>
+    element.style.display = "block";
+</pre>
+
+                <p>📌 Saat display: none, elemen:</p>
+                
+                <ul>
+                    <li>tidak bisa diukur (offsetWidth = 0)</li>
+                    <li>tidak bisa di-scroll</li>
+                    <li>tidak bisa difokuskan</li>
+                </ul>
+
+                <h3>10. display: none dan Accessibility (A11y)</h3>
+
+                <p>Penting:</p>
+                
+                <ul>
+                    <li>Screen reader tidak membaca elemen dengan <code>display: none</code></li>
+                    <li>Elemen dianggap tidak ada</li>
+                </ul>
+
+                <p>📌 Jangan sembunyikan konten penting tanpa alternatif akses.</p>
+                
+
+                <h3>11. display: none vs opacity: 0</h3>
+
+
+                <table>
+                    <tr>
+                        <th>Properti</th>
+                        <th>Ruang</th>
+                        <th>Terlihat</th>
+                        <th>Bisa diklik</th>
+                    </tr>
+                    <tr>
+                        <td><code>display: none</code></td>
+                        <td class="ct">❌</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                    <tr>
+                        <td><code>visibility: hidden</code></td>
+                        <td class="ct">✔</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                    <tr>
+                        <td><code>opacity: 0</code></td>
+                        <td class="ct">✔</td>
+                        <td class="ct">❌</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                </table>
+
+                <p>📌 opacity: 0 sering digunakan untuk animasi</p>
+
+                <h3>12. Kesalahan Umum</h3>
+
+                <p>
+                    ❌ Lupa mengembalikan display <br>
+                    ❌ Mengharapkan animasi (display tidak bisa dianimasikan) <br>
+                    ❌ Salah memilih antara none dan hidden
+                </p>
+                
+
+                <h3>13. Kapan Menggunakan display: none?</h3>
+
+                <p>
+                    Gunakan jika: <br>
+                    ✔ Elemen benar-benar tidak dibutuhkan <br>
+                    ✔ Layout harus menutup ruang <br>
+                    ✔ Konten bersifat kondisional
+                </p>
+
+
+                <p>
+                    Hindari jika: <br>
+                    ❌ Perlu animasi halus <br>
+                    ❌ Konten harus tetap terdeteksi layout
+                </p>
             </div>
         </main>
     </div>
