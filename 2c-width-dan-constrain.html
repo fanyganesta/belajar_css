@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="" id="align-items">4. Align Items</a></h5>
+            <h5><a href="" id="gap">5. Gap</a></h5>
+            <h5><a href="" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
+            <h5><a href="" id="grid-template-column">2. Grid Template Columns</a></h5>
+            <h5><a href="" id="fraction-unit">3. Fraction Unit</a></h5>
+            <h5><a href="" id="auto-fit-dan-min-max">4. Auto Fit dan Min Max</a></h5>
+            <h5><a href="" id="grid-gap">5. Grid Gap</a></h5>
+            <h5><a href="" id="spanning">6. Spanning</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="" id="absolute">2. Absolute</a></h5>
+            <h5><a href="" id="sticky">3. Sticky</a></h5>
+            <h5><a href="" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>A. Width dan Constraint</h2>
+                <h3>1. Apa itu Width dan Constraint dalam CSS?</h3>
+                <p>
+                    Dalam CSS, width menentukan seberapa lebar sebuah elemen, sedangkan constraint (pembatas) berfungsi untuk mengontrol batas minimum dan maksimum ukuran elemen agar layout tetap stabil di berbagai ukuran layar.
+                    <br> <br>
+                    📌 Tanpa constraint, elemen bisa:
+                </p>
+                <ul>
+                    <li>terlalu lebar di layar besar</li>
+                    <li>rusak di layar kecil</li>
+                    <li>menyebabkan overflow</li>
+                </ul>                
+
+                <h3>2. Konsep Dasar Width</h3>
+
+                <p>
+                    width mengatur lebar konten elemen (content box), bukan keseluruhan elemen.
+                </p>
+<pre>
+    .box {
+        width: 300px; <br>
+    }
+</pre>
+                Artinya:
+                <ul>
+                    <li>konten lebarnya 300px</li>
+                    <li>padding & border menambah ukuran total (jika <code>box-sizing: content-box)</code></li>
+                </ul>
+                
+                <h3>3. Mengapa Width Saja Tidak Cukup?</h3>
+
+                <p>Masalah umum jika hanya menggunakan width:</p>
+
+                <h4>a. Layar Terlalu Besar</h4>
+<pre>
+    .container { <br>
+        width: 1200px; <br>
+    }
+</pre>
+                <p>
+                    ➡ di layar besar tampak kecil <br>
+                    ➡ di layar kecil bisa overflow
+                </p>
+                
+
+                <h4>b. Layout Tidak Responsif</h4>
+
+                <p>Elemen tidak menyesuaikan dengan ukuran viewport.</p>
+
+                📌 Inilah alasan constraint diperlukan.
+
+                <h3>4. Apa itu Constraint (Pembatas Ukuran)?</h3>
+
+                <p>Constraint adalah aturan pembatas ukuran agar elemen:</p>
+
+                <ul>
+                    <li>tidak terlalu besar</li>
+                    <li>tidak terlalu kecil</li>
+                    <li>tetap proporsional</li>
+                    <li></li>
+                </ul>
+
+                <p>Constraint utama di CSS:</p>
+                <ul>
+                    <li><code>max-width</code></li>
+                    <li><code>min-width</code></li>
+                    <li>(nanti: height juga punya constraint)</li>
+                </ul>
+                
+                <h3>5. Peran Constraint dalam Desain Modern</h3>
+
+                <p>
+                    Desain modern jarang menggunakan width absolut saja.
+                    <br> <br>
+                    Pola yang sering digunakan:
+                </p>
+
+<pre>
+    .container { <br>
+        width: 100%; <br>
+        max-width: 1200px; <br>
+    }
+</pre>
+                <p>Artinya:</p>
+                <ul>
+                    <li>lebar fleksibel</li>
+                    <li>tapi tidak lebih dari 1200px</li>
+                </ul>
+
+                <p>📌 Ini adalah best practice layout responsif</p>
+
+                <h3>6. Hubungan Width dan Parent Element</h3>
+
+                <p>Jika width menggunakan satuan relatif:</p>
+<pre>
+    .box { <br>
+        width: 50%; <br>
+    }
+</pre>
+
+                <p>Maka:</p>
+                <ul>
+                    <li>lebar dihitung dari parent element</li>
+                    <li>bukan dari viewport (kecuali parent = viewport)</li>
+                </ul>
+
+                <p>📌 Kesalahan umum: mengira % selalu dari layar</p>
+
+                <h3>7. Width, Content, dan Flow Layout</h3>
+
+                <p>Lebar elemen memengaruhi:</p>
+
+                <ul>
+                    <li>pembungkusan teks (text wrapping)</li>
+                    <li>tinggi otomatis elemen</li>
+                    <li>posisi elemen lain</li>
+                </ul>
+                
+<pre>
+    .card { <br>
+        width: 300px; <br>
+    }
+</pre>
+                <p>
+                    ➡ teks panjang akan turun baris <br>
+                    ➡ tinggi elemen bertambah otomatis
+                </p>
+
+                <h3>8. Constraint Mencegah Layout Rusak</h3>
+
+                <p>Tanpa constraint:</p>
+                <ul>
+                    <li>gambar bisa terlalu besar</li>
+                    <li>teks terlalu panjang</li>
+                    <li>container meluber</li>
+                </ul>
+
+                <p>Dengan constraint:</p>
+<pre>
+    img {  <br>
+        max-width: 100%; <br>
+    }
+</pre>
+
+                <p>📌 Ini mencegah gambar keluar dari container</p>
+
+                <h3>9. Constraint dan Responsiveness</h3>
+
+                <p>Constraint adalah fondasi responsive design.
+                    <br><br>
+                Contoh pola umum:</p>
+<pre>
+    .section { <br>
+        width: 100%; <br>
+        max-width: 1100px; <br>
+        margin: 0 auto; <br>
+    }
+</pre>
+                <p>Hasil:</p>
+                <ul>
+                    <li>mobile: full width</li>
+                    <li>desktop: lebar dibatasi</li>
+                    <li>layout tetap rapi</li>
+                </ul>
+
+                <h3>10. Perbedaan Konsep: Width vs Constraint</h3>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Width</th>
+                        <th>Constraint</th>
+                    </tr>
+                    <tr>
+                        <td>Fungsi</td>
+                        <td class="ct">Menentukan ukuran</td>
+                        <td class="ct">Membatasi ukuran</td>
+                    </tr>
+                    <tr>
+                        <td>Sifat</td>
+                        <td class="ct">Tetap / fleksibel</td>
+                        <td class="ct">Protektif</td>
+                    </tr>
+                    <tr>
+                        <td>Wajib</td>
+                        <td class="ct">Tidak</td>
+                        <td class="ct">Sangat disarankan</td>
+                    </tr>
+                    <tr>
+                        <td>Efek ke layout</td>
+                        <td class="ct">Langsung</td>
+                        <td class="ct">Preventif</td>
+                    </tr>
+                </table>
+                		
+                <h3>11. Kesalahan Umum Pemula</h3>
+
+                <p>
+                    ❌ Mengunci width besar tanpa max-width <br>
+                    ❌ Menggunakan px untuk semua ukuran <br>
+                    ❌ Mengabaikan layar kecil <br>
+                    ❌ Tidak memahami parent width
+                </p>
+
+                <h3>12. Pola Best Practice Dasar</h3>
+
+                <p>
+                    ✔ Gunakan width + max-width <br>
+                    ✔ Gunakan % atau vw dengan pembatas <br>
+                    ✔ Biarkan height otomatis <br>
+                    ✔ Gunakan constraint untuk stabilitas
+                </p>
+
+
+
+
+
+                <!-- Width dan Constrain Done -->
+
+
+                <h2>B. Width dan Max-Width (Pembahasan Mendalam)</h2>
+                <h3>1. Apa itu width?</h3>
+                <p>
+                    width menentukan lebar dasar sebuah elemen.
+                </p>
+                
+<pre>
+    .box { <br>
+        width: 400px; <br>
+    }
+</pre>
+
+
+                <p>
+                    Artinya:
+                    <ul>
+                        <li>konten elemen lebarnya 400px</li>
+                        <li>tidak peduli ukuran layar</li>
+                        <li>elemen dipaksa selebar itu</li>
+                    </ul>
+                    📌 width bersifat mengunci ukuran, kecuali memakai satuan fleksibel.
+                </p>
+
+                <h3>2. Bagaimana CSS Menghitung Width?</h3>
+                <p>
+                    Secara default (box-sizing: content-box):
+                    <br> <br>
+                    total lebar = width + padding + border
+
+                    <br> <br>
+                    Contoh:
+                </p>    
+<pre>
+    .box { <br>
+        width: 300px; <br>
+        padding: 20px; <br>
+        border: 5px solid black; <br>
+    }
+</pre>
+                <p>
+                    ➡ total lebar = 300 + 40 + 10 = 350px <br> <br>
+
+                    📌 Ini sering menyebabkan overflow tanpa disadari.
+                </p>
+
+                <h3>3. Jenis Nilai width</h3>
+                <h4>a. Nilai Absolut</h4>
+<pre>
+    width: 300px;
+</pre>
+                <p>
+                    ✔ presisi <br>
+                    ❌ tidak responsif
+                </p>
+
+                <h4>b. Nilai Relatif ke Parent</h4>
+                width: 50%;
+
+                <p>
+                    ✔ fleksibel <br>
+                    ❌ bisa terlalu besar di layar lebar
+                </p>
+
+                <h4>c. Nilai Relatif ke Viewport</h4>
+<pre>
+    width: 80vw;
+</pre>
+                <p>
+                    ✔ adaptif <br>
+                    ❌ berisiko terlalu lebar
+                </p>
+
+                <h3>4. Masalah Umum Jika Hanya Menggunakan width</h3>
+
+                <p>
+                    ❌ Elemen Terlalu Lebar di Layar Besar
+                </p>
+
+<pre>
+    .container { <br>
+        width: 100%; <br>
+    }
+</pre>
+                <p>
+                    ➡ di layar 4K, konten terlalu melebar <br>
+                    ➡ sulit dibaca
+                </p>
+
+                <p>
+                    ❌ Overflow di Layar Kecil
+                </p>
+         
+<pre>
+    .container { <br>
+        width: 1200px; <br>
+    }
+</pre>
+                <p>➡ mobile akan scroll horizontal</p>
+                
+
+                <h3>5. Apa itu max-width?</h3>
+
+                <p>
+                    max-width adalah batas maksimum lebar elemen.
+                </p>
+
+<pre>
+    .container { <br>
+        max-width: 1200px; <br>
+    }
+</pre>
+                <p>
+                    Artinya:
+                    <ul>
+                        <li>elemen boleh mengecil</li>
+                        <li>tetapi tidak boleh lebih lebar dari 1200px</li>
+                    </ul>
+                    📌 max-width tidak mengunci, hanya membatasi.
+                </p>
+
+                <h3>6. Perbedaan Perilaku width vs max-width</h3>
+                <table>
+                    <tr>
+                        <th>Kondisi Layar</th>
+                        <th><code>width: 1200px</code></th>
+                        <th><code>max-width: 1200px</code></th>
+                    </tr>
+                    <tr>
+                        <td>Layar kecil</td>
+                        <td>Overflow</td>
+                        <td>Menyusut</td>
+                    </tr>
+                    <tr>
+                        <td>Layar besar</td>
+                        <td>Tetap 1200px</td>
+                        <td>Tetap 1200px</td>
+                    </tr>
+                    <tr>
+                        <td>Fleksibel</td>
+                        <td>❌</td>
+                        <td>✔</td>
+                    </tr>
+                </table>
+
+                <h3>7. Kombinasi Terbaik: width + max-width</h3>
+
+                <p>Pola paling umum dan direkomendasikan:</p>
+
+<pre>
+    .container { <br>
+        width: 100%; <br>
+        max-width: 1200px; <br>
+    }
+</pre>
+                <p>
+                    Artinya:
+                    <ul>
+                        <li>mobile → full width</li>
+                        <li>desktop → dibatasi</li>
+                        <li>layar besar → tetap nyaman dibaca</li>
+                    </ul>
+
+                    📌 Ini adalah fondasi layout responsif
+                </p>
+
+                <h3>8. Mengapa max-width Lebih Aman dari width?</h3>
+
+                <p>
+                    Karena:
+                    <ul>
+                        <li>tidak memaksa ukuran</li>
+                        <li>mengikuti ukuran layar</li>
+                        <li>mencegah overflow</li>
+                        <li>cocok untuk semua device</li>
+                    </ul>
+                    
+
+                    
+
+                    
+
+                    
+                </p>
+
+<pre>
+    img { <br>
+        max-width: 100%; <br>
+    }
+</pre>
+                <p>➡ gambar tidak pernah keluar container</p>
+
+                <h3>9. Urutan Prioritas CSS</h3>
+
+                <p>Jika width dan max-width digunakan bersama:</p>
+
+<pre>
+    .box { <br>
+        width: 1000px; <br>
+        max-width: 600px; <br>
+    }
+</pre>
+                <p>
+                    ➡ yang berlaku: max-width (600px)
+                    <br> <br>
+                    📌 Constraint selalu menang jika dilanggar.
+                </p>
+
+                <h3>10. max-width dengan Satuan Relatif</h3>
+
+<pre>
+    .container { <br>
+        max-width: 90%; <br>
+    }
+</pre>
+                <p>
+                    ➡ tetap fleksibel <br>
+                    ➡ tapi jarang dipakai untuk layout utama
+                    <br> <br>
+                    Lebih umum:
+                    <br> <br>
+                    <code>max-width: 1100px;</code>
+                </p>
+
+                <h3>11. Contoh Kasus Nyata</h3>
+
+                <p>
+                    Layout Artikel
+                </p>
+
+<pre>
+    .article { <br>
+        width: 100%; <br>
+        max-width: 700px; <br>
+        margin: 0 auto; <br>
+    }
+</pre>
+                <p>
+                    ➡ teks nyaman dibaca <br>
+                    ➡ tidak terlalu panjang <br>
+                    ➡ mobile friendly
+                </p>
+
+                <h3>12. Kesalahan Umum</h3>
+                <p>
+                    ❌ Menggunakan width besar tanpa max-width <br>
+                    ❌ Mengunci layout dengan px semua <br>
+                    ❌ Tidak mengatur gambar dengan max-width <br>
+                    ❌ Menganggap % selalu aman
+                </p>
+
+                <h3>13. Best Practice Ringkas</h3>
+                <p>
+                    ✔ Gunakan width: 100% untuk fleksibilitas <br>
+                    ✔ Tambahkan max-width sebagai pengaman <br>
+                    ✔ Gunakan margin: auto untuk center <br>
+                    ✔ Hindari width absolut untuk layout utama <br>
+                </p>
+
+
+
+
+
+
+                <!-- Width Done -->
+
+
+
+
+                <h2>C. Height dan Problemnya</h2>
+                <h3>1. Apa itu height?</h3>
+
+                <p>height menentukan tinggi sebuah elemen.</p>
+<pre>
+    .box { <br>
+        height: 200px; <br>
+    }
+</pre>
+                <p>
+                    Artinya:
+                    <ul>
+                        <li>tinggi elemen dipaksa 200px</li>
+                        <li>konten di dalamnya tidak mempengaruhi tinggi</li>
+                    </ul>
+
+                    📌 Berbeda dengan width, tinggi alami elemen biasanya ditentukan oleh kontennya.
+                </p>
+
+                <h3>2. Perbedaan Dasar <code>width</code> vs <code>height</code></h3>
+                <table>
+                    <tr>
+                        <th>Properti</th>
+                        <th>Default behavior</th>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>mengikuti parent</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>mengikuti konten</td>
+                    </tr>
+                </table>
+
+                <p>➡ Karena itu, mengatur height jauh lebih berisiko</p>
+                
+
+                <h3>3. Masalah Utama Saat Menggunakan height</h3>
+
+                <p>❌ Konten Terpotong</p>
+                
+<pre>
+    .card { <br>
+        height: 150px; <br>
+    }
+</pre>
+                <p>
+                    Jika konten lebih tinggi:
+                    <ul>
+                        <li>teks terpotong</li>
+                        <li>elemen lain rusak</li>
+                        <li>UX buruk</li>
+                    </ul>
+
+                    ❌ Layout Tidak Responsif
+                </p>
+
+<pre>
+    .section { <br>
+        height: 600px; <br>
+    }
+</pre>
+
+                <p>
+                    layar kecil → terlalu tinggi <br>
+                    <br>
+                    layar besar → terlihat kosong <br>
+                    <br>
+                    📌 height absolut tidak adaptif
+                </p>
+
+                <h3>4. Masalah Paling Umum: height: 100%</h3>
+
+<pre>
+    .box { <br>
+        height: 100%; <br>
+    }
+</pre>
+
+                <p>
+                    ➡ Sering tidak bekerja
+                    <br> <br>
+                    Kenapa?
+                    <br> <br>
+                    Karena:
+                    <ul>
+                        <li>height: 100% bergantung pada height parent</li>
+                    </ul>
+                    
+
+                    Jika parent tidak memiliki height eksplisit, maka:
+                    <ul>
+                        <li>browser tidak tahu 100% itu dari apa</li>
+                        <li>hasilnya = auto</li>
+                    </ul>
+
+                    Contoh Gagal
+                </p>
+
+<pre>
+    .parent { <br>
+        /* tidak ada height */ <br>
+    } <br>
+        <br>
+    .child { <br>
+        height: 100%; <br>
+    }
+</pre>
+
+                <p>
+                    ➡ child tidak akan penuh
+                    <br> <br>
+                    Contoh Benar
+                </p>
+
+
+<pre>
+    html, body { <br>
+        height: 100%; <br>
+    } <br>
+    <br>
+    .parent { <br>
+        height: 100%; <br>
+    } <br>
+        <br>
+    .child { <br>
+        height: 100%; <br>
+    }
+</pre>
+                <p>📌 Semua level harus punya height.</p>
+                
+                <h3>5. height vs min-height (Solusi Penting)</h3>
+
+                <p>❌ height (berisiko)</p>
+                
+<pre>
+    .box { <br>
+        height: 300px; <br>
+    }
+</pre>
+
+
+                <p>✔ min-height (aman)</p>
+<pre>
+    .box { <br>
+        min-height: 300px; <br>
+    }
+</pre>
+                <p>
+                    Artinya:
+                    <ul>
+                        <li>minimal 300px</li>
+                        <li>boleh lebih tinggi jika konten bertambah</li>
+                    </ul>
+
+                    📌 min-height hampir selalu lebih aman
+                </p>
+
+                <h3>6. Studi Kasus: Section Full Screen</h3>
+                
+                <p>❌ Salah</p>
+              
+<pre>
+                .hero { <br>
+                    height: 100%; <br>
+                }
+</pre>
+
+                <p>✔ Benar</p>
+
+<pre>
+    .hero { <br>
+        min-height: 100vh; <br>
+    }
+</pre>
+                <p>
+                    ➡ selalu setinggi layar <br>
+                    ➡ konten tetap aman
+                </p>
+
+                <h3>7. vh dan Masalahnya</h3>
+
+<pre>
+    .section { <br>
+        height: 100vh; <br>
+    }
+</pre>
+                <p>
+                    Masalah:
+                    <ul>
+                        <li>mobile browser punya address bar dinamis</li>
+                        <li>tinggi viewport berubah</li>
+                        <li>konten bisa terpotong</li>
+                    </ul>
+
+                    📌 Terutama di Android & iOS lama. <br>
+                    <br>
+
+                    Solusi Aman
+                </p>
+
+<pre>
+    .section { <br>
+        min-height: 100vh; <br>
+    }
+</pre>
+
+
+                <h3>8. Height dalam Flexbox</h3>
+
+                <p>Flexbox mengubah cara height bekerja.</p>
+
+<pre>
+    .container { <br>
+        display: flex; <br>
+        height: 100vh; <br>
+    } <br>
+        <br>
+    .sidebar { <br>
+        width: 250px; <br>
+    } <br>
+        <br>
+    .content { <br>
+        flex: 1; <br>
+    }
+</pre>
+
+                <p>
+                    ➡ flex item bisa otomatis stretch vertikal <br>
+                    ➡ tanpa set height manual <br> <br>
+
+                    📌 Flexbox = solusi modern untuk masalah height
+                </p>
+
+                <h3>9. Height dan Scroll</h3>
+
+                <p>Jika height dibatasi:</p>
+                
+<pre>
+    .box { <br>
+        height: 300px; <br>
+        overflow: auto; <br>
+    }
+</pre>
+
+                <p>
+                    ➡ konten panjang akan scroll <br>
+                    ➡ bukan memecah layout
+                </p>
+
+                <h3>10. Kesalahan Umum (WAJIB DIHINDARI)</h3>
+
+                <p>
+                    ❌ Mengunci height konten dinamis <br>
+                    ❌ Menggunakan height: 100% tanpa parent height <br>
+                    ❌ Menggunakan px untuk layout vertikal <br>
+                    ❌ Mengabaikan min-height
+                </p>
+
+                <h3>11. Best Practice Height</h3>
+
+                <p>
+                    ✔ Biarkan tinggi mengikuti konten <br>
+                    ✔ Gunakan min-height, bukan height <br>
+                    ✔ Gunakan vh untuk section besar <br>
+                    ✔ Manfaatkan Flexbox/Grid <br>
+                    ✔ Gunakan overflow jika perlu
+                </p>
+
+
+                <br> <br>
+                <a href="2d-overflow.html" class="btn-next">2d. Overflow</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

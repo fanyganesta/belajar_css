@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="" id="align-items">4. Align Items</a></h5>
+            <h5><a href="" id="gap">5. Gap</a></h5>
+            <h5><a href="" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
+            <h5><a href="" id="grid-template-column">2. Grid Template Columns</a></h5>
+            <h5><a href="" id="fraction-unit">3. Fraction Unit</a></h5>
+            <h5><a href="" id="auto-fit-dan-min-max">4. Auto Fit dan Min Max</a></h5>
+            <h5><a href="" id="grid-gap">5. Grid Gap</a></h5>
+            <h5><a href="" id="spanning">6. Spanning</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="" id="absolute">2. Absolute</a></h5>
+            <h5><a href="" id="sticky">3. Sticky</a></h5>
+            <h5><a href="" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>Overflow</h2>
+                <p>
+                    Overflow adalah mekanisme CSS untuk mengatur apa yang terjadi ketika konten lebih besar dari ruang elemen. <br>
+                    <br>
+                    Materi ini erat sekali hubungannya dengan height, width, dan box model.
+                </p>
+
+                <h3>1. Apa itu overflow?</h3>
+                <p>
+                    overflow menentukan: <br>
+                    <br>
+                    apa yang dilakukan browser ketika konten keluar dari batas box
+                </p>
+<pre>
+    .box { <br>
+        width: 200px; <br>
+        height: 100px; <br>
+        overflow: hidden; <br>
+    }
+</pre>
+
+                <p>📌 Tanpa overflow, browser tetap menggambar konten walau keluar box</p>
+
+                <h3>2. Jenis-jenis overflow</h3>
+                <table>
+                    <tr>
+                        <th>Nilai</th>
+                        <th>Perilaku</th>
+                    </tr>
+                    <tr>
+                        <td>visible (default)</td>
+                        <td>konten keluar box</td>
+                    </tr>
+                    <tr>
+                        <td>hidden</td>
+                        <td>konten dipotong</td>
+                    </tr>
+                    <tr>
+                        <td>scroll</td>
+                        <td>selalu muncul scrollbar</td>
+                    </tr>
+                    <tr>
+                        <td>auto</td>
+                        <td>scrollbar muncul jika perlu</td>
+                    </tr>
+                </table>
+
+                <p>Dalam materi ini kita fokus ke hidden dan scroll.</p>
+
+                <h3>3. overflow: hidden</h3>
+                <p>
+                    Fungsi
+                    <ul>
+                        <li>menyembunyikan konten yang keluar</li>
+                        <li>memotong elemen di luar box</li>
+                    </ul>
+                </p>
+<pre>
+    .card { <br>
+        height: 150px; <br>
+        overflow: hidden; <br>
+    }
+</pre>
+
+                <p>
+                    Kapan digunakan? <br>
+                    <br>
+                    ✔ Crop gambar <br>
+                    ✔ Menyembunyikan teks berlebih <br>
+                    ✔ Membersihkan float (cara lama) <br>
+                    ✔ Animasi slide-in <br>
+                    ✔ Masking elemen <br>
+                    <br>
+                    Contoh Praktis
+                </p>
+
+<pre>
+    .image-box { <br>
+        width: 200px; <br>
+        height: 200px; <br>
+        overflow: hidden; <br>
+    }
+</pre>
+    
+                <p>
+                    ➡ gambar besar akan terpotong rapi <br>
+                    <br>
+                    ⚠ Bahaya overflow: hidden <br>
+                     <br>
+                    ❌ Konten penting bisa hilang <br>
+                    ❌ Aksesibilitas buruk <br>
+                    ❌ User tidak tahu ada konten terpotong <br>
+                     <br>
+                    📌 Gunakan hanya jika disengaja
+                </p>
+
+                <h3>4. overflow: scroll</h3>
+                <p>
+                    Fungsi
+                    <ul>
+                        <li>memaksa scrollbar muncul</li>
+                        <li>walau konten cukup</li>
+                    </ul>
+                </p>
+<pre>
+    .box { <br>
+        height: 150px; <br>
+        overflow: scroll; <br>
+    }
+</pre>
+                <p>
+                    ➡ scrollbar selalu terlihat <br>
+                    <br>
+                    Kapan digunakan?
+
+                    ✔ Area chat <br>
+                    ✔ Log aktivitas <br>
+                    ✔ Tabel panjang <br>
+                    ✔ Sidebar list panjang <br>
+                    <br>
+                    Kekurangan <br>
+                    <br>
+                    ❌ Scrollbar muncul meski tidak perlu <br>
+                    ❌ Bisa mengganggu desain
+                </p>
+
+                <h3>5. overflow: auto (Alternatif Lebih Baik)</h3>
+
+<pre>
+    .box { <br>
+        height: 150px; <br>
+        overflow: auto; <br>
+    }
+</pre>
+                <p>
+                    ➡ scrollbar muncul hanya jika diperlukan <br>
+                    <br>
+                    📌 Paling sering dipakai di dunia nyata
+                </p>
+
+                <h3>6. Overflow Arah Spesifik</h3>
+
+                <p>Kita bisa mengatur sumbu tertentu:</p>
+
+<pre>
+    .box { <br>
+        overflow-x: hidden; <br>
+        overflow-y: auto; <br>
+    }
+</pre>
+                <p>
+                    ➡ horizontal dipotong <br>
+                    ➡ vertical bisa scroll <br>
+                    <br>
+                    Contoh Kasus Nyata
+                </p>
+
+<pre>
+    .table-wrapper { <br>
+        max-width: 100%; <br>
+        overflow-x: auto; <br>
+    } <br>
+    <br> 
+    .table-wrapper { <br>
+        max-width: 100%; <br>
+        overflow-x: auto; <br>
+    }
+</pre>
+                <p>
+                    ➡ tabel besar tetap bisa di-scroll horizontal
+
+                    <h3>7. Hubungan Overflow dengan Height</h3>
+
+                    Overflow tidak bekerja tanpa batasan ruang.
+                </p>
+<pre>
+    .box { <br>
+        overflow: auto; <br>
+    }
+</pre>
+                <p>
+                    ❌ Tidak akan scroll jika: <br>
+                    <br>
+                    tidak ada height / max-height <br>
+                    <br>
+                    ✔ Harus ada:
+                </p>
+<pre>
+    .box { <br>
+        max-height: 300px; <br>
+        overflow-y: auto; <br>
+    }
+</pre>
+
+
+                <h3>8. Overflow dan Flexbox</h3>
+
+                <p>Masalah umum:</p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        height: 100vh; <br>
+    } <br>
+        <br>
+    .content { <br>
+        overflow: auto; <br>
+    }
+</pre>
+                <p>
+                    ➡ Konten tidak scroll <br>
+                    <br>
+                    Solusi
+                </p>
+<pre>
+    .content { <br>
+        overflow: auto; <br>
+        min-height: 0; <br>
+    }
+</pre>
+
+                <p>📌 Flex item default-nya min-height: auto</p>
+
+                <h3>9. Overflow dan Text</h3>
+                <p>Potong teks satu baris</p>
+
+<pre>
+    .text { <br>
+        white-space: nowrap; <br>
+        overflow: hidden; <br>
+        text-overflow: ellipsis; <br>
+    }
+</pre>
+
+
+                <p>➡ menghasilkan ...</p>
+
+                <h3>10. Kesalahan Umum Overflow</h3>
+                <p>
+                    ❌ Menggunakan overflow tanpa height <br>
+                    ❌ Memotong konten penting <br>
+                    ❌ Scroll di dalam scroll (nested scroll) <br>
+                    ❌ Lupa aksesibilitas keyboard
+                </p>
+
+                <h3>11. Best Practice Overflow</h3>
+                <p>
+                    ✔ Gunakan auto daripada scroll <br>
+                    ✔ Batasi dengan max-height <br>
+                    ✔ Gunakan scroll hanya pada area tertentu <br>
+                    ✔ Hindari nested scroll <br>
+                    ✔ Perhatikan mobile UX
+                </p>
+                <br> <br>
+
+                <a href="3a-flex-box.html" class="btn-next">Bab 3 CSS Satu Arah (Flex Box)</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
