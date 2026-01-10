@@ -77,140 +77,177 @@
             </header>
 
             <div class="container">
-            
-            <h3>Road Map Belajar CSS by me</h3>
-            <div class="img-box">
-                <img src="Belajar CSS.jpeg" alt="Road Map Belajar CSS by Fany" max-width="100%">
-            </div>
+                <h2>B. Main Axis & Cross Axis (Flexbox)</h2>
+                <h3>1. Mengapa Flexbox punya axis?</h3>
 
-                <p>Menurutku, cara CSS bekerja bisa dijelaskan secara runtut dan mudah dipahami dengan alur <strong>“browser membaca aturan → menentukan prioritas → menerapkan gaya ke elemen HTML”</strong>. Penjelasan ini cocok untuk materi CSS sebagai dekorasi karena menekankan peran CSS dalam “mendandani” HTML.
-                <br><br>
-                Berikut penjelasan yang bisa kamu gunakan:
-            </p>
-
-            <h3>1. CSS Bekerja dengan Cara Memilih Elemen HTML</h3>
-
-            <p>CSS tidak berdiri sendiri. Ia mencari elemen HTML yang ingin dihias melalui selector.</p>
-
-            <p>Contoh:</p>
-
-<pre>
-    p{
-        color: blue;
-    }
-</pre>
-
-            <p>
-                Artinya:
+                <p>Flexbox tidak berpikir dalam:
                 <ul>
-                    <li>CSS mencari semua</li>
-                    <li>Lalu menerapkan warna teks biru</li>
+                    <li>kiri – kanan – atas – bawah</li>
                 </ul>
-                👉 Tanpa HTML, CSS tidak punya objek untuk dihias.
-            </p>
 
-            <hr>
-
-            <h3>2. Browser Membaca CSS dari Atas ke Bawah</h3>
-            <p>
-                Saat halaman dibuka:
+                Flexbox berpikir dalam:
                 <ul>
-                    <li>Browser memuat HTML</li>
-                    <li>Browser memuat CSS</li>
-                    <li>CSS dibaca berurutan <strong>dari atas ke bawah</strong></li>
+                    <li>arah aliran dan arah silang</li>
                 </ul>
-                Jika ada aturan yang saling bertabrakan, aturan terakhir bisa menimpa aturan sebelumnya, tergantung prioritasnya.
-            </p>
 
-            <hr>
-            <h3>3. CSS Menggunakan Sistem Prioritas (Cascade)</h3>
+                Itulah:
+                <ul>
+                    <li>Main Axis</li>
+                    <li>Cross Axis</li>
+                </ul></p>
 
-            <p>
-                Inilah asal nama Cascading Style Sheets.
-
-                Urutan prioritas secara sederhana:
-
-                <ol>
-                    <li>!important</li>
-                    <li>Inline CSS <pre>(style="")</pre></li>
-                    <li>Internal CSS <pre>&lt;style&gt; ... &lt;/style&gt;</pre></li>
-                    <li>External CSS <pre>(.css) <br><br> atau <br><br> &lt;link rel="stylesheet" href="ini-file-css.css" &gt;</pre></li>
-                    <li>Urutan penulisan (yang terakhir menang)</li>    
-                </ol>
-
-                Contoh:
-            </p>
-<pre>
-    p {
-    color: red;
-    }
-
-    p {
-    color: green;
-    }
-</pre>
-
-                <hr>
-                <h3>4. CSS Menghitung Spesifisitas Selector</h3>
+                <h3>2. Apa itu Main Axis?</h3>
                 <p>
-                    Jika dua aturan sama-sama aktif, browser menghitung siapa yang lebih spesifik.
-
-                    Urutan spesifisitas:
-                    <ol>
-                        <li>#id</li>
-                        <li>.class</li>
-                        <li>tag</li>
-                    </ol>
-                    Contoh:
-                </p>
-    
-<pre>
-    p { color: blue; } <br>
-    .text { color: green; } <br>
-    #judul { color: red;}
-
-</pre>
-
-                <p>➡️ Elemen dengan id="judul" akan merah, meskipun punya class atau tag.</p>
-
-                <hr>
-
-                <h3>5. CSS Mewariskan Gaya (Inheritance)</h3>
-                <p>
-                    Beberapa properti CSS diturunkan ke anak elemen <br>
-                    Contoh:
-                </p>
-
-<pre>
-    body {<br>
-        font-family: arial;<br>
-        color: black;<br>
-    }
-</pre>
-
-                <p>
-                    Semua teks di dalam &lt;body&gt; otomatis:
+                    Main Axis adalah:
                     <ul>
-                        <li>Menggunakan Arial</li>
-                        <li>Berwarna hitam</li>
+                        <li>arah utama aliran flex item</li>
                     </ul>
-                    👉 Tidak semua properti diwariskan (misalnya margin, padding).
-                </p>
+                    
 
-    <hr>
-                <h3>6. CSS Diterapkan ke Layout dan Tampilan</h3>
+                    Default:
+                </p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        flex-direction: row; <br>
+    }
+</pre>
+
+                <p>➡ Main axis = horizontal (kiri → kanan)</p>
+<pre>
+    [A] [B] [C]
+</pre>
+
+                <h3>3. Apa itu Cross Axis?</h3>
                 <p>
-                    Setelah aturan dipilih dan diprioritaskan, browser:
+                    Cross axis adalah:
                     <ul>
-                        <li>Menghitung ukuran (box model)</li>
-                        <li>Menentukan posisi (layout)</li>
-                        <li>Menggambar tampilan di layar (render)</li>
+                        <li>arah yang tegak lurus terhadap main axis</li>
+                        <li>Jika main axis horizontal → cross axis vertical</li>
                     </ul>
-                    Inilah tahap akhir CSS “bekerja” sebagai dekorasi visual.
+                </p>
+<pre>
+    Main → <br>
+    [A] [B] [C] <br>
+    ↑ <br>
+    Cross
+</pre>
+
+                <h3>4. Mengubah arah main axis</h3>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        flex-direction: column; <br>
+    }
+</pre>
+                <p>
+                    Sekarang: <br> <br>
+
+                    Main axis = atas → bawah <br> <br>
+
+                    Cross axis = kiri → kanan
                 </p>
 
-                <a href="1b-properti-visual.html" class="btn-next"> Next: Properti Visual</a>
+<pre>
+                [A] <br>
+                [B] <br>
+                [C] <br>
+</pre>
+                
 
+                <h3>5. Kenapa ini sangat penting?</h3>
+                <p>
+                    Karena: <br> <br>
+
+                    Semua properti Flexbox mengacu pada axis, bukan arah layar
+                </p>
+
+                <h3>6. Contoh Properti</h3>
+                <table>
+                    <tr>
+                        <th>Properti</th>
+                        <th>Mengatur</th>
+                    </tr>
+                    <tr>
+                        <td><code>justify-content</code></td>
+                        <td>sepanjang main axis</td>
+                    </tr>
+                    <tr>
+                        <td><code>align-items</code></td>
+                        <td>sepanjang cross axis</td>
+                    </tr>
+                    <tr>
+                        <td><code>align-content</code></td>
+                        <td>cross axis multi-line</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex-grow</code></td>
+                        <td>main axis</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex-shrink</code></td>
+                        <td>main axis</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex-basis</code></td>
+                        <td>main axis</td>
+                    </tr>
+                </table>
+                
+                <h3>7. Kesalahan umum</h3>
+
+                <p>Banyak orang mengira:</p>
+<pre>
+    justify-content = horizontal <br>
+    align-items = vertical
+</pre>
+
+                <p>Itu hanya benar jika flex-direction: row
+                    <br> <br>
+                    Kalau:
+                </p>
+<pre>
+    flex-direction: column;
+</pre>
+
+                <p>Maka:</p>
+<pre>
+    justify-content → vertical <br> <br>
+
+    align-items → horizontal <br>
+
+                <h3>8. Visualisasi</h3>
+    flex-direction: row <br>
+    Main axis   → horizontal <br>
+    Cross axis  ↓ vertical <br> <br>
+
+    flex-direction: column <br>
+    Main axis   ↓ vertical <br>
+    Cross axis  → horizontal <br>
+</pre>
+                <h3>9. Analogi</h3>
+                <p>
+                    Bayangkan kereta:
+                    <ul>
+                        <li>Rel → main axis</li>
+                        <li>Jarak antar rel → cross axis</li>
+                    </ul>
+
+                    Kereta bergerak di rel, bukan di udara.
+                </p>
+                <h3>10. Ringkasan</h3>
+                <ul>
+                    <li>Flexbox tidak pakai kiri/kanan</li>
+                    <li>Pakai main axis & cross axis</li>
+                    <li>flex-direction menentukan arah main axis</li>
+                    <li>Semua alignment mengikuti axis</li>
+                </ul>
+
+
+                <br>
+                <br>
+
+                <a href="3c-justify-content.html" class="btn-next">3C Justify Content</a>
             </div>
         </main>
     </div>

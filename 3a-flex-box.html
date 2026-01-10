@@ -28,8 +28,8 @@
 
             <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
             <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
-            <h5><a href="" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
-            <h5><a href="" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="3b-main-axis-dan-cross-axis.html" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="3c-justify-content.html" id="justify-content">3. Justify Content</a></h5>
             <h5><a href="" id="align-items">4. Align Items</a></h5>
             <h5><a href="" id="gap">5. Gap</a></h5>
             <h5><a href="" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
@@ -281,7 +281,181 @@
                     <li>dibuat khusus untuk UI modern</li>
                 </ul>
 
+
+
+
+
+                <!-- Flex General Done -->
+
+
+
+
+
+
+                <h3>Flex Container & Flex Item</h3>
+                <h4>1. Apa itu Flex Container?</h4>
+
+                <p>Flex container adalah elemen induk yang mengaktifkan sistem Flexbox. <br> <br>
+
+                Dia dibuat dengan:</p>
+<pre>
+    .container {  <br>
+        display: flex; <br>
+    }
+</pre>
+
+                Begitu sebuah elemen menjadi display: flex, maka:
+                <ul>
+                    <li>dia menjadi flex container</li>
+                    <li>semua anak langsungnya menjadi flex item</li>
+                </ul>
                 
+                <p>Contoh:</p>
+<pre>
+    &lt;div class="container"> <br>
+    &lt;div class="box">A&lt;/div> <br>
+    &lt;div class="box">B&lt;/div> <br>
+    &lt;div class="box">C&lt;/div> <br>
+    &lt;/div>
+
+                
+    .container { <br>
+        display: flex; <br>
+    }
+</pre>
+
+                <p>➡ A, B, C otomatis masuk sistem Flexbox</p>
+
+                <h4>2. Siapa yang termasuk Flex Item?</h4>
+
+                <p>Hanya anak langsung dari flex container.</p>
+<pre>
+    &lt;div class="container"> <br>
+    &lt;div>A&lt;/div>       &lt;!-- flex item --> <br>
+    &lt;div> <br>
+        &lt;span>B&lt;/span> &lt;!-- B BUKAN flex item --> <br>
+    &lt;/div> <br>
+    &lt;/div> <br>
+</pre>
+
+                <p>📌 span bukan flex item karena bukan anak langsung.</p>
+
+                <h4>3. Tugas Flex Container</h4>
+
+                <p>Flex container bertanggung jawab atas:
+                    <ul>
+                        <li>arah layout</li>
+                        <li>alignment</li>
+                        <li>jarak</li>
+                        <li>wrapping</li>
+                        <li>distribusi ruang</li>
+                    </ul>
+                    Ia mengatur semua anak sekaligus.
+                    
+                </p>
+                <h4>4. Tugas Flex Item</h4>
+
+                <p>Flex item bertanggung jawab atas:
+                    <ul>
+                        <li>ukuran relatif</li>
+                        <li>urutan</li>
+                        <li>kemampuan tumbuh atau menyusut</li>
+                        <li>basis ukuran</li>
+                    </ul>
+                    Flex item tidak mengatur posisi — container yang mengatur.
+
+                </p>
+
+                <h4>5. Perbedaan Cara Kerja</h4>
+                <table>
+                    <tr>
+                        <th>Flex Container</th>
+                        <th>Flex Item</th>
+                    </tr>
+                    <tr>
+                        <td>Mengatur arah</td>
+                        <td>Mengatur ukuran</td>
+                    </tr>
+                    <tr>
+                        <td>Mengatur alignment</td>
+                        <td>Mengatur proporsi</td>
+                    </tr>
+                    <tr>
+                        <td>Mengatur jarak</td>
+                        <td>Mengatur urutan</td>
+                    </tr>
+                    <tr>
+                        <td>Mengatur wrapping</td>
+                        <td>Mengatur pertumbuhan</td>
+                    </tr>
+                </table>
+
+                <h4>6. Contoh Interaksi</h4>
+
+<pre>
+    .container { <br>
+        display: flex; <br>
+    } <br> <br>
+
+    .item1 { flex: 1; } <br>
+    .item2 { flex: 2; } <br>
+    .item3 { flex: 1; } <br>
+</pre>
+
+                <p>➡ Container membagi ruang <br>
+                ➡ Item menentukan proporsinya</p>
+
+                <h4>7. Tanpa Flex Container, Flex Item tidak berfungsi</h4>
+<pre>
+    .box { <br>
+        flex: 1; <br>
+    }
+</pre>
+
+                <p>
+                    ❌ Tidak akan bekerja kalau parent bukan <code>display: flex </code><br> <br>
+
+                    Flexbox selalu sistem dua pihak:
+                    <ul>
+                        <li>container</li>
+                        <li>item</li>
+                    </ul>
+                    
+
+                    
+                </p>
+
+                <h4>8. Analogi Dunia Nyata</h4>
+                <p>
+                    Bayangkan rak buku:
+                    <ul>
+                        <li>Rak = flex container</li>
+                        <li>Buku = flex item</li>
+                    </ul>
+                    
+                    Rak menentukan:
+                    <ul>
+                        <li>arah susunan</li>
+                        <li>jarak antar buku</li>
+                        <li>apakah baris baru</li>
+                    </ul>
+                    
+                    Buku menentukan:
+                    <ul>
+                        <li>tebal</li>
+                        <li>seberapa banyak ruang diambil</li>
+                    </ul>
+                    
+                </p>
+                <h4>9. Kesalahan Umum</h4>
+                <p>
+                    ❌ Memberi flex ke elemen tanpa parent display:flex <br>
+                    ❌ Mengira cucu elemen ikut flex <br>
+                    ❌ Mengatur alignment di item bukan di container <br>
+                </p>
+
+
+                <a href="3b-main-axis-dan-cross-axis.html" class="btn-next">3B Main Axis dan Cross Axis</a>
             </div>
         </main>
     </div>
