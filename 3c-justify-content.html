@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="3b-main-axis-dan-cross-axis.html" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="3c-justify-content.html" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="" id="align-items">4. Align Items</a></h5>
+            <h5><a href="" id="gap">5. Gap</a></h5>
+            <h5><a href="" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
+            <h5><a href="" id="grid-template-column">2. Grid Template Columns</a></h5>
+            <h5><a href="" id="fraction-unit">3. Fraction Unit</a></h5>
+            <h5><a href="" id="auto-fit-dan-min-max">4. Auto Fit dan Min Max</a></h5>
+            <h5><a href="" id="grid-gap">5. Grid Gap</a></h5>
+            <h5><a href="" id="spanning">6. Spanning</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="" id="absolute">2. Absolute</a></h5>
+            <h5><a href="" id="sticky">3. Sticky</a></h5>
+            <h5><a href="" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>Justify Content</h2>
+                <h3>1. Apa itu justify-content?</h3>
+
+                <p>justify-content adalah properti untuk:</p>
+                <ul>
+                    <li>mengatur posisi dan distribusi flex item di sepanjang main axis</li>
+                </ul>
+                
+
+                Ingat:
+                <ul>
+                    <li>Main axis = arah utama flex (row atau column)</li>
+                </ul>
+                
+
+                <h3>2. Cara kerja sederhananya</h3>
+
+                <p>Jika item lebih kecil dari container, maka:</p>
+                <ul>
+                    <li>akan ada sisa ruang</li>
+                </ul>
+                
+                <p><code>justify-content</code> menentukan:</p>
+                <ul>
+                    <li>sisa ruang itu ditaruh di mana dan dibagi bagaimana</li>
+                </ul>
+                
+
+                <h3>3. Contoh dasar</h3>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        justify-content: center; <br>
+    }
+</pre>
+
+                <p>Jika ada ruang kosong:</p>
+                <ul>
+                    <li>semua item dipusatkan di tengah main axis</li>
+                </ul>
+                
+
+                <h3>4. Jenis-jenis <code>justify-content</code></h3>
+                <h4>a. <code>flex-start</code> (default)</h4>
+<pre>
+    justify-content: flex-start;
+</pre>
+
+                <p>Item menumpuk di awal main axis</p>
+<pre>
+    [A][B][C]______
+</pre>
+
+                <h4>b. <code>flex-end</code></h4>
+<pre>
+    justify-content: flex-end;
+</pre>
+
+                <p>Item menumpuk di akhir main axis</p>
+<pre>
+    ______[A][B][C]
+</pre>
+
+                <h4>c. <code>center</code></h4>
+<pre>
+    justify-content: center;
+</pre>
+
+                <p>Item berada di tengah</p>
+<pre>
+    ___[A][B][C]___
+</pre>
+
+                <h4>d. <code>space-between</code></h4>
+<pre>
+    justify-content: space-between;
+</pre>
+
+                <p>Item paling kiri & kanan nempel, sisanya dibagi</p>
+<pre>
+    [A]____[B]____[C]
+</pre>
+
+                <h4>e. <code>space-around</code></h4>
+
+<pre>
+    justify-content: space-around;
+</pre>
+
+                <p>Ada ruang di kiri dan kanan tiap item</p>
+<pre>
+    _[A]__[B]__[C]_
+</pre>
+
+                <h4>f. <code>space-evenly</code></h4>
+<pre>
+    justify-content: space-evenly;
+</pre>
+
+                <p>Semua jarak sama</p>
+<pre>
+    _[A]__[B]__[C]_
+</pre>
+
+
+                <p>(tengah dan pinggir sama)</p>
+
+                <h3>5. Hubungan dengan <code>flex-direction</code></h3>
+
+                <p>Jika:</p>
+<pre>
+    flex-direction: row; <br><br>
+
+    justify-content = horizontal
+</pre>
+
+                <p>Jika:</p>
+<pre>
+    flex-direction: column; <br> <br>
+
+    justify-content = vertical
+</pre>
+
+                <h3>6. Kapan <code>justify-content</code> bekerja?</h3>
+
+                <p>Hanya jika:</p>
+                <ul>
+                    <li>ukuran total item < ukuran container</li>
+                </ul>
+                
+
+                <p>Jika item sudah penuh:</p>
+                <ul>
+                    <li>tidak ada ruang untuk dibagi</li>
+                    <li>justify-content tidak terlihat efeknya</li>
+                </ul>
+
+                <h3>7. Contoh Kasus Nyata</h3>
+                <p><strong>Navbar</strong></p>
+<pre>
+    nav { <br>
+        display: flex; <br>
+        justify-content: space-between; <br>
+    }
+</pre>
+                <p>
+                Logo di kiri, menu di kanan.
+                <br> <br>
+                <strong>Center box</strong>
+                </p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        justify-content: center; <br>
+    }
+</pre>
+                <h3>8. Kesalahan umum</h3>
+
+                ❌ Menggunakan <code>justify-content</code> untuk vertical align padahal main axis horizontal <br>
+                ❌ Mengira <code>justify-content</code> selalu horizontal <br>
+                ❌ Tidak paham hubungan dengan <code>flex-direction</code> <br>
+
+                <br>
+
+                <a href="3d-align-items.html" class="btn-next">3D Align Items</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
