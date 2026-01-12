@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="3b-main-axis-dan-cross-axis.html" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="3c-justify-content.html" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="3d-align-items.html" id="align-items">4. Align Items</a></h5>
+            <h5><a href="3e-gap.html" id="gap">5. Gap</a></h5>
+            <h5><a href="3f-flex-grow-flex-shrink-flex-basis.html" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="3g-flex-wrapping.html" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
+            <h5><a href="" id="grid-template-column">2. Grid Template Columns</a></h5>
+            <h5><a href="" id="fraction-unit">3. Fraction Unit</a></h5>
+            <h5><a href="" id="auto-fit-dan-min-max">4. Auto Fit dan Min Max</a></h5>
+            <h5><a href="" id="grid-gap">5. Grid Gap</a></h5>
+            <h5><a href="" id="spanning">6. Spanning</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="" id="absolute">2. Absolute</a></h5>
+            <h5><a href="" id="sticky">3. Sticky</a></h5>
+            <h5><a href="" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>Flex-grow, Flex-shrink, dan Flex-basis (flex)</h2>
+                <h3>1. Apa itu flex?</h3>
+
+                <p>Di Flexbox, ukuran item tidak ditentukan hanya oleh width, tapi oleh tiga hal:</p>
+                <table>
+                    <tr>
+                        <th>Properti</th>
+                        <th>Funsgi</th>
+                    </tr>
+                    <tr>
+                        <td><code>flex-grow</code></td>
+                        <td>Seberapa besar item boleh membesar</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex-shrink</code></td>
+                        <td>Seberapa besar item boleh mengecil</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex-basis</code></td>
+                        <td>Ukuran dasar awal item</td>
+                    </tr>
+                </table>
+                	
+                <p>Ketiganya digabung menjadi:</p>
+<pre>
+    flex: grow shrink basis;
+</pre>
+
+                <p>Contoh:</p>
+<pre>
+    .item { <br>
+        flex: 1 1 200px; <br>
+    }
+</pre>
+                <h3>2. <code>flex-basis</code> — ukuran awal</h3>
+
+                <p><code>flex-basis</code> adalah lebar awal item sebelum ruang dibagi.</p>
+<pre>
+    .item { <br>
+        flex-basis: 200px; <br>
+    }
+</pre>
+
+                <p>Artinya: <br> <br>
+
+                “Anggap item ini lebarnya 200px dulu” <br> <br>
+
+                Ini lebih kuat daripada width di Flexbox.</p>
+
+                <h3>3. <code>flex-grow</code> — membagi ruang sisa</h3>
+
+                <p>Jika container punya ruang kosong, <code>flex-grow</code> menentukan: <br> <br>
+
+                Siapa dapat ruang ekstra dan berapa banyak <br> <br>
+
+                Contoh:</p>
+<pre>
+    .item1 { flex-grow: 1; } <br>
+    .item2 { flex-grow: 2; } <br>
+</pre>
+
+                <p>Jika ada 300px ruang kosong:
+                    <ul>
+                        <li>item1 dapat 100px</li>
+                        <li>item2 dapat 200px</li>
+                    </ul>
+                <br>
+                ➡ Dibagi berdasarkan rasio</p>
+
+                <h3>4. flex-shrink — siapa yang menyusut</h3>
+
+                <p>Jika container kekurangan ruang, item akan dipaksa mengecil.</p>
+<pre>
+    .item1 { flex-shrink: 1; } <br> 
+    .item2 { flex-shrink: 0; } <br>
+</pre>
+
+                <p>➡ item1 mengecil <br>
+                ➡ item2 tetap</p>
+
+                <h3>5. Kenapa grow dan shrink tidak bertentangan?</h3>
+
+                <p>Mereka bekerja pada kondisi berbeda:
+                    <ul>
+                        <li>Kondisi	Yang aktif</li>
+                        <li>Ada ruang kosong = <code>flex-grow</code></li>
+                        <li>Kurang ruang = <code>flex-shrink</code></li>
+                    </ul>
+
+                Jadi mereka tidak saling melawan, tapi bergantian.</p>
+
+                <h3>6. flex: 1 artinya apa?</h3>
+<pre> 
+    .item { <br>
+        flex: 1; <br>
+    }
+</pre>
+
+                <p>Itu artinya:</p>
+<pre>
+    flex: 1 1 0%;
+</pre>
+
+                <p>Maknanya:
+                    <ul>
+                        <li>semua item sama besar</li>
+                        <li>semua boleh membesar</li>
+                        <li>semua boleh mengecil</li>
+                        <li>basis awal = 0</li>
+                    </ul>
+                    <br>
+                ➡ Paling sering dipakai untuk layout kolom.</p>
+
+                <h3>7. Contoh nyata</h3>
+                <strong>Layout 3 kolom</strong>
+<pre>
+    .col { <br>
+        flex: 1; <br>
+    }
+</pre>
+
+                <p>➡ Semua kolom sama lebar.</p>
+
+                <strong>Sidebar + konten</strong>
+<pre>
+    .sidebar { flex: 0 0 250px; } <br>
+    .content { flex: 1; } <br>
+</pre>
+
+                <p>➡ sidebar tetap <br>
+                ➡ konten mengisi sisa layar</p>
+
+                <h3>8. Kesalahan umum</h3>
+                <p>
+                    ❌ Pakai width di Flexbox <br>
+                    ❌ Tidak mengatur shrink → item hancur <br>
+                    ❌ Salah paham flex:1
+                </p>
+
+                <h3>9. Inti penting</h3>
+                <p>Flexbox tidak bekerja pakai ukuran statis — tapi sistem pembagian ruang.</p>
+                <br> <br>
+
+                <a href="3g-flex-wrapping.html" class="btn-next">3G. Flex Wrapping</a>
+                
+            </div>
+        </main>
+    </div>
+</body>
+</html>
