@@ -77,140 +77,146 @@
             </header>
 
             <div class="container">
-            
-            <h3>Road Map Belajar CSS by me</h3>
-            <div class="img-box">
-                <img src="Belajar CSS.jpeg" alt="Road Map Belajar CSS by Fany" max-width="100%">
-            </div>
+                <h2>Gap (Flexbox)</h2>
+                <h3>1. Apa itu gap?</h3>
 
-                <p>Menurutku, cara CSS bekerja bisa dijelaskan secara runtut dan mudah dipahami dengan alur <strong>“browser membaca aturan → menentukan prioritas → menerapkan gaya ke elemen HTML”</strong>. Penjelasan ini cocok untuk materi CSS sebagai dekorasi karena menekankan peran CSS dalam “mendandani” HTML.
-                <br><br>
-                Berikut penjelasan yang bisa kamu gunakan:
-            </p>
-
-            <h3>1. CSS Bekerja dengan Cara Memilih Elemen HTML</h3>
-
-            <p>CSS tidak berdiri sendiri. Ia mencari elemen HTML yang ingin dihias melalui selector.</p>
-
-            <p>Contoh:</p>
-
-<pre>
-    p{
-        color: blue;
-    }
-</pre>
-
-            <p>
-                Artinya:
+                gap adalah properti untuk:
                 <ul>
-                    <li>CSS mencari semua</li>
-                    <li>Lalu menerapkan warna teks biru</li>
+                    <li>mengatur jarak antar flex item secara otomatis</li>
                 </ul>
-                👉 Tanpa HTML, CSS tidak punya objek untuk dihias.
-            </p>
+                
 
-            <hr>
-
-            <h3>2. Browser Membaca CSS dari Atas ke Bawah</h3>
-            <p>
-                Saat halaman dibuka:
+                Tanpa perlu:
                 <ul>
-                    <li>Browser memuat HTML</li>
-                    <li>Browser memuat CSS</li>
-                    <li>CSS dibaca berurutan <strong>dari atas ke bawah</strong></li>
+                    <li>margin</li>
+                    <li>kalkulasi</li>
+                    <li>reset di item terakhir</li>
                 </ul>
-                Jika ada aturan yang saling bertabrakan, aturan terakhir bisa menimpa aturan sebelumnya, tergantung prioritasnya.
-            </p>
-
-            <hr>
-            <h3>3. CSS Menggunakan Sistem Prioritas (Cascade)</h3>
-
-            <p>
-                Inilah asal nama Cascading Style Sheets.
-
-                Urutan prioritas secara sederhana:
-
-                <ol>
-                    <li>!important</li>
-                    <li>Inline CSS <pre>(style="")</pre></li>
-                    <li>Internal CSS <pre>&lt;style&gt; ... &lt;/style&gt;</pre></li>
-                    <li>External CSS <pre>(.css) <br><br> atau <br><br> &lt;link rel="stylesheet" href="ini-file-css.css" &gt;</pre></li>
-                    <li>Urutan penulisan (yang terakhir menang)</li>    
-                </ol>
-
-                Contoh:
-            </p>
 <pre>
-    p {
-    color: red;
-    }
-
-    p {
-    color: green;
+    .container { <br>
+        display: flex; <br>
+        gap: 20px; <br>
     }
 </pre>
 
-                <hr>
-                <h3>4. CSS Menghitung Spesifisitas Selector</h3>
-                <p>
-                    Jika dua aturan sama-sama aktif, browser menghitung siapa yang lebih spesifik.
+                <p>➡ Semua item akan terpisah 20px</p>
 
-                    Urutan spesifisitas:
-                    <ol>
-                        <li>#id</li>
-                        <li>.class</li>
-                        <li>tag</li>
-                    </ol>
-                    Contoh:
-                </p>
-    
+                <h3>2. Kenapa gap lebih baik dari margin?</h3>
+
+                <p>Dengan margin:</p>
 <pre>
-    p { color: blue; } <br>
-    .text { color: green; } <br>
-    #judul { color: red;}
-
-</pre>
-
-                <p>➡️ Elemen dengan id="judul" akan merah, meskipun punya class atau tag.</p>
-
-                <hr>
-
-                <h3>5. CSS Mewariskan Gaya (Inheritance)</h3>
-                <p>
-                    Beberapa properti CSS diturunkan ke anak elemen <br>
-                    Contoh:
-                </p>
-
-<pre>
-    body {<br>
-        font-family: arial;<br>
-        color: black;<br>
+    .item { <br>
+        margin-right: 20px; <br>
     }
 </pre>
 
-                <p>
-                    Semua teks di dalam &lt;body&gt; otomatis:
+                <p>Masalah:
                     <ul>
-                        <li>Menggunakan Arial</li>
-                        <li>Berwarna hitam</li>
+                        <li>item terakhir ikut margin</li>
+                        <li>perlu : <code>last-child</code> </li>
+                        <li>rusak saat wrapping</li>
                     </ul>
-                    👉 Tidak semua properti diwariskan (misalnya margin, padding).
-                </p>
+                
+                <br>
+                Dengan gap:</p>
+<pre>
+    gap: 20px;
+</pre>
 
-    <hr>
-                <h3>6. CSS Diterapkan ke Layout dan Tampilan</h3>
-                <p>
-                    Setelah aturan dipilih dan diprioritaskan, browser:
+                Browser yang mengatur jarak secara cerdas.
+
+                <h3>3. Cara kerja gap</h3>
+
+                <p>Flexbox akan:
                     <ul>
-                        <li>Menghitung ukuran (box model)</li>
-                        <li>Menentukan posisi (layout)</li>
-                        <li>Menggambar tampilan di layar (render)</li>
+                        <li>menghitung jarak antar item</li>
+                        <li>tidak memberi jarak di pinggir container</li>
+                        <li>bekerja otomatis pada wrap</li>
                     </ul>
-                    Inilah tahap akhir CSS “bekerja” sebagai dekorasi visual.
+                
                 </p>
 
-                <a href="1b-properti-visual.html" class="btn-next"> Next: Properti Visual</a>
+                <h3>4. Bentuk gap</h3>
+               <p> Satu nilai </p>
+<pre>
+    gap: 20px;
+</pre>
 
+                <p>➡ horizontal dan vertical
+                    <br> <br>
+                Dua nilai</p>
+
+<pre>
+    gap: 10px 30px;
+</pre>
+                <table>
+                    <tr>
+                        <th>Nilai</th>
+                        <th>Arah</th>
+                    </tr>
+                    <tr>
+                        <td>10px</td>
+                        <td>vertical</td>
+                    </tr>
+                    <tr>
+                        <td>30px</td>
+                        <td>horizontal</td>
+                    </tr>
+                </table>
+
+                <h3>5. row-gap dan column-gap</h3>
+
+<pre>
+    row-gap: 10px; <br>
+    column-gap: 30px; <br>
+</pre>
+                <p>
+                    Dipakai jika: <br> <br>
+
+                    ingin jarak beda antara baris dan kolom
+                </p>
+                <h3>6. Gap dan Flex-Wrap</h3>
+
+                <p>Gap bekerja sempurna dengan wrapping:</p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        flex-wrap: wrap; <br>
+        gap: 20px; <br>
+    }
+</pre>
+
+                <p>➡ Jarak antar baris dan kolom rapi tanpa margin hack</p>
+
+                <h3>7. Gap vs Justify-content</h3>
+                <p>
+                    gap = jarak antar item <br> <br>
+
+                    justify-content = distribusi sisa ruang <br> <br>
+
+                    Jangan tertukar.
+                </p>
+
+
+                <h3>8. Kapan pakai gap?</h3>
+
+                <p>
+                    ✔ Card grid <br>
+                    ✔ Button group <br>
+                    ✔ Navbar item <br>
+                    ✔ Icon list <br>
+                    ✔ Form layout <br>
+                </p>
+
+                <h3>9. Kesalahan umum</h3>
+                <p>
+                    ❌ Pakai margin padahal sudah ada gap <br>
+                    ❌ Menggabungkan gap + margin ganda <br>
+                    ❌ Mengira gap mengatur pinggir container
+                </p>
+
+
+                <a href="3f-flex-grow-flex-shrink-flex-basis.html" class="btn-next">3F Flex Grow / Flex Shrink / Flex Basis</a>
             </div>
         </main>
     </div>
