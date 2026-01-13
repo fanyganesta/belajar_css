@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="3b-main-axis-dan-cross-axis.html" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="3c-justify-content.html" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="3d-align-items.html" id="align-items">4. Align Items</a></h5>
+            <h5><a href="3e-gap.html" id="gap">5. Gap</a></h5>
+            <h5><a href="3f-flex-grow-flex-shrink-flex-basis.html" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="3g-flex-wrapping.html" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="4a-grid-container-dan-item.html" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
+            <h5><a href="4b-grid-template-column.html" id="grid-template-column">2. Grid Template Columns</a></h5>
+            <h5><a href="" id="fraction-unit">3. Fraction Unit</a></h5>
+            <h5><a href="" id="auto-fit-dan-min-max">4. Auto Fit dan Min Max</a></h5>
+            <h5><a href="" id="grid-gap">5. Grid Gap</a></h5>
+            <h5><a href="" id="spanning">6. Spanning</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="" id="absolute">2. Absolute</a></h5>
+            <h5><a href="" id="sticky">3. Sticky</a></h5>
+            <h5><a href="" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>CSS Grid Layout</h2>
+                <h3>1. Apa itu CSS Grid?</h3>
+                <p>
+                CSS Grid adalah sistem layout dua dimensi. <br> <br>
+
+                Artinya: <br> <br>
+
+                CSS Grid bisa mengatur baris (row) dan kolom (column) secara bersamaan. <br> <br>
+
+                Berbeda dengan Flexbox yang satu arah (hanya baris atau kolom), Grid bekerja seperti kertas kotak-kotak (spreadsheet / tabel). <br> <br>
+
+                Kalau Flexbox itu seperti: <br> <br>
+
+                menyusun buku dalam satu rak <br> <br>
+
+                Maka Grid itu seperti: <br> <br>
+
+                menyusun buku di rak dan lantai sekaligus</p>
+
+                <h3>2. Masalah layout sebelum Grid</h3>
+
+                <p>Sebelum Grid, kita harus pakai:
+                <ul>
+                    <li><code>float</code></li>
+                    <li><code>inline-block</code></li>
+                    <li>flexbox bersarang</li>
+                    <li>framework (Bootstrap)</li>
+                    <li></li>
+                </ul>
+                
+
+                Layout kompleks (dashboard, galeri, halaman berita) jadi:
+                <ul>
+                    <li>sulit</li>
+                    <li>banyak hack</li>
+                    <li>tidak stabil</li>
+                </ul>
+                
+                Grid diciptakan untuk:
+                    <ul>
+                        <li>layout halaman besar dan sistematis</li>
+                    </ul>
+                </p>
+                
+
+                <h3>3. Konsep utama CSS Grid</h3>
+
+                CSS Grid terdiri dari dua bagian:
+                <table>
+                    <tr>
+                        <th>Komponen</th>
+                        <th>Fungsi</th>
+                    </tr>
+                    <tr>
+                        <td>Grid Container</td>
+                        <td>Elemen induk yang mengaktifkan grid</td>
+                    </tr>
+                    <tr>
+                        <td>Grid Items</td>
+                        <td>Anak-anak yang ditempatkan di dalam grid</td>
+                    </tr>
+                </table>
+                	
+                	
+                	
+<pre>
+    .container {  <br>
+        display: grid; <br>
+    }
+</pre>
+
+                <p>Begitu ini ditulis, anak-anaknya langsung jadi grid items.</p>
+
+                <h3>4. Perbedaan Grid vs Flexbox</h3>
+                <table>
+                    <tr>
+                        <th>Flexbox</th>
+                        <th>Grid</th>
+                    </tr>
+                    <tr>
+                        <td>Satu arah</td>
+                        <td>Dua arah</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok navbar dan list</td>
+                        <td>Cocok layout halaman</td>
+                    </tr>
+                    <tr>
+                        <td>Konten menentukan ukuran</td>
+                        <td>Grid menentukan struktur</td>
+                    </tr>
+                    <tr>
+                        <td>Aliran fleksibel</td>
+                        <td>Struktur eksplisit
+
+                <p>Grid lebih cocok untuk:
+                <ul>
+                    <li>dashboard</li>
+                    <li>layout web</li>
+                    <li>galeri</li>
+                    <li>halaman majalah</li>
+                </ul>
+                
+                Flexbox lebih cocok untuk:
+                <ul>
+                    <li>navbar</li>
+                    <li>tombol</li>
+                    <li>card row</li>
+                </ul></p>
+            
+                <h3>5. Grid bekerja dengan garis (grid lines)</h3>
+
+                <p>CSS Grid tidak bekerja dengan kotak, tetapi dengan garis.
+
+                Misalnya 3 kolom berarti ada 4 garis:</p>
+<pre>
+    | 1 | 2 | 3 |
+    1   2   3   4
+</pre>
+
+                <p>Kita menempatkan elemen dengan:
+
+                dari garis ke garis</p>
+
+                <h2>Sub Materi CSS Grid</h2>
+
+                <p>Setelah memahami konsep besarnya, Grid dibagi ke beberapa bagian:</p>
+
+                <h3>1. Grid Container</h3>
+
+                <p>operti utama:
+                <ul>
+                    <li><code>display: grid</code></li>
+                    <li><code>grid-template-columns</code></li>
+                    <li><code>grid-template-rows</code></li>
+                    <li><code>gap</code></li>
+                </ul>
+
+                Ini menentukan bentuk peta grid.</p>
+
+                <h3>2. Grid Track (Rows & Columns)</h3>
+
+                <p>Kita mendefinisikan ukuran kolom dan baris:</p>
+<pre>
+    .container { <br>
+        grid-template-columns: 200px 1fr 200px; <br>
+        grid-template-rows: auto 1fr auto; <br>
+    }
+</pre>
+
+                <p>Artinya:
+                    <ul>
+                        <li>kiri 200px</li>
+                        <li>tengah fleksibel</li>
+                        <li>kanan 200px</li>
+                    </ul>
+                </p>
+
+                <h3>3. Grid Units</h3>
+                <p>
+                    Grid punya satuan khusus:
+                    <ul>
+                        <li><code>fr</code></li>
+                        <li><code>auto</code></li>
+                        <li><code>%</code></li>
+                        <li><code>minmax()</code></li>
+                    </ul>
+
+                    Ini membuat layout responsif tanpa media query.
+                </p>
+                <h3>4. Grid Items</h3>
+
+                <p>Setiap anak bisa:
+                    <ul>
+                        <li>menempati beberapa kolom</li>
+                        <li>melompat baris</li>
+                        <li>tumpang tindih</li>
+                    </ul>
+                    
+
+                    Properti:
+                    <ul>
+                        <li><code>grid-column</code></li>
+                        <li><code>grid-row</code></li>
+                        <li><code>grid-area</code></li>
+                    </ul>
+                </p>
+
+                <h3>5. Auto-placement</h3>
+
+                <p>Grid bisa: <br> <br>
+
+                menempatkan item secara otomatis ke kotak kosong <br> <br>
+
+                Ini membuat galeri & dashboard jadi mudah.</p>
+
+                <h3>6. Grid vs Flexbox bersama</h3>
+
+                <p>Di web modern: <br> <br>
+
+                Grid → struktur besar <br> <br>
+
+                Flexbox → isi di dalamny</p>
+
+                <br> <br>
+
+                <a href="4b-grid-template-column.html" class="btn-next">Grid Template Columns</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
