@@ -36,7 +36,7 @@
             <h5><a href="3g-flex-wrapping.html" id="flex-wrapping">7. Flex Wrapping</a></h5>
 
             <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
-            <h5><a href="" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
+            <h5><a href="4a-grid-container-dan-item.html" id="grid-container-dan-item">1. Grid Container dan Grid Item</a></h5>
             <h5><a href="" id="grid-template-column">2. Grid Template Columns</a></h5>
             <h5><a href="" id="fraction-unit">3. Fraction Unit</a></h5>
             <h5><a href="" id="auto-fit-dan-min-max">4. Auto Fit dan Min Max</a></h5>
@@ -77,7 +77,149 @@
             </header>
 
             <div class="container">
+                <h2>Flex-Wrapping (flex-wrap)</h2>
+                <h3>1. Masalah tanpa flex-wrap</h3>
+
+                <p>Secara default Flexbox adalah satu baris saja:</p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+    }
+</pre>
+
+                <p>Artinya: <br> <br>
+
+                Semua item dipaksa berada dalam satu baris, walaupun kepadatan tinggi <br> <br>
+
+                Akibatnya:
+                    <ul>
+                        <li>Item mengecil (flex-shrink)</li>
+                        <li>Atau keluar container</li>
+                        <li>Atau teks rusak</li>
+                    </ul>
                 
+                </p>
+
+                <h3>2. Fungsi flex-wrap</h3>
+
+                <p>flex-wrap menentukan: <br> <br>
+
+                Bolehkah item turun ke baris berikutnya?</p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        flex-wrap: wrap; <br>
+    }
+</pre>
+
+                <p>Sekarang: <br> <br>
+
+                Jika tidak muat → item pindah ke baris baru</p>
+
+                <h3>3. Nilai flex-wrap</h3>
+                <table>
+                    <tr>
+                        <th>Nilai</th>
+                        <th>Fungsi</th>
+                    </tr>
+                    <tr>
+                        <td><code>nowrap</code></td>
+                        <td>Default, satu baris</td>
+                    </tr>
+                    <tr>
+                        <td><code>wrap</code></td>
+                        <td>Boleh turun ke baris baru</td>
+                    </tr>
+                    <tr>
+                        <td><code>wrap-reverse</code></td>
+                        <td>Sama seperti wrap, tapi arah cross-axis dibalik</td>
+                    </tr>
+                </table>
+                	
+
+                <h3>4. Contoh nyata</h3>
+                <p>Galeri kartu</p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        flex-wrap: wrap; <br>
+        gap: 16px; <br>
+    } <br> <br>
+
+    .card { <br>
+        flex: 0 0 200px; <br>
+    }
+</pre>
+
+                <p>➡ Kartu akan tersusun grid otomatis <br>
+                ➡ Kalau layar kecil → turun ke baris berikutnya</p>
+
+                <h3>5. Flex-wrap vs Grid</h3>
+                <table>
+                    <tr>
+                        <th>Flexbox</th>
+                        <th>Grid</th>
+                    </tr>
+                    <tr>
+                        <td>Satu arah</td>
+                        <td>Dua arah</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok navbar & card list</td>
+                        <td>Cocok layout halaman</td>
+                    </tr>
+                    <tr>
+                        <td>Wrap manual</td>
+                        <td>Grid otomatis</td>
+                    </tr>
+                </table>
+                	
+                <p>Flexbox + wrap ≈ grid ringan</p>
+
+                <h3>6. Hubungan dengan flex-basis</h3>
+
+                <p>Wrap bekerja berdasarkan flex-basis</p>
+<pre>
+    .card { <br>
+        flex: 0 0 250px; <br>
+    } <br>
+</pre>
+
+                <p>Artinya: <br> <br>
+
+                Satu kartu minimal 250px sebelum pindah baris</p>
+
+                <h3>7. Kesalahan umum</h3>
+
+                ❌ Mengira flex otomatis bikin grid <br>
+                ❌ Lupa flex-wrap: wrap <br>
+                ❌ Tidak set flex-basis <br>
+
+                <h3>8. Pola profesional</h3>
+                <p>Responsive card layout</p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        flex-wrap: wrap; <br>
+    } <br> <br>
+
+    .card { <br>
+        flex: 1 1 250px; <br>
+    } <br>
+</pre>
+
+                <p>Artinya:
+                <ul>
+                    <li>Minimal 250px</li>
+                    <li>Bisa membesar</li>
+                    <li>Bisa turun baris</li>
+                </ul>
+                
+                Ini adalah pola paling sering dipakai di web modern.</p>
+
+                <br> <br>
+
+                <a href="4a-grid-container-dan-item.html" class="btn-next">4a. Grid Container dan Grid Item</a>
             </div>
         </main>
     </div>
