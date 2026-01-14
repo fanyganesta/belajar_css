@@ -75,146 +75,137 @@
             </header>
 
             <div class="container">
-                <h2>Gap (Flexbox)</h2>
-                <h3>1. Apa itu gap?</h3>
+                <h2>Grid Template Areas</h2>
 
-                gap adalah properti untuk:
-                <ul>
-                    <li>mengatur jarak antar flex item secara otomatis</li>
-                </ul>
-                
+                <p>Ini adalah cara membuat layout dengan memberi nama wilayah, bukan dengan angka. <br> <br>
 
-                Tanpa perlu:
-                <ul>
-                    <li>margin</li>
-                    <li>kalkulasi</li>
-                    <li>reset di item terakhir</li>
-                </ul>
+                Kalau sebelumnya kita pakai:</p>
+<pre>
+    grid-column: 1 / 3;
+</pre>
+
+                <p>Sekarang kita bisa pakai:</p>
+<pre>
+    “header”, “sidebar”, “content”, “footer”
+</pre>
+                <p>Seperti menggambar denah bangunan.</p>
+
+                <h3>Konsep Dasarnya</h3>
+
+                <p>Kita mendefinisikan grid seperti ini:</p>
 <pre>
     .container { <br>
-        display: flex; <br>
-        gap: 20px; <br>
+        display: grid; <br>
+        grid-template-columns: 200px 1fr; <br>
+        grid-template-rows: 60px 1fr 50px; <br> <br>
+
+    grid-template-areas: <br>
+        "header header" <br>
+        "sidebar content" <br>
+        "footer footer"; <br>
     }
 </pre>
 
-                <p>➡ Semua item akan terpisah 20px</p>
+                <p>Artinya:</p>
+                <ul>
+                    <li>Kolom 1	Kolom 2</li>
+                    <li>Baris 1	header	header</li>
+                    <li>Baris 2	sidebar	content</li>
+                    <li>Baris 3	footer	footer</li>
+                </ul>
 
-                <h3>2. Kenapa gap lebih baik dari margin?</h3>
-
-                <p>Dengan margin:</p>
+                <h3>Menghubungkan elemen ke area</h3>
 <pre>
-    .item { <br>
-        margin-right: 20px; <br>
+    .header  { grid-area: header; } <br>
+    .sidebar { grid-area: sidebar; } <br>
+    .content { grid-area: content; } <br>
+    .footer  { grid-area: footer; }
+</pre>
+
+                <p>HTML:</p>
+<pre>
+    &lt;div class="container"> <br>
+    &lt;div class="header">&lt;/div> <br>
+    &lt;div class="sidebar">&lt;/div> <br>
+    &lt;div class="content">&lt;/div> <br>
+    &lt;div class="footer">&lt;/div> <br>
+    &lt;/div> 
+</pre>
+                <ul>
+                    <li>Tanpa menghitung garis.</li>
+                    <li>Tanpa mikir kolom ke berapa.</li>
+                    <li>Lebih readable daripada Flexbox.</li>
+                </ul>
+
+                <h3>Kenapa ini powerful?</h3>
+
+                <p>Karena kamu bisa mengubah layout hanya dengan CSS. <br> <br>
+
+                Misalnya versi mobile:</p>
+<pre>
+    @media (max-width: 768px) { <br>
+        .container { <br>
+            grid-template-columns: 1fr; <br>
+            grid-template-areas: <br>
+            "header" <br>
+            "content" <br>
+            "sidebar" <br>
+            "footer"; <br>
+        } <br>
     }
 </pre>
 
-                <p>Masalah:
-                    <ul>
-                        <li>item terakhir ikut margin</li>
-                        <li>perlu : <code>last-child</code> </li>
-                        <li>rusak saat wrapping</li>
-                    </ul>
-                
-                <br>
-                Dengan gap:</p>
+                <p>HTML tidak berubah. <br>
+                Urutan layout berubah total. <br> <br>
+
+                Ini mustahil dilakukan dengan Flexbox tanpa order berantakan.</p>
+
+                <h3>Aturan penting</h3>
+
+                <p>1️⃣ Area harus berbentuk kotak <br>
+                Ini ❌:</p>
 <pre>
-    gap: 20px;
+    "A B" <br>
+    "A A" <br>
 </pre>
 
-                Browser yang mengatur jarak secara cerdas.
-
-                <h3>3. Cara kerja gap</h3>
-
-                <p>Flexbox akan:
-                    <ul>
-                        <li>menghitung jarak antar item</li>
-                        <li>tidak memberi jarak di pinggir container</li>
-                        <li>bekerja otomatis pada wrap</li>
-                    </ul>
-                
-                </p>
-
-                <h3>4. Bentuk gap</h3>
-               <p> Satu nilai </p>
+                <p>2️⃣ Gunakan titik untuk kosong:</p>
 <pre>
-    gap: 20px;
+    grid-template-areas: <br>
+        "header header" <br>
+        ". content" <br>
+        "footer footer"; <br>
 </pre>
-
-                <p>➡ horizontal dan vertical
-                    <br> <br>
-                Dua nilai</p>
-
-<pre>
-    gap: 10px 30px;
-</pre>
+                <h3>Perbedaan dengan Flexbox</h3>
                 <table>
                     <tr>
-                        <th>Nilai</th>
-                        <th>Arah</th>
+                        <th>Flexbox</th>
+                        <th>Grid</th>
                     </tr>
                     <tr>
-                        <td>10px</td>
-                        <td>vertical</td>
+                        <td>Mengatur alur</td>
+                        <td>Mengatur wilayah</td>
                     </tr>
                     <tr>
-                        <td>30px</td>
-                        <td>horizontal</td>
+                        <td>1 arah</td>
+                        <td>2 arah</td>
+                    </tr>
+                    <tr>
+                        <td>Susun item</td>
+                        <td>Bangun layout</td>
+                    </tr>
+                    <tr>
+                        <td>Navigasi, card</td>
+                        <td>Halaman, dashboard</td>
                     </tr>
                 </table>
+                
+                <h3>Mental model</h3>
 
-                <h3>5. row-gap dan column-gap</h3>
+                <p>Flexbox = barisan orang <br>
+                Grid = peta kota <br> <br>
 
-<pre>
-    row-gap: 10px; <br>
-    column-gap: 30px; <br>
-</pre>
-                <p>
-                    Dipakai jika: <br> <br>
-
-                    ingin jarak beda antara baris dan kolom
-                </p>
-                <h3>6. Gap dan Flex-Wrap</h3>
-
-                <p>Gap bekerja sempurna dengan wrapping:</p>
-<pre>
-    .container { <br>
-        display: flex; <br>
-        flex-wrap: wrap; <br>
-        gap: 20px; <br>
-    }
-</pre>
-
-                <p>➡ Jarak antar baris dan kolom rapi tanpa margin hack</p>
-
-                <h3>7. Gap vs Justify-content</h3>
-                <p>
-                    gap = jarak antar item <br> <br>
-
-                    justify-content = distribusi sisa ruang <br> <br>
-
-                    Jangan tertukar.
-                </p>
-
-
-                <h3>8. Kapan pakai gap?</h3>
-
-                <p>
-                    ✔ Card grid <br>
-                    ✔ Button group <br>
-                    ✔ Navbar item <br>
-                    ✔ Icon list <br>
-                    ✔ Form layout <br>
-                </p>
-
-                <h3>9. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai margin padahal sudah ada gap <br>
-                    ❌ Menggabungkan gap + margin ganda <br>
-                    ❌ Mengira gap mengatur pinggir container
-                </p>
-
-
-                <a href="3f-flex-grow-flex-shrink-flex-basis.html" class="btn-next">3F Flex Grow / Flex Shrink / Flex Basis</a>
+                Grid Template Areas = memberi nama ke setiap blok kota</p>
             </div>
         </main>
     </div>
