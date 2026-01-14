@@ -76,146 +76,140 @@
             </header>
 
             <div class="container">
-                <h2>Gap (Flexbox)</h2>
-                <h3>1. Apa itu gap?</h3>
+                <h2>Auto Placement & grid-auto-flow</h2>
 
-                gap adalah properti untuk:
+                <p>Ini adalah sistem yang menentukan: <br> <br>
+
+                “Kalau aku tidak menentukan posisi item, CSS Grid harus meletakkannya di mana?” <br> <br>
+
+                Grid punya algoritma penempatan otomatis.</p>
+
+                <h3>Default behavior</h3>
+
+                <p>Jika kamu menulis:</p>
+<pre>
+    .container { <br>
+        display: grid; <br>
+        grid-template-columns: repeat(3, 1fr); <br>
+    }
+</pre>
+
+                <p>dan HTML:</p>
+<pre>
+    &lt;div class="container"> <br>
+    &lt;div>A&lt;/div> <br>
+    &lt;div>B&lt;/div> <br>
+    &lt;div>C&lt;/div> <br>
+    &lt;div>D&lt;/div> <br>
+    &lt;div>E&lt;/div> <br>
+    &lt;/div>
+</pre>
+
+                <p>Grid akan mengisi seperti tabel:</p>
+<pre>
+    A | B | C <br>
+    D | E | (kosong)
+</pre>
+
+                <p>Ini disebut: <br>
+                ➡ row-based auto placement</p>
+
+                <h3>grid-auto-flow</h3>
+
+                <p>Properti ini menentukan arah pengisian.</p>
+<pre>
+    grid-auto-flow: row;     /* default */ <br>
+    grid-auto-flow: column; <br>
+    grid-auto-flow: dense;
+</pre>
+                <h4>1. grid-auto-flow: row (default)</h4>
+
+                <p>Isi dari kiri → kanan, lalu turun ke baris berikutnya:</p>
+<pre>
+    A B C <br>
+    D E F <br>
+</pre>
+
+                <p>Cocok untuk:</p>
                 <ul>
-                    <li>mengatur jarak antar flex item secara otomatis</li>
+                    <li>galeri</li>
+                    <li>card</li>
+                    <li>list produk</li>
                 </ul>
                 
 
-                Tanpa perlu:
+                <h4>2. grid-auto-flow: column</h4>
+
+                <p>Grid akan mengisi dari atas → bawah dulu:</p>
+<pre>
+    A D <br>
+    B E <br>
+    C F <br>
+</pre>
+
+                <p>Contoh:</p>
+<pre>
+    .container { <br>
+        display: grid; <br>
+        grid-template-rows: repeat(3, 100px); <br>
+        grid-auto-flow: column; <br>
+    }
+</pre>
+
+                <p>Dipakai jika kamu ingin:</p>
                 <ul>
-                    <li>margin</li>
-                    <li>kalkulasi</li>
-                    <li>reset di item terakhir</li>
+                    <li>layout berbasis kolom</li>
+                    <li>seperti koran atau timeline vertikal</li>
+                </ul>
+                
+
+                
+
+                <h4>3. grid-auto-flow: dense</h4>
+
+                <p>Ini mengaktifkan “packing” <br> <br>
+
+                Jika ada item yang lompat:</p>
+<pre>
+    .item1 { grid-column: span 2; }
+</pre>
+                <ul>
+                    <li>Maka Grid akan mencoba mengisi lubang kosong dengan item kecil berikutnya.</li>
+                    <li>Bayangkan seperti Tetris otomatis.</li>
                 </ul>
 <pre>
-    .container { <br>
-        display: flex; <br>
-        gap: 20px; <br>
+    grid-auto-flow: row dense;
+</pre>
+
+                <p>Ini bagus untuk:</p>
+                <ul>
+                    <li>masonry layout</li>
+                    <li>galeri foto</li>
+                </ul>
+
+                <h3>Kenapa ini penting?</h3>
+
+                <p>Karena kamu bisa:</p>
+                <ul>
+                    <li>membiarkan browser mengatur layout</li>
+                    <li>tanpa menghitung posisi setiap item</li>
+                </ul>
+
+                <p>Contoh:</p>
+<pre>
+    .card {
+    grid-column: span 2;
     }
 </pre>
 
-                <p>➡ Semua item akan terpisah 20px</p>
+                <p>Grid akan: <br> <br>
 
-                <h3>2. Kenapa gap lebih baik dari margin?</h3>
+                “Oke, aku cari ruang kosong yang muat.”</p>
 
-                <p>Dengan margin:</p>
-<pre>
-    .item { <br>
-        margin-right: 20px; <br>
-    }
-</pre>
+                <h3>Mental model</h3>
 
-                <p>Masalah:
-                    <ul>
-                        <li>item terakhir ikut margin</li>
-                        <li>perlu : <code>last-child</code> </li>
-                        <li>rusak saat wrapping</li>
-                    </ul>
-                
-                <br>
-                Dengan gap:</p>
-<pre>
-    gap: 20px;
-</pre>
-
-                Browser yang mengatur jarak secara cerdas.
-
-                <h3>3. Cara kerja gap</h3>
-
-                <p>Flexbox akan:
-                    <ul>
-                        <li>menghitung jarak antar item</li>
-                        <li>tidak memberi jarak di pinggir container</li>
-                        <li>bekerja otomatis pada wrap</li>
-                    </ul>
-                
-                </p>
-
-                <h3>4. Bentuk gap</h3>
-               <p> Satu nilai </p>
-<pre>
-    gap: 20px;
-</pre>
-
-                <p>➡ horizontal dan vertical
-                    <br> <br>
-                Dua nilai</p>
-
-<pre>
-    gap: 10px 30px;
-</pre>
-                <table>
-                    <tr>
-                        <th>Nilai</th>
-                        <th>Arah</th>
-                    </tr>
-                    <tr>
-                        <td>10px</td>
-                        <td>vertical</td>
-                    </tr>
-                    <tr>
-                        <td>30px</td>
-                        <td>horizontal</td>
-                    </tr>
-                </table>
-
-                <h3>5. row-gap dan column-gap</h3>
-
-<pre>
-    row-gap: 10px; <br>
-    column-gap: 30px; <br>
-</pre>
-                <p>
-                    Dipakai jika: <br> <br>
-
-                    ingin jarak beda antara baris dan kolom
-                </p>
-                <h3>6. Gap dan Flex-Wrap</h3>
-
-                <p>Gap bekerja sempurna dengan wrapping:</p>
-<pre>
-    .container { <br>
-        display: flex; <br>
-        flex-wrap: wrap; <br>
-        gap: 20px; <br>
-    }
-</pre>
-
-                <p>➡ Jarak antar baris dan kolom rapi tanpa margin hack</p>
-
-                <h3>7. Gap vs Justify-content</h3>
-                <p>
-                    gap = jarak antar item <br> <br>
-
-                    justify-content = distribusi sisa ruang <br> <br>
-
-                    Jangan tertukar.
-                </p>
-
-
-                <h3>8. Kapan pakai gap?</h3>
-
-                <p>
-                    ✔ Card grid <br>
-                    ✔ Button group <br>
-                    ✔ Navbar item <br>
-                    ✔ Icon list <br>
-                    ✔ Form layout <br>
-                </p>
-
-                <h3>9. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai margin padahal sudah ada gap <br>
-                    ❌ Menggabungkan gap + margin ganda <br>
-                    ❌ Mengira gap mengatur pinggir container
-                </p>
-
-
-                <a href="3f-flex-grow-flex-shrink-flex-basis.html" class="btn-next">3F Flex Grow / Flex Shrink / Flex Basis</a>
+                <p>Flexbox: kamu menyuruh posisi <br>
+                Grid auto-flow: kamu mendefinisikan aturan, browser yang menempatkan</p>
             </div>
         </main>
     </div>
