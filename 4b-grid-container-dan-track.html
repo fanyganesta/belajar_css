@@ -77,146 +77,172 @@
             </header>
 
             <div class="container">
-                <h2>Gap (Flexbox)</h2>
-                <h3>1. Apa itu gap?</h3>
+                <style>
+                    .container2{
+                        display:grid;
+                        grid-template-columns: 200px 1fr;
+                        grid-template-rows: 300px;
+                        gap: 10px;
 
-                gap adalah properti untuk:
-                <ul>
-                    <li>mengatur jarak antar flex item secara otomatis</li>
-                </ul>
-                
+                    }
+                </style>
+                <div class="container2">
+                    <div class="box1">
 
-                Tanpa perlu:
-                <ul>
-                    <li>margin</li>
-                    <li>kalkulasi</li>
-                    <li>reset di item terakhir</li>
-                </ul>
+                    </div>
+                    <div class="box2">
+
+                    </div>
+                </div>
+
+
+                <h2>1. Grid Container & Grid Track (Rows dan Columns)</h2>
+
+                <p>CSS Grid selalu dimulai dari grid container. <br>
+                Tanpa container, tidak ada grid.</p>
 <pre>
     .container { <br>
-        display: flex; <br>
-        gap: 20px; <br>
+        display: grid; <br>
     }
 </pre>
 
-                <p>➡ Semua item akan terpisah 20px</p>
-
-                <h3>2. Kenapa gap lebih baik dari margin?</h3>
-
-                <p>Dengan margin:</p>
-<pre>
-    .item { <br>
-        margin-right: 20px; <br>
-    }
-</pre>
-
-                <p>Masalah:
+                <p>Begitu ini ditulis:
                     <ul>
-                        <li>item terakhir ikut margin</li>
-                        <li>perlu : <code>last-child</code> </li>
-                        <li>rusak saat wrapping</li>
+                        <li>.container menjadi grid container</li>
+                        <li>semua anaknya menjadi grid items</li>
                     </ul>
                 
-                <br>
-                Dengan gap:</p>
-<pre>
-    gap: 20px;
-</pre>
 
-                Browser yang mengatur jarak secara cerdas.
+                </p>
 
-                <h3>3. Cara kerja gap</h3>
+                <h3>a. Grid Track: Kolom dan Baris</h3>
 
-                <p>Flexbox akan:
+                <p>Grid dibangun dari:
                     <ul>
-                        <li>menghitung jarak antar item</li>
-                        <li>tidak memberi jarak di pinggir container</li>
-                        <li>bekerja otomatis pada wrap</li>
+                        <li>kolom (columns)</li>
+                        <li>baris (rows)</li>
                     </ul>
-                
-                </p>
 
-                <h3>4. Bentuk gap</h3>
-               <p> Satu nilai </p>
-<pre>
-    gap: 20px;
-</pre>
-
-                <p>➡ horizontal dan vertical
-                    <br> <br>
-                Dua nilai</p>
-
-<pre>
-    gap: 10px 30px;
-</pre>
-                <table>
-                    <tr>
-                        <th>Nilai</th>
-                        <th>Arah</th>
-                    </tr>
-                    <tr>
-                        <td>10px</td>
-                        <td>vertical</td>
-                    </tr>
-                    <tr>
-                        <td>30px</td>
-                        <td>horizontal</td>
-                    </tr>
-                </table>
-
-                <h3>5. row-gap dan column-gap</h3>
-
-<pre>
-    row-gap: 10px; <br>
-    column-gap: 30px; <br>
-</pre>
-                <p>
-                    Dipakai jika: <br> <br>
-
-                    ingin jarak beda antara baris dan kolom
-                </p>
-                <h3>6. Gap dan Flex-Wrap</h3>
-
-                <p>Gap bekerja sempurna dengan wrapping:</p>
+                Kita mendefinisikannya dengan:</p>
 <pre>
     .container { <br>
-        display: flex; <br>
-        flex-wrap: wrap; <br>
-        gap: 20px; <br>
+        display: grid; <br>
+        grid-template-columns: 100px 200px 100px; <br>
+        grid-template-rows: 80px 200px; <br>
     }
 </pre>
 
-                <p>➡ Jarak antar baris dan kolom rapi tanpa margin hack</p>
+                <p>Artinya:
+                    <ul>
+                        <li>3 kolom → 100px | 200px | 100px</li>
+                        <li>2 baris → 80px | 200px</li>
+                    </ul>
+                
+                Maka grid terlihat seperti ini:</p>
+<pre>
+    +-----+----------+-----+
+    |     |          |     |  ← 80px
+    +-----+----------+-----+
+    |     |          |     |  ← 200px
+    +-----+----------+-----+
+</pre>
+                <h3>b. Jumlah kolom menentukan struktur layout</h3>
 
-                <h3>7. Gap vs Justify-content</h3>
-                <p>
-                    gap = jarak antar item <br> <br>
+                <p>Misalnya layout website:</p>
+<pre>
+    grid-template-columns: 200px 1fr;
+</pre>
 
-                    justify-content = distribusi sisa ruang <br> <br>
+                <p>Artinya:
+                    <ul>
+                        <li>kolom kiri = sidebar</li>
+                        <li>kolom kanan = konten</li>
+                        <li></li>
+                    </ul>
+                
+                Tanpa HTML rumit, kita sudah punya layout.</p>
 
-                    Jangan tertukar.
-                </p>
+                <h3>c. Satuan khusus Grid: fr</h3>
 
+                <p>fr berarti fraction of free space</p>
+<pre>
+    grid-template-columns: 1fr 2fr 1fr;
+</pre>
 
-                <h3>8. Kapan pakai gap?</h3>
+                <p>Total = 4 bagian <br>
+                Maka:
+                    <ul>
+                        <li>kolom 1 = 25%</li>
+                        <li>kolom 2 = 50%</li>
+                        <li>kolom 3 = 25%</li>
+                    </ul>
 
-                <p>
-                    ✔ Card grid <br>
-                    ✔ Button group <br>
-                    ✔ Navbar item <br>
-                    ✔ Icon list <br>
-                    ✔ Form layout <br>
-                </p>
+                Ini lebih fleksibel dari %.</p>
 
-                <h3>9. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai margin padahal sudah ada gap <br>
-                    ❌ Menggabungkan gap + margin ganda <br>
-                    ❌ Mengira gap mengatur pinggir container
-                </p>
+                <h3>d. Menggabungkan px, %, dan fr</h3>
 
+<pre>
+    grid-template-columns: 150px 2fr 1fr;
+</pre>
 
-                <a href="3f-flex-grow-flex-shrink-flex-basis.html" class="btn-next">3F Flex Grow / Flex Shrink / Flex Basis</a>
+                <p>Artinya:
+                    <ul>
+                        <li>kiri tetap 150px </li>
+                        <li>sisa ruang dibagi 3</li>
+                        <li>kolom tengah dapat 2 bagian</li>
+                        <li>kolom kanan 1 bagian</li>
+                    </ul>
+
+                Inilah kekuatan Grid: campuran fixed dan fleksibel</p>
+
+                <h3>e. grid-template-rows</h3>
+
+                <p>Baris bekerja sama seperti kolom:</p>
+<pre>
+    grid-template-rows: 80px 1fr 60px;
+</pre>
+
+                <p>Contoh layout:
+                    <ul>
+                        <li>header = 80px</li>
+                        <li>konten = fleksibel</li>
+                        <li>footer = 60px</li>
+                    </ul>
+
+                Tanpa flexbox, tanpa height hack.</p>
+
+                <h3>f. repeat() untuk efisiensi</h3>
+
+                <p>Daripada menulis:</p>
+<pre>
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+</pre>
+
+                <p>Kita bisa:</p>
+<pre>
+    grid-template-columns: repeat(4, 1fr);
+</pre>
+
+                <p>Ini sangat berguna untuk galeri dan card grid.</p>
+
+                <h3>g. auto-fit dan auto-fill</h3>
+
+                <p>Grid bisa membuat kolom otomatis:</p>
+<pre>
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+</pre>
+
+                <p>Artinya:
+                    <ul>
+                        <li>setiap kolom minimal 200px</li>
+                        <li>sisanya fleksibel</li>
+                        <li>jumlah kolom otomatis sesuai lebar layar</li>
+                    </ul>
+                
+
+                Inilah dasar responsive grid tanpa media query. <br></p>
+
+                
             </div>
         </main>
     </div>
