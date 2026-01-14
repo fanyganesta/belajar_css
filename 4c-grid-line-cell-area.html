@@ -75,140 +75,153 @@
             </header>
 
             <div class="container">
-            
-            <h3>Road Map Belajar CSS by me</h3>
-            <div class="img-box">
-                <img src="Belajar CSS.jpeg" alt="Road Map Belajar CSS by Fany" max-width="100%">
-            </div>
+                <h2>Grid Lines, Grid Cell, dan Grid Area</h2>
 
-                <p>Menurutku, cara CSS bekerja bisa dijelaskan secara runtut dan mudah dipahami dengan alur <strong>“browser membaca aturan → menentukan prioritas → menerapkan gaya ke elemen HTML”</strong>. Penjelasan ini cocok untuk materi CSS sebagai dekorasi karena menekankan peran CSS dalam “mendandani” HTML.
-                <br><br>
-                Berikut penjelasan yang bisa kamu gunakan:
-            </p>
+                <p>Kalau sebelumnya kita membuat peta grid (rows & columns), sekarang kita belajar:
+                    <br> <br>
+                bagaimana item ditempatkan di dalam peta itu</p>
 
-            <h3>1. CSS Bekerja dengan Cara Memilih Elemen HTML</h3>
+                <h3>Grid Line (Garis Grid)</h3>
 
-            <p>CSS tidak berdiri sendiri. Ia mencari elemen HTML yang ingin dihias melalui selector.</p>
+                <p>Setiap kolom dan baris dipisahkan oleh garis. <br> <br>
 
-            <p>Contoh:</p>
-
+                Contoh:</p>
 <pre>
-    p{
-        color: blue;
-    }
+    grid-template-columns: 1fr 1fr 1fr;
 </pre>
 
-            <p>
-                Artinya:
-                <ul>
-                    <li>CSS mencari semua</li>
-                    <li>Lalu menerapkan warna teks biru</li>
-                </ul>
-                👉 Tanpa HTML, CSS tidak punya objek untuk dihias.
-            </p>
-
-            <hr>
-
-            <h3>2. Browser Membaca CSS dari Atas ke Bawah</h3>
-            <p>
-                Saat halaman dibuka:
-                <ul>
-                    <li>Browser memuat HTML</li>
-                    <li>Browser memuat CSS</li>
-                    <li>CSS dibaca berurutan <strong>dari atas ke bawah</strong></li>
-                </ul>
-                Jika ada aturan yang saling bertabrakan, aturan terakhir bisa menimpa aturan sebelumnya, tergantung prioritasnya.
-            </p>
-
-            <hr>
-            <h3>3. CSS Menggunakan Sistem Prioritas (Cascade)</h3>
-
-            <p>
-                Inilah asal nama Cascading Style Sheets.
-
-                Urutan prioritas secara sederhana:
-
-                <ol>
-                    <li>!important</li>
-                    <li>Inline CSS <pre>(style="")</pre></li>
-                    <li>Internal CSS <pre>&lt;style&gt; ... &lt;/style&gt;</pre></li>
-                    <li>External CSS <pre>(.css) <br><br> atau <br><br> &lt;link rel="stylesheet" href="ini-file-css.css" &gt;</pre></li>
-                    <li>Urutan penulisan (yang terakhir menang)</li>    
-                </ol>
-
-                Contoh:
-            </p>
+                <p>Ini menghasilkan:</p>
 <pre>
-    p {
-    color: red;
-    }
-
-    p {
-    color: green;
-    }
+    | 1 | 2 | 3 | 4 |
 </pre>
 
-                <hr>
-                <h3>4. CSS Menghitung Spesifisitas Selector</h3>
-                <p>
-                    Jika dua aturan sama-sama aktif, browser menghitung siapa yang lebih spesifik.
-
-                    Urutan spesifisitas:
-                    <ol>
-                        <li>#id</li>
-                        <li>.class</li>
-                        <li>tag</li>
-                    </ol>
-                    Contoh:
-                </p>
-    
+                <p>Ada 4 garis, bukan 3. <br>
+                Garis diberi nomor otomatis:</p>
 <pre>
-    p { color: blue; } <br>
-    .text { color: green; } <br>
-    #judul { color: red;}
-
+    1   2   3   4
+    |---|---|---|
 </pre>
 
-                <p>➡️ Elemen dengan id="judul" akan merah, meskipun punya class atau tag.</p>
-
-                <hr>
-
-                <h3>5. CSS Mewariskan Gaya (Inheritance)</h3>
-                <p>
-                    Beberapa properti CSS diturunkan ke anak elemen <br>
-                    Contoh:
-                </p>
-
+                <p>Begitu juga dengan baris:</p>
 <pre>
-    body {<br>
-        font-family: arial;<br>
-        color: black;<br>
-    }
+    grid-template-rows: 100px 200px;
 </pre>
 
-                <p>
-                    Semua teks di dalam &lt;body&gt; otomatis:
+               <p>Maka garisnya:</p> 
+<pre>
+    1
+    | 100px
+    2
+    | 200px
+    3
+</pre>
+                <h3>Grid Cell</h3>
+
+                <p>Grid cell adalah kotak terkecil hasil perpotongan 1 baris dan 1 kolom.</p>
+<pre>
+    +-----+-----+
+    |  A  |  B  |  ← masing-masing = 1 grid cell
+    +-----+-----+
+    |  C  |  D  |
+    +-----+-----+
+</pre>
+
+                <p>Setiap elemen default akan menempati 1 cell.</p>
+
+                <h3>Grid Area</h3>
+
+                <p>Grid area adalah kumpulan beberapa cell.
+                    <br> <br>
+                Misalnya kita ingin elemen menempati:
                     <ul>
-                        <li>Menggunakan Arial</li>
-                        <li>Berwarna hitam</li>
+                        <li>dari kolom 1 sampai 3</li>
+                        <li>dari baris 1 sampai 2</li>
                     </ul>
-                    👉 Tidak semua properti diwariskan (misalnya margin, padding).
                 </p>
+<pre>
+    .item {  <br>
+        grid-column: 1 / 3; <br>
+        grid-row: 1 / 2; <br>
+    }
+</pre>
 
-    <hr>
-                <h3>6. CSS Diterapkan ke Layout dan Tampilan</h3>
+                <p>Artinya: <br> <br>
+
+                dari garis 1 ke garis 3</p>
+
+                <h3>Cara kerja grid-column dan grid-row</h3>
+<pre>
+    .item { <br>
+        grid-column: 2 / 4; <br>
+        grid-row: 1 / 3; <br>
+    }
+</pre>
+
+                <p>Berarti: <br> <br>
+
+                    mulai di garis kolom 2 <br> <br>
+
+                    berakhir di garis kolom 4 <br>
+                    → melebar 2 kolom <br> <br>
+
+                    mulai di baris 1 <br> <br>
+
+                    berakhir di baris 3 <br>
+                    → setinggi 2 baris
+                </p>
+                <h3>Span (lebih praktis)</h3>
+
+                <p>Daripada menghitung garis:</p>
+<pre>
+    grid-column: 2 / span 2;
+</pre>
+
+                <p>Artinya: <br> <br>
+
+                mulai dari kolom 2, lebar 2 kolom</p>
+
+                <h3>grid-area shorthand</h3>
+<pre>
+    .item { <br>
+        grid-area: 1 / 2 / 3 / 4; <br>
+    }
+</pre>
+
+                <p>Artinya: <br> <br>
+
+                row-start / column-start / row-end / column-end</p>
+
+                <h3>Kenapa ini penting?</h3>
                 <p>
-                    Setelah aturan dipilih dan diprioritaskan, browser:
+                    Flexbox mengatur alur <br>
+                    Grid mengatur posisi absolut dalam layout <br> <br>
+
+                    Dengan grid line: <br>
                     <ul>
-                        <li>Menghitung ukuran (box model)</li>
-                        <li>Menentukan posisi (layout)</li>
-                        <li>Menggambar tampilan di layar (render)</li>
+                        <li>kita bisa bikin layout majalah</li>
+                        <li>dashboard</li>
+                        <li>web admin</li>
+                        <li>layout tidak simetris</li>
                     </ul>
-                    Inilah tahap akhir CSS “bekerja” sebagai dekorasi visual.
+
+                    Tanpa nested div.
                 </p>
+                <h3>Contoh nyata layout</h3>
 
-                <a href="1b-properti-visual.html" class="btn-next"> Next: Properti Visual</a>
+<pre>
+    .container { <br>
+        display: grid; <br>
+        grid-template-columns: 200px 1fr; <br>
+        grid-template-rows: 60px 1fr 50px; <br>
+    } <br> <br>
 
+    .header { grid-column: 1 / 3; } <br>
+    .sidebar { grid-row: 2 / 3; } <br>
+    .content { grid-column: 2 / 3; } <br>
+    .footer { grid-column: 1 / 3; } <br>
+</pre>
+
+                <p>Ini membuat layout website profesional.</p>
             </div>
         </main>
     </div>
