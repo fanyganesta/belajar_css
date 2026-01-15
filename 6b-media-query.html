@@ -53,7 +53,7 @@
             <h5><a href="6b-media-query.html" id="media-queries">2. Media Queries</a></h5>
             <h5><a href="6c-flex-dan-grid-responsive.html" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
             <h5><a href="6d-responsive-typography.html" id="responsive-typography">4. Responsive Typography</a></h5>
-            <h5><a href="6e-hide-and-show-element.html" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+            <h5><a href="6d-responsive-typography.html" id="hide-and-show-element">5. Hide and Show Element</a></h5>
 
             <h6>BAB 7: Sistem Desain (Advanced)</h6>
             <h5><a href="7a-css-variable.html" id="css-variable">1. CSS Variable</a></h5>
@@ -76,151 +76,162 @@
             </header>
 
             <div class="container">
-                <h2>Flex-grow, Flex-shrink, dan Flex-basis (flex)</h2>
-                <h3>1. Apa itu flex?</h3>
+                <h2>Media Queries</h2>
 
-                <p>Di Flexbox, ukuran item tidak ditentukan hanya oleh width, tapi oleh tiga hal:</p>
+                <p>Media Query adalah cara CSS berkata: <br> <br>
+
+                “Gunakan style ini hanya jika kondisi tertentu terpenuhi.” <br> <br>
+
+                Biasanya kondisinya adalah:</p>
+                <ul>
+                    <li>lebar layar</li>
+                    <li>tinggi layar</li>
+                    <li>orientasi</li>
+                    <li>resolusi</li>
+                </ul>
+                
+                <h3>Bentuk dasar</h3>
+<pre>
+    @media (min-width: 768px) { <br>
+        .box { <br>
+            background: blue; <br>
+        } <br>
+    }
+</pre>
+
+                <p>Artinya:
+                <ul>
+                    <li>Jika lebar layar ≥ 768px, ubah .box menjadi biru</li>
+                    <li>Jika lebih kecil → aturan ini diabaikan</li>
+                </ul></p>
+                
+                <h3>Media Query = If di CSS</h3>
+
+                <p>Secara mental:</p>
+<pre>
+    IF screen width >= 768px <br>
+    apply this CSS
+</pre>
+                <h3>Breakpoint (titik perubahan)</h3>
+
+                <p>Breakpoint adalah titik di mana layout berubah. <br> <br>
+
+                Umum dipakai:</p>
                 <table>
                     <tr>
-                        <th>Properti</th>
-                        <th>Funsgi</th>
+                        <th>Device</th>
+                        <th>Breakpoint</th>
                     </tr>
                     <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>Seberapa besar item boleh membesar</td>
+                        <td>HP kecil</td>
+                        <td>320–480px</td>
                     </tr>
                     <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>Seberapa besar item boleh mengecil</td>
+                        <td>HP besar</td>
+                        <td>480–768px</td>
                     </tr>
                     <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>Ukuran dasar awal item</td>
+                        <td>Tablet</td>
+                        <td>768–1024px</td>
+                    </tr>
+                    <tr>
+                        <td>Laptop</td>
+                        <td>1024–1200px</td>
+                    </tr>
+                    <tr>
+                        <td>Desktop</td>
+                        <td>1200px+</td>
                     </tr>
                 </table>
                 	
-                <p>Ketiganya digabung menjadi:</p>
-<pre>
-    flex: grow shrink basis;
-</pre>
+                <p>Biasanya kita pakai:
+                <ul>
+                    <li>768px</li>
+                    <li>1024px</li>
+                    <li>1200px</li>
+                </ul></p>
+                
+                <h3>Mobile First + Media Query</h3>
 
-                <p>Contoh:</p>
+                <p>Inilah kombinasi yang benar:</p>
 <pre>
-    .item { <br>
-        flex: 1 1 200px; <br>
+    /* Mobile default */ <br>
+    .grid { <br>
+        display: block; <br>
+    } <br> <br>
+
+    /* Tablet ke atas */ <br>
+    @media (min-width: 768px) { <br>
+        .grid { <br>
+            display: grid; <br>
+            grid-template-columns: 1fr 1fr; <br>
+        } <br>
+    } <br> <br>
+
+    /* Desktop */ <br>
+    @media (min-width: 1200px) { <br>
+        .grid { <br>
+            grid-template-columns: 1fr 1fr 1fr; <br>
+        } <br>
     }
 </pre>
-                <h3>2. <code>flex-basis</code> — ukuran awal</h3>
+                <ul>
+                    <li>Mobile → 1 kolom</li>
+                    <li>Tablet → 2 kolom</li>
+                    <li>Desktop → 3 kolom</li>
+                </ul>
+            
+                <p>Tanpa duplikasi CSS.</p>
 
-                <p><code>flex-basis</code> adalah lebar awal item sebelum ruang dibagi.</p>
+                <h3>Media Query selain width</h3>
+                <p>Orientation</p>
 <pre>
-    .item { <br>
-        flex-basis: 200px; <br>
+    @media (orientation: landscape) { <br>
+        body { <br>
+            background: red; <br>
+        } <br>
     }
 </pre>
-
-                <p>Artinya: <br> <br>
-
-                “Anggap item ini lebarnya 200px dulu” <br> <br>
-
-                Ini lebih kuat daripada width di Flexbox.</p>
-
-                <h3>3. <code>flex-grow</code> — membagi ruang sisa</h3>
-
-                <p>Jika container punya ruang kosong, <code>flex-grow</code> menentukan: <br> <br>
-
-                Siapa dapat ruang ekstra dan berapa banyak <br> <br>
-
-                Contoh:</p>
+                <p>Height</p>
 <pre>
-    .item1 { flex-grow: 1; } <br>
-    .item2 { flex-grow: 2; } <br>
-</pre>
-
-                <p>Jika ada 300px ruang kosong:
-                    <ul>
-                        <li>item1 dapat 100px</li>
-                        <li>item2 dapat 200px</li>
-                    </ul>
-                <br>
-                ➡ Dibagi berdasarkan rasio</p>
-
-                <h3>4. flex-shrink — siapa yang menyusut</h3>
-
-                <p>Jika container kekurangan ruang, item akan dipaksa mengecil.</p>
-<pre>
-    .item1 { flex-shrink: 1; } <br> 
-    .item2 { flex-shrink: 0; } <br>
-</pre>
-
-                <p>➡ item1 mengecil <br>
-                ➡ item2 tetap</p>
-
-                <h3>5. Kenapa grow dan shrink tidak bertentangan?</h3>
-
-                <p>Mereka bekerja pada kondisi berbeda:
-                    <ul>
-                        <li>Kondisi	Yang aktif</li>
-                        <li>Ada ruang kosong = <code>flex-grow</code></li>
-                        <li>Kurang ruang = <code>flex-shrink</code></li>
-                    </ul>
-
-                Jadi mereka tidak saling melawan, tapi bergantian.</p>
-
-                <h3>6. flex: 1 artinya apa?</h3>
-<pre> 
-    .item { <br>
-        flex: 1; <br>
+    @media (min-height: 700px) { <br>
+        .hero { <br>
+            height: 80vh; <br>
+        } <br>
     }
 </pre>
+                <h3>Media Query untuk input</h3>
 
-                <p>Itu artinya:</p>
+                <p>Kita juga bisa cek:</p>
 <pre>
-    flex: 1 1 0%;
+    @media (hover: hover) { } <br>
+    @media (pointer: coarse) { } /* layar sentuh */
 </pre>
 
-                <p>Maknanya:
-                    <ul>
-                        <li>semua item sama besar</li>
-                        <li>semua boleh membesar</li>
-                        <li>semua boleh mengecil</li>
-                        <li>basis awal = 0</li>
-                    </ul>
-                    <br>
-                ➡ Paling sering dipakai untuk layout kolom.</p>
+                <p>Ini membuat UI adaptif:</p>
+                <ul>
+                    <li>hover effect di desktop</li>
+                    <li>tap-friendly di mobile</li>
+                </ul>
+                
 
-                <h3>7. Contoh nyata</h3>
-                <strong>Layout 3 kolom</strong>
-<pre>
-    .col { <br>
-        flex: 1; <br>
-    }
-</pre>
+                
 
-                <p>➡ Semua kolom sama lebar.</p>
+                <h3>Kesalahan umum</h3>
 
-                <strong>Sidebar + konten</strong>
-<pre>
-    .sidebar { flex: 0 0 250px; } <br>
-    .content { flex: 1; } <br>
-</pre>
+                <p>❌ Menulis semua CSS di dalam media query <br>
+                ❌ Memakai max-width terus <br>
+                ❌ Terlalu banyak breakpoint <br>
+                ❌ Meniru ukuran device, bukan konten</p>
 
-                <p>➡ sidebar tetap <br>
-                ➡ konten mengisi sisa layar</p>
+                <h3>Aturan emas Responsive</h3>
 
-                <h3>8. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai width di Flexbox <br>
-                    ❌ Tidak mengatur shrink → item hancur <br>
-                    ❌ Salah paham flex:1
-                </p>
+                <p>Breakpoint bukan tentang device <br>
+                Breakpoint tentang kapan layout terlihat jelek</p>
 
-                <h3>9. Inti penting</h3>
-                <p>Flexbox tidak bekerja pakai ukuran statis — tapi sistem pembagian ruang.</p>
                 <br> <br>
 
-                <a href="3g-flex-wrapping.html" class="btn-next">3G. Flex Wrapping</a>
-                
+                <a href="6c-flex-dan-grid-responsive.html" class="btn-next">6c. Flex dan Grid Responsive</a>
             </div>
         </main>
     </div>

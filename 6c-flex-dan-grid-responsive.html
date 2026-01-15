@@ -76,151 +76,156 @@
             </header>
 
             <div class="container">
-                <h2>Flex-grow, Flex-shrink, dan Flex-basis (flex)</h2>
-                <h3>1. Apa itu flex?</h3>
+                <h2>Flex & Grid Responsive</h2>
 
-                <p>Di Flexbox, ukuran item tidak ditentukan hanya oleh width, tapi oleh tiga hal:</p>
-                <table>
-                    <tr>
-                        <th>Properti</th>
-                        <th>Funsgi</th>
-                    </tr>
-                    <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>Seberapa besar item boleh membesar</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>Seberapa besar item boleh mengecil</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>Ukuran dasar awal item</td>
-                    </tr>
-                </table>
-                	
-                <p>Ketiganya digabung menjadi:</p>
-<pre>
-    flex: grow shrink basis;
-</pre>
+                <p>Flexbox dan Grid bukan hanya alat layout —
+                mereka adalah mesin adaptasi untuk responsive design. <br> <br>
 
-                <p>Contoh:</p>
+                Tanpa Flex & Grid, responsive itu sulit dan penuh hack.</p>
+
+                <h3>Kenapa float & inline-block tidak cukup?</h3>
+
+                <p>Dulu orang membuat responsive dengan:
+                <ul>
+                    <li>float</li>
+                    <li>inline-block</li>
+                    <li>clear</li>
+                    <li>width %</li>
+                </ul>
+                
+                Masalahnya:
+                <ul>
+                    <li>tidak fleksibel</li>
+                    <li>susah sejajar</li>
+                    <li>susah berubah bentuk</li>
+                </ul>
+                
+                Flex & Grid diciptakan untuk: <br> <br>
+
+                mengatur ruang secara dinamis</p>
+
+                <h3>Flexbox untuk satu arah</h3>
+
+                <p>Flexbox ideal untuk:
+                <ul>
+                    <li>navbar</li>
+                    <li>list item</li>
+                    <li>card horizontal</li>
+                    <li>toolbar</li>
+                </ul>
+
+                Flex bersifat: <br> <br>
+
+                satu dimensi (row atau column)</p>
+
+                <h3>Contoh Flex Responsive</h3>
 <pre>
-    .item { <br>
-        flex: 1 1 200px; <br>
+    .menu { <br>
+        display: flex; <br>
+        flex-direction: column; /* mobile */ <br>
+        gap: 10px; <br>
+    } <br> <br>
+
+    @media (min-width: 768px) { <br>
+        .menu { <br>
+            flex-direction: row; /* desktop */ <br>
+        } <br>
     }
 </pre>
-                <h3>2. <code>flex-basis</code> — ukuran awal</h3>
 
-                <p><code>flex-basis</code> adalah lebar awal item sebelum ruang dibagi.</p>
+                <p>HP → menu vertikal <br>
+                Desktop → menu horizontal</p>
+
+                <h3>Grid untuk dua arah</h3>
+
+                <p>Grid ideal untuk:
+                <ul>
+                    <li>galeri</li>
+                    <li>dashboard</li>
+                    <li>card product</li>
+                    <li>layout halaman</li>
+                </ul>
+                
+                Grid bersifat: <br> <br>
+
+                dua dimensi (baris & kolom)</p>
+
+                <h3>Contoh Grid Responsive</h3>
 <pre>
-    .item { <br>
-        flex-basis: 200px; <br>
+    .cards { <br>
+        display: grid; <br>
+        grid-template-columns: 1fr; /* mobile */ <br>
+        gap: 20px; <br>
+    } <br> <br>
+
+    @media (min-width: 768px) { <br>
+        .cards { <br>
+            grid-template-columns: 1fr 1fr; <br>
+        } <br>
+    } <br> <br>
+
+    @media (min-width: 1200px) { <br>
+        .cards { <br>
+            grid-template-columns: 1fr 1fr 1fr; <br>
+        } <br>
+    }
+</pre>
+
+                <p>Tanpa JS, layout berubah sendiri.</p>
+
+                <h3>auto-fit & minmax (power feature)</h3>
+<pre>
+    .cards { <br>
+        display: grid; <br>
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); <br>
     }
 </pre>
 
                 <p>Artinya: <br> <br>
 
-                “Anggap item ini lebarnya 200px dulu” <br> <br>
+                Buat sebanyak mungkin kolom, minimal 250px, maksimal fleksibel <br> <br>
 
-                Ini lebih kuat daripada width di Flexbox.</p>
+                Ini sering menghilangkan kebutuhan breakpoint.</p>
 
-                <h3>3. <code>flex-grow</code> — membagi ruang sisa</h3>
-
-                <p>Jika container punya ruang kosong, <code>flex-grow</code> menentukan: <br> <br>
-
-                Siapa dapat ruang ekstra dan berapa banyak <br> <br>
-
-                Contoh:</p>
+                <h3>Flex wrapping</h3>
 <pre>
-    .item1 { flex-grow: 1; } <br>
-    .item2 { flex-grow: 2; } <br>
-</pre>
-
-                <p>Jika ada 300px ruang kosong:
-                    <ul>
-                        <li>item1 dapat 100px</li>
-                        <li>item2 dapat 200px</li>
-                    </ul>
-                <br>
-                ➡ Dibagi berdasarkan rasio</p>
-
-                <h3>4. flex-shrink — siapa yang menyusut</h3>
-
-                <p>Jika container kekurangan ruang, item akan dipaksa mengecil.</p>
-<pre>
-    .item1 { flex-shrink: 1; } <br> 
-    .item2 { flex-shrink: 0; } <br>
-</pre>
-
-                <p>➡ item1 mengecil <br>
-                ➡ item2 tetap</p>
-
-                <h3>5. Kenapa grow dan shrink tidak bertentangan?</h3>
-
-                <p>Mereka bekerja pada kondisi berbeda:
-                    <ul>
-                        <li>Kondisi	Yang aktif</li>
-                        <li>Ada ruang kosong = <code>flex-grow</code></li>
-                        <li>Kurang ruang = <code>flex-shrink</code></li>
-                    </ul>
-
-                Jadi mereka tidak saling melawan, tapi bergantian.</p>
-
-                <h3>6. flex: 1 artinya apa?</h3>
-<pre> 
-    .item { <br>
-        flex: 1; <br>
+    .items { <br>
+        display: flex; <br>
+        flex-wrap: wrap; <br>
     }
 </pre>
 
-                <p>Itu artinya:</p>
-<pre>
-    flex: 1 1 0%;
-</pre>
+                <p>Item otomatis turun baris saat ruang habis.</p>
 
-                <p>Maknanya:
-                    <ul>
-                        <li>semua item sama besar</li>
-                        <li>semua boleh membesar</li>
-                        <li>semua boleh mengecil</li>
-                        <li>basis awal = 0</li>
-                    </ul>
-                    <br>
-                ➡ Paling sering dipakai untuk layout kolom.</p>
-
-                <h3>7. Contoh nyata</h3>
-                <strong>Layout 3 kolom</strong>
-<pre>
-    .col { <br>
-        flex: 1; <br>
-    }
-</pre>
-
-                <p>➡ Semua kolom sama lebar.</p>
-
-                <strong>Sidebar + konten</strong>
-<pre>
-    .sidebar { flex: 0 0 250px; } <br>
-    .content { flex: 1; } <br>
-</pre>
-
-                <p>➡ sidebar tetap <br>
-                ➡ konten mengisi sisa layar</p>
-
-                <h3>8. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai width di Flexbox <br>
-                    ❌ Tidak mengatur shrink → item hancur <br>
-                    ❌ Salah paham flex:1
-                </p>
-
-                <h3>9. Inti penting</h3>
-                <p>Flexbox tidak bekerja pakai ukuran statis — tapi sistem pembagian ruang.</p>
+                <h3>Perbedaan peran</h3>
+                <table>
+                    <tr>
+                        <th>Flex</th>
+                        <th>Grid</th>
+                    </tr>
+                    <tr>
+                        <td>Baris / kolom</td>
+                        <td>Baris + kolom</td>
+                    </tr>
+                    <tr>
+                        <td>Komponen</td>
+                        <td>Layout halaman</td>
+                    </tr>
+                    <tr>
+                        <td>Sederhana</td>
+                        <td>Struktur besar</td>
+                    </tr>
+                </table>
+                	
+                <p>Dalam responsive:</p>
+                <ul>
+                    <li>Grid → struktur</li>
+                    <li>Flex → isi</li>
+                </ul>
+                
                 <br> <br>
 
-                <a href="3g-flex-wrapping.html" class="btn-next">3G. Flex Wrapping</a>
-                
+                <a href="6d-responsive-typography.html" class="btn-next"></a>
             </div>
         </main>
     </div>

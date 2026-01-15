@@ -76,151 +76,118 @@
             </header>
 
             <div class="container">
-                <h2>Flex-grow, Flex-shrink, dan Flex-basis (flex)</h2>
-                <h3>1. Apa itu flex?</h3>
+                <h2>Responsive Typography</h2>
 
-                <p>Di Flexbox, ukuran item tidak ditentukan hanya oleh width, tapi oleh tiga hal:</p>
-                <table>
-                    <tr>
-                        <th>Properti</th>
-                        <th>Funsgi</th>
-                    </tr>
-                    <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>Seberapa besar item boleh membesar</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>Seberapa besar item boleh mengecil</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>Ukuran dasar awal item</td>
-                    </tr>
-                </table>
-                	
-                <p>Ketiganya digabung menjadi:</p>
+                <p>Responsive typography adalah: <br> <br>
+
+                teks yang menyesuaikan diri dengan ukuran layar dan jarak baca <br> <br>
+
+                Bukan cuma mengecil atau membesar —
+                tetapi tetap nyaman dibaca.</p>
+
+                <h3>Masalah teks tanpa responsive</h3>
+
+                <p>Di HP:
+                <ul>
+                    <li>judul kepanjangan</li>
+                    <li>baris terlalu rapat</li>
+                    <li>paragraf melebar</li>
+                </ul>
+                
+                Di desktop:
+                <ul>
+                    <li>teks terlalu kecil</li>
+                    <li>banyak ruang kosong</li>
+                </ul></p>
+                
+
+                
+
+                <h3>Unit yang benar</h3>
+
+                <p>Hindari:</p>
 <pre>
-    flex: grow shrink basis;
+    font-size: 12px;
 </pre>
 
-                <p>Contoh:</p>
+                <p>Gunakan:</p>
 <pre>
-    .item { <br>
-        flex: 1 1 200px; <br>
+    font-size: rem; <br>
+    em; <br>
+    vw;
+</pre>
+                <h3>Dasar rem</h3>
+<pre>
+    html { <br>
+        font-size: 16px; <br>
+    } <br> <br>
+
+    p { <br>
+        font-size: 1rem; /* 16px */ <br>
+    } <br>
+    h1 { <br>
+        font-size: 2rem; /* 32px */ <br>
     }
 </pre>
-                <h3>2. <code>flex-basis</code> — ukuran awal</h3>
 
-                <p><code>flex-basis</code> adalah lebar awal item sebelum ruang dibagi.</p>
+                <p>Jika di mobile kamu ubah:</p>
 <pre>
-    .item { <br>
-        flex-basis: 200px; <br>
+    html { font-size: 14px; }
+</pre>
+
+                <p>Semua teks otomatis menyesuaikan.</p>
+
+                <h3>Fluid typography</h3>
+<pre>
+    h1 { <br>
+        font-size: clamp(1.5rem, 4vw, 3rem); <br>
     }
 </pre>
 
-                <p>Artinya: <br> <br>
+                <p>Artinya:</p>
+                <ul>
+                    <li>minimal 1.5rem</li>
+                    <li>ideal mengikuti lebar layar</li>
+                    <li>maksimal 3rem</li>
+                    <li></li>
+                </ul>
+                
+                <p>Tanpa media query.</p>
 
-                “Anggap item ini lebarnya 200px dulu” <br> <br>
+                <h3>Line length & line height</h3>
 
-                Ini lebih kuat daripada width di Flexbox.</p>
-
-                <h3>3. <code>flex-grow</code> — membagi ruang sisa</h3>
-
-                <p>Jika container punya ruang kosong, <code>flex-grow</code> menentukan: <br> <br>
-
-                Siapa dapat ruang ekstra dan berapa banyak <br> <br>
-
-                Contoh:</p>
-<pre>
-    .item1 { flex-grow: 1; } <br>
-    .item2 { flex-grow: 2; } <br>
-</pre>
-
-                <p>Jika ada 300px ruang kosong:
-                    <ul>
-                        <li>item1 dapat 100px</li>
-                        <li>item2 dapat 200px</li>
-                    </ul>
-                <br>
-                ➡ Dibagi berdasarkan rasio</p>
-
-                <h3>4. flex-shrink — siapa yang menyusut</h3>
-
-                <p>Jika container kekurangan ruang, item akan dipaksa mengecil.</p>
-<pre>
-    .item1 { flex-shrink: 1; } <br> 
-    .item2 { flex-shrink: 0; } <br>
-</pre>
-
-                <p>➡ item1 mengecil <br>
-                ➡ item2 tetap</p>
-
-                <h3>5. Kenapa grow dan shrink tidak bertentangan?</h3>
-
-                <p>Mereka bekerja pada kondisi berbeda:
-                    <ul>
-                        <li>Kondisi	Yang aktif</li>
-                        <li>Ada ruang kosong = <code>flex-grow</code></li>
-                        <li>Kurang ruang = <code>flex-shrink</code></li>
-                    </ul>
-
-                Jadi mereka tidak saling melawan, tapi bergantian.</p>
-
-                <h3>6. flex: 1 artinya apa?</h3>
+                <p>Teks nyaman jika:
+                <ul>
+                    <li>50–75 karakter per baris</li>
+                    <li>line-height ≈ 1.4 – 1.7</li>
+                </ul></p>
 <pre> 
-    .item { <br>
-        flex: 1; <br>
+    p { <br>
+        max-width: 60ch; <br>
+        line-height: 1.6; <br>
+    }
+</pre>  
+                <h3>Mobile first typography</h3>
+<pre>
+    body { font-size: 14px; } <br> <br>
+
+    @media (min-width: 768px) { <br>
+        body { font-size: 16px; } <br>
+    } <br> <br>
+
+    @media (min-width: 1200px) { <br>
+        body { font-size: 18px; } <br>
     }
 </pre>
+                <h3>Kesalahan umum</h3>
 
-                <p>Itu artinya:</p>
-<pre>
-    flex: 1 1 0%;
-</pre>
+                <p>❌ pakai px untuk semua teks <br>
+                ❌ judul terlalu besar di HP <br>
+                ❌ baris terlalu panjang di desktop</p>
 
-                <p>Maknanya:
-                    <ul>
-                        <li>semua item sama besar</li>
-                        <li>semua boleh membesar</li>
-                        <li>semua boleh mengecil</li>
-                        <li>basis awal = 0</li>
-                    </ul>
-                    <br>
-                ➡ Paling sering dipakai untuk layout kolom.</p>
-
-                <h3>7. Contoh nyata</h3>
-                <strong>Layout 3 kolom</strong>
-<pre>
-    .col { <br>
-        flex: 1; <br>
-    }
-</pre>
-
-                <p>➡ Semua kolom sama lebar.</p>
-
-                <strong>Sidebar + konten</strong>
-<pre>
-    .sidebar { flex: 0 0 250px; } <br>
-    .content { flex: 1; } <br>
-</pre>
-
-                <p>➡ sidebar tetap <br>
-                ➡ konten mengisi sisa layar</p>
-
-                <h3>8. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai width di Flexbox <br>
-                    ❌ Tidak mengatur shrink → item hancur <br>
-                    ❌ Salah paham flex:1
-                </p>
-
-                <h3>9. Inti penting</h3>
-                <p>Flexbox tidak bekerja pakai ukuran statis — tapi sistem pembagian ruang.</p>
                 <br> <br>
 
-                <a href="3g-flex-wrapping.html" class="btn-next">3G. Flex Wrapping</a>
-                
+                <a href="6e-hide-and-show-element.html" class="btn-next">6e. Hide and Show Element</a>
             </div>
         </main>
     </div>

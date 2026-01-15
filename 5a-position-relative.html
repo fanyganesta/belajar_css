@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="3b-main-axis-dan-cross-axis.html" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="3c-justify-content.html" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="3d-align-items.html" id="align-items">4. Align Items</a></h5>
+            <h5><a href="3e-gap.html" id="gap">5. Gap</a></h5>
+            <h5><a href="3f-flex-grow-flex-shrink-flex-basis.html" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="3g-flex-wrapping.html" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="4a-css-grid.html" id="grid-container-dan-item">1. CSS Grid</a></h5>
+            <h5><a href="4b-grid-container-dan-track.html" id="grid-template-column">2. Container dan Track</a></h5>
+            <h5><a href="4c-grid-line-cell-area.html" id="grid-line-cell-area">3. Grid Line, Grid Cell dan Grid Area</a></h5>
+            <h5><a href="4d-grid-area.html" id="grid-area">4. Grid Area</a></h5>
+            <h5><a href="4e-grid-auto-placement.html" id="grid-auto-placement">5. Grid Auto Placement</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="5a-position-relative.html" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="5b-position-absolute.html" id="absolute">2. Absolute</a></h5>
+            <h5><a href="5c-position-sticky.html" id="sticky">3. Sticky</a></h5>
+            <h5><a href="5d-z-index.html" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="6a-mobile-first.html" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="6b-media-query.html" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="6c-flex-dan-grid-responsive.html" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="6d-responsive-typography.html" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="6e-hide-and-show-element.html" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="7a-css-variable.html" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h3><code>position: relative</code></h3>
+                <h4>1. Pengertian <code>position: relative</code></h4>
+                <p>
+                    <code>position: relative</code> adalah properti CSS yang digunakan untuk menggeser posisi elemen dari posisi aslinya, tanpa mengeluarkannya dari alur normal halaman.
+                    <br>
+                    Artinya:
+                    <ul>
+                        <li>Elemen tetap menempati ruang aslinya</li>
+                        <li>Elemen lain tidak ikut bergeser</li>
+                        <li>Posisi baru ditentukan dengan:</li>
+                        <ul>
+                            <li><code>top</code></li>
+                            <li><code>right</code></li>
+                            <li><code>bottom</code></li>
+                            <li><code>left</code></li>
+                        </ul>
+                    </ul>
+                    Contoh:
+                </p>
+<pre>
+    .box { <br>
+        position: relative; <br>
+        top: 20px; <br>
+        left: 30px; <br>
+    }
+</pre>
+
+
+
+
+                <h4>2. Cara Kerja position: relative</h4>
+                <p>
+                    Ketika sebuah elemen diberi <code>position: relative</code>:
+                    <ul>
+                        <li>Browser menggambar elemen di posisi normal</li>
+                        <li>Lalu menggeser tampilannya sesuai nilai top, left, dll</li>
+                        <li>Ruang awal elemen tetap dipertahankan</li>
+                    </ul>
+                    📌 Ini berbeda dengan absolute yang menghilangkan elemen dari alur dokumen.
+                </p>
+
+
+
+
+                <h4>3. relative untuk Elemen Berukuran Besar</h4>
+                <p>
+                    <code>position: relative</code> sering digunakan pada elemen besar untuk:
+                    <ul>
+                        <li>Section (hero, banner, card besar)</li>
+                        <li>Container dekorasi</li>
+                        <li>Pembungkus elemen absolute</li>
+                    </ul>
+                    Contoh:
+                </p>
+<pre>
+    .section { <br>
+        position: relative; <br>
+        width: 100%; <br>
+        height: 400px; <br>
+        background: #f5f5f5; <br>
+    }
+</pre>
+                <p>
+                    Elemen ini:
+                </p>
+                <ul>
+                    <li>Tetap menjaga struktur layout</li>
+                    <li>Bisa menjadi referensi posisi bagi elemen dekoratif di dalamnya</li>
+                </ul>
+
+
+
+                <h4>4. relative sebagai Induk Dekorasi</h4>
+                <p>
+                    Fungsi paling penting position: relative bukan untuk menggeser dirinya, tapi untuk:
+                    <ul>
+                        <li>Menjadi acuan posisi bagi elemen absolute di dalamnya</li>
+                    </ul>
+                    Contoh Kombinasi:
+                </p>
+<pre>
+    &lt;div class="card">
+        &lt;span class="badge">NEW&lt;/span>
+    &lt;/div>
+</pre>
+                
+<pre>
+.card { <br>
+    position: relative; <br>
+    width: 300px; <br>
+    height: 200px; <br>
+    background: white; <br>
+} <br>
+
+.badge { <br>
+    position: absolute; <br>
+    top: 10px; <br>
+    right: 10px; <br>
+}
+</pre>
+                <p>
+                    📌 Tanpa relative, .badge akan menempel ke <body>.
+                </p>
+
+
+                <h4>5. Penggunaan Ukuran Besar dengan relative</h4>
+                <p>
+                    Properti yang sering dikombinasikan:
+                    <ul>
+                        <li>width, height</li>
+                        <li>max-width</li>
+                        <li>padding</li>
+                        <li>overflow</li>
+                        <li>z-index</li>
+                    </ul>
+                    Contoh:
+                </p>
+
+<pre>
+.decor-section { <br>
+    position: relative; <br>
+    width: 100%; <br>
+    min-height: 500px; <br>
+    overflow: hidden; <br>
+}
+</pre>
+                <p>
+                    Digunakan untuk:
+                    <ul>
+                        <li>Menyimpan dekorasi besar agar tidak keluar layar</li>
+                        <li>Mengontrol efek visual</li>
+                    </ul>
+                </p>
+
+
+
+
+
+                <h4>6. z-index pada Elemen Relative</h4>
+                <p>
+                    Elemen dengan <code>position: relative</code> bisa menggunakan z-index.
+                </p>
+
+<pre>
+    .layer-1 { <br>
+        position: relative; <br>
+        z-index: 1; <br>
+    } <br>
+
+    .layer-2 { <br>
+        position: relative; <br>
+        z-index: 2; <br>
+    }
+</pre>
+
+
+                <p>
+                    📌 Sangat berguna untuk:
+                </p>
+                <ul>
+                    <li>Menumpuk dekorasi besar</li>
+                    <li>Mengatur layer UI</li>
+                </ul>
+                
+                
+
+
+                <h4>7. Perbedaan relative vs absolute (Ringkas)</h4>
+                <table>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Relative</th>
+                        <th>Absolute</th>
+                    </tr>
+                    <tr>
+                        <td>Alur dokumen</td>
+                        <td class="ct">Tetap</td>
+                        <td class="ct">Keluar</td>
+                    </tr>
+                    <tr>
+                        <td>Bisa jadi parent posisi</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok untuk elemen utama</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">❌</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok untuk dekorasi besar</td>
+                        <td class="ct">✔</td>
+                        <td class="ct">✔ (jika terkontrol)</td>
+                    </tr>
+                </table>
+
+                <br> <br>
+
+                <a href="5b-position-absolute.html" class="btn-next">5b. Position Absolute</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

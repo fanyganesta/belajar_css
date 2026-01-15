@@ -76,151 +76,136 @@
             </header>
 
             <div class="container">
-                <h2>Flex-grow, Flex-shrink, dan Flex-basis (flex)</h2>
-                <h3>1. Apa itu flex?</h3>
+                <h2>Hide / Show Element (Konten Adaptif)</h2>
 
-                <p>Di Flexbox, ukuran item tidak ditentukan hanya oleh width, tapi oleh tiga hal:</p>
-                <table>
-                    <tr>
-                        <th>Properti</th>
-                        <th>Funsgi</th>
-                    </tr>
-                    <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>Seberapa besar item boleh membesar</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>Seberapa besar item boleh mengecil</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>Ukuran dasar awal item</td>
-                    </tr>
-                </table>
-                	
-                <p>Ketiganya digabung menjadi:</p>
-<pre>
-    flex: grow shrink basis;
-</pre>
+                <p>Responsive bukan cuma soal mengatur ukuran, <br>
+                tapi juga memilih apa yang perlu ditampilkan. <br> <br>
 
-                <p>Contoh:</p>
+                Kadang: <br> <br>
+
+                konten desktop tidak cocok ditampilkan di mobile.</p>
+
+                <h3>Kenapa perlu hide / show?</h3>
+
+                <p>Di HP:
+                <ul>
+                    <li>layar sempit</li>
+                    <li>interaksi sentuh</li>
+                    <li>perhatian pengguna pendek</li>
+                </ul>
+
+                Maka kita:
+                <ul>
+                    <li>sembunyikan sidebar</li>
+                    <li>ganti menu jadi ikon</li>
+                    <li>ringkas tabel</li>
+                    <li>kurangi dekorasi</li>
+                </ul></p>
+                
+                <h3>Teknik paling dasar</h3>
 <pre>
-    .item { <br>
-        flex: 1 1 200px; <br>
+    .mobile-only { <br>
+        display: block; <br>
+    } <br> <br>
+
+    .desktop-only { <br>
+        display: none; <br>
+    } <br>
+
+    @media (min-width: 768px) { <br>
+        .mobile-only { <br>
+            display: none; <br>
+    } <br> <br>
+
+    .desktop-only { <br>
+            display: block; <br>
+        } <br>
     }
 </pre>
-                <h3>2. <code>flex-basis</code> — ukuran awal</h3>
-
-                <p><code>flex-basis</code> adalah lebar awal item sebelum ruang dibagi.</p>
+                <h3>Hide dengan visibility</h3>
 <pre>
-    .item { <br>
-        flex-basis: 200px; <br>
-    }
-</pre>
-
-                <p>Artinya: <br> <br>
-
-                “Anggap item ini lebarnya 200px dulu” <br> <br>
-
-                Ini lebih kuat daripada width di Flexbox.</p>
-
-                <h3>3. <code>flex-grow</code> — membagi ruang sisa</h3>
-
-                <p>Jika container punya ruang kosong, <code>flex-grow</code> menentukan: <br> <br>
-
-                Siapa dapat ruang ekstra dan berapa banyak <br> <br>
-
-                Contoh:</p>
-<pre>
-    .item1 { flex-grow: 1; } <br>
-    .item2 { flex-grow: 2; } <br>
-</pre>
-
-                <p>Jika ada 300px ruang kosong:
-                    <ul>
-                        <li>item1 dapat 100px</li>
-                        <li>item2 dapat 200px</li>
-                    </ul>
-                <br>
-                ➡ Dibagi berdasarkan rasio</p>
-
-                <h3>4. flex-shrink — siapa yang menyusut</h3>
-
-                <p>Jika container kekurangan ruang, item akan dipaksa mengecil.</p>
-<pre>
-    .item1 { flex-shrink: 1; } <br> 
-    .item2 { flex-shrink: 0; } <br>
-</pre>
-
-                <p>➡ item1 mengecil <br>
-                ➡ item2 tetap</p>
-
-                <h3>5. Kenapa grow dan shrink tidak bertentangan?</h3>
-
-                <p>Mereka bekerja pada kondisi berbeda:
-                    <ul>
-                        <li>Kondisi	Yang aktif</li>
-                        <li>Ada ruang kosong = <code>flex-grow</code></li>
-                        <li>Kurang ruang = <code>flex-shrink</code></li>
-                    </ul>
-
-                Jadi mereka tidak saling melawan, tapi bergantian.</p>
-
-                <h3>6. flex: 1 artinya apa?</h3>
-<pre> 
-    .item { <br>
-        flex: 1; <br>
+    .hidden { <br>
+        visibility: hidden; <br>
     }
 </pre>
 
-                <p>Itu artinya:</p>
+                <p>Elemen:
+                <ul>
+                    <li>tidak terlihat</li>
+                    <li>masih memakan ruang</li>
+                </ul>
+                
+
+                Berbeda dengan:</p>
 <pre>
-    flex: 1 1 0%;
+    display: none;
 </pre>
 
-                <p>Maknanya:
-                    <ul>
-                        <li>semua item sama besar</li>
-                        <li>semua boleh membesar</li>
-                        <li>semua boleh mengecil</li>
-                        <li>basis awal = 0</li>
-                    </ul>
-                    <br>
-                ➡ Paling sering dipakai untuk layout kolom.</p>
+                <p>Yang benar-benar menghilangkan.</p>
 
-                <h3>7. Contoh nyata</h3>
-                <strong>Layout 3 kolom</strong>
+                <h3>Hide dengan opacity</h3>
 <pre>
-    .col { <br>
-        flex: 1; <br>
+    .fade { <br>
+        opacity: 0; <br>
+        pointer-events: none; <br>
     }
 </pre>
 
-                <p>➡ Semua kolom sama lebar.</p>
+                <p>Dipakai untuk animasi atau transisi.</p>
 
-                <strong>Sidebar + konten</strong>
+                <h3>Responsive menu (contoh nyata)</h3>
 <pre>
-    .sidebar { flex: 0 0 250px; } <br>
-    .content { flex: 1; } <br>
+    .menu { <br>
+        display: none; <br>
+    } <br> <br>
+
+    @media (min-width: 768px) { <br>
+        .menu { <br>
+            display: flex; <br>
+        } <br>
+    } <br> <br>
+
+    .hamburger { <br>
+        display: block; <br>
+    } <br> <br>
+
+    @media (min-width: 768px) { <br>
+        .hamburger { <br>
+            display: none; <br>
+        } <br>
+    }
 </pre>
 
-                <p>➡ sidebar tetap <br>
-                ➡ konten mengisi sisa layar</p>
+                <p>HP → tombol hamburger <br>
+                Desktop → menu penuh</p>
 
-                <h3>8. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai width di Flexbox <br>
-                    ❌ Tidak mengatur shrink → item hancur <br>
-                    ❌ Salah paham flex:1
-                </p>
+                <h3>Best practice</h3>
 
-                <h3>9. Inti penting</h3>
-                <p>Flexbox tidak bekerja pakai ukuran statis — tapi sistem pembagian ruang.</p>
+                <p>Jangan menyembunyikan:
+                <ul>
+                    <li>konten utama</li>
+                    <li>informasi penting</li>
+                    <li>form wajib</li>
+                </ul>
+                
+                Yang disembunyikan:
+                <ul>
+                    <li>dekorasi/li>
+                    <li>menu sekunder</li>
+                    <li>filter lanjutan</li>
+                </ul></p>
+                
+                <h3>Aksesibilitas</h3>
+
+                <p>Jika elemen disembunyikan:</p>
+                <ul>
+                    <li>screen reader juga tidak membacanya jika <code>display:none</code></li>
+                    <li>gunakan dengan sadar</li>
+                </ul>
+                
                 <br> <br>
 
-                <a href="3g-flex-wrapping.html" class="btn-next">3G. Flex Wrapping</a>
-                
+                <a href="7a-css-variable.html" class="btn-next">7a. CSS Variable</a>
             </div>
         </main>
     </div>

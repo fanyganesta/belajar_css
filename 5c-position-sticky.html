@@ -76,151 +76,141 @@
             </header>
 
             <div class="container">
-                <h2>Flex-grow, Flex-shrink, dan Flex-basis (flex)</h2>
-                <h3>1. Apa itu flex?</h3>
+                <h2><code>position: sticky</code></h2>
 
-                <p>Di Flexbox, ukuran item tidak ditentukan hanya oleh width, tapi oleh tiga hal:</p>
-                <table>
-                    <tr>
-                        <th>Properti</th>
-                        <th>Funsgi</th>
-                    </tr>
-                    <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>Seberapa besar item boleh membesar</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>Seberapa besar item boleh mengecil</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>Ukuran dasar awal item</td>
-                    </tr>
-                </table>
-                	
-                <p>Ketiganya digabung menjadi:</p>
+                <p>position: sticky adalah gabungan antara:
+                <ul>
+                    <li>relative</li>
+                    <li>dan fixed</li>
+                </ul>
+
+                Ia berperilaku seperti relative, sampai pada titik tertentu…
+                lalu berubah menjadi fixed.</p>
+
+                <h3>Masalah yang ingin diselesaikan</h3>
+
+                <p>Bayangkan:
+                <ul>
+                    <li>kamu punya judul tabel</li>
+                    <li>atau sidebar</li>
+                    <li>atau menu filter</li>
+                </ul>
+                
+                Kamu ingin: <br> be 
+
+                Saat halaman di-scroll, elemen itu ikut naik… tapi ketika sudah menyentuh batas atas layar, dia “menempel” di situ.
+                <ul>
+                    <li>Itu bukan fixed, bukan juga relative.</li>
+                    <li>Itulah sticky.</li>
+                </ul></p>
+
+                <h3>Contoh dasar</h3>
+
+                <p>HTML:</p>
 <pre>
-    flex: grow shrink basis;
+    &lt;div class="container"> <br>
+    &lt;div class="header">Saya sticky&lt;/div> <br>
+    &lt;p>konten panjang…&lt;/p> <br>
+    &lt;/div>
 </pre>
 
-                <p>Contoh:</p>
+                <p>CSS:</p>
 <pre>
-    .item { <br>
-        flex: 1 1 200px; <br>
-    }
-</pre>
-                <h3>2. <code>flex-basis</code> — ukuran awal</h3>
-
-                <p><code>flex-basis</code> adalah lebar awal item sebelum ruang dibagi.</p>
-<pre>
-    .item { <br>
-        flex-basis: 200px; <br>
+    .header { <br>
+        position: sticky; <br> 
+        top: 0; <br>
+        background: white; <br>
     }
 </pre>
 
                 <p>Artinya: <br> <br>
 
-                “Anggap item ini lebarnya 200px dulu” <br> <br>
+                Selama belum menyentuh top: 0, dia ikut scroll <br>
+                Setelah menyentuh, dia terkunci di atas </p>
 
-                Ini lebih kuat daripada width di Flexbox.</p>
-
-                <h3>3. <code>flex-grow</code> — membagi ruang sisa</h3>
-
-                <p>Jika container punya ruang kosong, <code>flex-grow</code> menentukan: <br> <br>
-
-                Siapa dapat ruang ekstra dan berapa banyak <br> <br>
-
-                Contoh:</p>
-<pre>
-    .item1 { flex-grow: 1; } <br>
-    .item2 { flex-grow: 2; } <br>
-</pre>
-
-                <p>Jika ada 300px ruang kosong:
-                    <ul>
-                        <li>item1 dapat 100px</li>
-                        <li>item2 dapat 200px</li>
-                    </ul>
-                <br>
-                ➡ Dibagi berdasarkan rasio</p>
-
-                <h3>4. flex-shrink — siapa yang menyusut</h3>
-
-                <p>Jika container kekurangan ruang, item akan dipaksa mengecil.</p>
-<pre>
-    .item1 { flex-shrink: 1; } <br> 
-    .item2 { flex-shrink: 0; } <br>
-</pre>
-
-                <p>➡ item1 mengecil <br>
-                ➡ item2 tetap</p>
-
-                <h3>5. Kenapa grow dan shrink tidak bertentangan?</h3>
-
-                <p>Mereka bekerja pada kondisi berbeda:
-                    <ul>
-                        <li>Kondisi	Yang aktif</li>
-                        <li>Ada ruang kosong = <code>flex-grow</code></li>
-                        <li>Kurang ruang = <code>flex-shrink</code></li>
-                    </ul>
-
-                Jadi mereka tidak saling melawan, tapi bergantian.</p>
-
-                <h3>6. flex: 1 artinya apa?</h3>
-<pre> 
-    .item { <br>
-        flex: 1; <br>
-    }
-</pre>
-
-                <p>Itu artinya:</p>
-<pre>
-    flex: 1 1 0%;
-</pre>
-
-                <p>Maknanya:
-                    <ul>
-                        <li>semua item sama besar</li>
-                        <li>semua boleh membesar</li>
-                        <li>semua boleh mengecil</li>
-                        <li>basis awal = 0</li>
-                    </ul>
-                    <br>
-                ➡ Paling sering dipakai untuk layout kolom.</p>
-
-                <h3>7. Contoh nyata</h3>
-                <strong>Layout 3 kolom</strong>
-<pre>
-    .col { <br>
-        flex: 1; <br>
-    }
-</pre>
-
-                <p>➡ Semua kolom sama lebar.</p>
-
-                <strong>Sidebar + konten</strong>
-<pre>
-    .sidebar { flex: 0 0 250px; } <br>
-    .content { flex: 1; } <br>
-</pre>
-
-                <p>➡ sidebar tetap <br>
-                ➡ konten mengisi sisa layar</p>
-
-                <h3>8. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai width di Flexbox <br>
-                    ❌ Tidak mengatur shrink → item hancur <br>
-                    ❌ Salah paham flex:1
-                </p>
-
-                <h3>9. Inti penting</h3>
-                <p>Flexbox tidak bekerja pakai ukuran statis — tapi sistem pembagian ruang.</p>
-                <br> <br>
-
-                <a href="3g-flex-wrapping.html" class="btn-next">3G. Flex Wrapping</a>
+                <h3>Perbedaan dengan fixed</h3>
+                <table>
+                    <tr>
+                        <th>fixed</th>
+                        <th>sticky</th>
+                    </tr>
+                    <tr>
+                        <td>Keluar dari layout</td>
+                        <td>Tetap di layout</td>
+                    </tr>
+                    <tr>
+                        <td>Menempel ke viewport</td>
+                        <td>Menempel di dalam parent</td>
+                    </tr>
+                    <tr>
+                        <td>Selalu terlihat</td>
+                        <td>Hanya aktif saat di-scroll</td>
+                    </tr>
+                </table>
+                	
+                <ul>
+                    <li>Sticky tidak keluar dari kontainernya.</li>
+                    <li>Jika parent-nya habis, sticky ikut berhenti.</li>
+                </ul>
                 
+                <h3>Syarat agar sticky bekerja</h3>
+
+                <p>Ini sering membuat orang bingung. <br> <br>
+
+                1️⃣ Harus ada offset</p>
+<pre>
+    top: 0; /* atau bottom, left, right */
+</pre>
+
+                <p>2️⃣ Parent tidak boleh punya:</p>
+<pre>
+    overflow: hidden; <br>
+    overflow: auto; <br>
+    overflow: scroll;
+</pre>
+
+                <p>Karena sticky menempel ke scroll container.</p>
+
+                <h3>Sticky di dalam container</h3>
+<pre>
+    .sidebar { <br> 
+        height: 100vh; <br>
+        overflow-y: auto; <br>
+    } <br> <br>
+
+    .menu { <br>
+        position: sticky; <br>
+        top: 0; <br>
+    }
+</pre>
+
+                <p>Sticky akan menempel di dalam sidebar, bukan seluruh halaman.</p>
+
+                <h3>Use case nyata</h3>
+
+                <p>Sticky dipakai di:
+                <ul>
+                    <li>header tabel Excel</li>
+                    <li>filter di e-commerce</li>
+                    <li>judul kategori</li>
+                    <li>sidebar blog</li>
+                    <li>TOC (table of contents)</li>
+                </ul></p>
+                
+                <h3>Mental model</h3>
+
+                <p>Fixed: <br> <br>
+
+                “tempel di layar” <br> <br>
+
+                Sticky: <br> <br>
+
+                “tempel di dalam area ini, tapi hanya kalau sudah sampai batasnya”</p>
+                
+                <br>
+                <br>
+
+                <a href="5d-z-index.html" class="btn-next">5d. z-index</a>
             </div>
         </main>
     </div>

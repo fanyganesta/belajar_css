@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="3b-main-axis-dan-cross-axis.html" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="3c-justify-content.html" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="3d-align-items.html" id="align-items">4. Align Items</a></h5>
+            <h5><a href="3e-gap.html" id="gap">5. Gap</a></h5>
+            <h5><a href="3f-flex-grow-flex-shrink-flex-basis.html" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="3g-flex-wrapping.html" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="4a-css-grid.html" id="grid-container-dan-item">1. CSS Grid</a></h5>
+            <h5><a href="4b-grid-container-dan-track.html" id="grid-template-column">2. Container dan Track</a></h5>
+            <h5><a href="4c-grid-line-cell-area.html" id="grid-line-cell-area">3. Grid Line, Grid Cell dan Grid Area</a></h5>
+            <h5><a href="4d-grid-area.html" id="grid-area">4. Grid Area</a></h5>
+            <h5><a href="4e-grid-auto-placement.html" id="grid-auto-placement">5. Grid Auto Placement</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="5a-position-relative.html" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="5b-position-absolute.html" id="absolute">2. Absolute</a></h5>
+            <h5><a href="5c-position-sticky.html" id="sticky">3. Sticky</a></h5>
+            <h5><a href="5d-z-index.html" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="6a-mobile-first.html" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="6b-media-query.html" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="6c-flex-dan-grid-responsive.html" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="6d-responsive-typography.html" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="6e-hide-and-show-element.html" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="7a-css-variable.html" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>Sistem Adaptive (Responsive Design)</h2>
+
+                <p>Sistem adaptive (responsive) adalah cara membuat website mampu menyesuaikan diri dengan:
+                <ul>
+                    <li>ukuran layar (HP, tablet, laptop, monitor besar)</li>
+                    <li>orientasi (portrait / landscape)</li>
+                    <li>kemampuan perangkat</li>
+                    <li>kebiasaan pengguna</li>
+                </ul>
+                
+
+                Tujuan utamanya: <br> <br>
+
+                Konten tetap nyaman dibaca, digunakan, dan diakses di perangkat apa pun. <br> <br>
+
+                Responsive bukan sekadar mengecilkan tampilan, <br>
+                tetapi menyusun ulang ruang dan prioritas informasi.</p>
+
+               <h3>Masalah yang diselesaikan Responsive</h3>
+
+                <p>Tanpa responsive:
+                <ul>
+                    <li>teks terlalu kecil di HP</li>
+                    <li>tombol susah diklik</li>
+                    <li>sidebar memakan layar</li>
+                    <li>layout pecah</li>
+                </ul>
+
+                Dengan responsive:
+                <ul>
+                    <li>satu kode → banyak perangkat</li>
+                    <li>UX konsisten</li>
+                    <li>lebih SEO friendly</li>
+                    <li>lebih mudah dirawat</li>
+                </ul></p>
+                
+                <h2>Mobile First</h2>
+                <h3>Apa itu Mobile First?</h3>
+
+                <p>Mobile First adalah pendekatan desain di mana: <br> <br>
+
+                Kita mendesain untuk layar kecil terlebih dahulu, baru menambah fitur untuk layar besar. <br> <br>
+
+                Bukan: <br> <br>
+
+                “Bikin versi desktop, lalu diperkecil” <br> <br>
+
+                Melainkan: <br> <br>
+
+                “Bikin versi HP yang paling penting dulu, lalu diperluas”</p>
+
+                <h3>Kenapa Mobile First itu penting?</h3>
+
+                <p>Fakta dunia nyata: <br> <br>
+
+                70% trafik web berasal dari mobile <br> <br>
+
+                HP memiliki:
+                <ul>
+                    <li>layar kecil</li>
+                    <li>koneksi lebih lambat</li>
+                    <li>CPU lebih lemah</li>
+                    <li>sentuhan, bukan mouse</li>
+                </ul>
+
+                Jadi kita harus memprioritaskan:
+
+                <ul>
+                    <li>keterbacaan</li>
+                    <li>kesederhanaan</li>
+                    <li>kecepatan</li>
+                </ul></p>
+                
+                <h3>Mental model Mobile First</h3>
+
+                <p>Bayangkan kamu sedang membuat aplikasi di HP:
+                <ul>
+                    <li>ruang sangat terbatas</li>
+                    <li>hanya konten paling penting yang boleh muncul</li>
+                </ul>
+
+                Itulah inti Mobile First: <br> <br>
+
+                memilih apa yang benar-benar penting</p>
+
+                <h3>Mobile First dalam CSS</h3>
+
+                <p>Default CSS kita anggap untuk mobile. <br> <br>
+
+                Lalu kita pakai media query untuk menambah aturan pada layar besar.
+
+                Contoh:</p>
+<pre>
+    /* Mobile (default) */ <br>
+        .card { <br>
+        width: 100%; <br>
+        font-size: 14px; <br>
+    } <br> <br>
+
+    /* Tablet ke atas */ <br>
+    @media (min-width: 768px) { <br>
+        .card {  <br>
+            width: 50%; <br>
+            font-size: 16px; <br>
+        } <br>
+    } <br> <br>
+
+    /* Desktop besar */ <br>
+        @media (min-width: 1200px) { <br>
+        .card { <br>
+            width: 33.33%; <br>
+        } <br>
+    } 
+</pre>
+
+                <p>👉 Tanpa media query = tampilan HP <br>
+                👉 Dengan media query = upgrade layar besar
+
+                <h3>Kenapa pakai min-width, bukan max-width?</h3>
+
+                Mobile First menggunakan:</p>
+<pre>
+    @media (min-width: ...)
+</pre>
+
+                <p>Artinya: <br> <br>
+
+                aturan berlaku mulai dari ukuran ini ke atas <br> <br>
+
+                Ini membuat CSS:
+                <ul>
+                    <li>lebih ringan</li>
+                    <li>lebih mudah dibaca</li>
+                    <li>tidak perlu “menimpa” aturan mobile</li>
+                </ul></p>
+
+                <h3>Perbandingan pendekatan</h3>
+                <table>
+                    <tr>
+                        <th>Desktop First</th>
+                        <th>Mobile First</th>
+                    </tr>
+                    <tr>
+                        <td>Mulai dari besar</td>
+                        <td>Mulai dari kecil</td>
+                    </tr>
+                    <tr>
+                        <td>Menghapus fitur</td>
+                        <td>Menambah fitur</td>
+                    </tr>
+                    <tr>
+                        <td>CSS berat</td>
+                        <td>CSS ringan</td>
+                    </tr>
+                    <tr>
+                        <td>Sulit dirawat</td>
+                        <td>Mudah dikembangkan</td>
+                    </tr>
+                </table>
+                	
+                
+                <h3>Contoh nyata</h3>
+
+                <p>Tanpa Mobile First:
+                <ul>
+                    <li>bikin 3 kolom</li>
+                    <li>lalu di HP dipecah jadi 1 kolom</li>
+                </ul>
+                
+
+                
+
+                Dengan Mobile First:
+                <ul>
+                    <li>bikin 1 kolom</li>
+                    <li>lalu di desktop ditingkatkan jadi 3 kolom</li>
+                </ul>
+
+                Secara psikologis, ini jauh lebih benar. <br> <br>
+
+                Intinya <br> <br>
+
+                Mobile First adalah:
+                <ul>
+                    <li>Strategi berpikir sebelum menulis CSS</li>
+                    <li>Bukan sekadar teknik, tapi cara menentukan prioritas desain.</li>
+                </ul></p>
+                
+
+                <br><br>
+
+                <a href="6b-media-query.html" class="btn-next">6b. Media Query</a>
+                
+            </div>
+        </main>
+    </div>
+</body>
+</html>

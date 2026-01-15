@@ -76,151 +76,175 @@
             </header>
 
             <div class="container">
-                <h2>Flex-grow, Flex-shrink, dan Flex-basis (flex)</h2>
-                <h3>1. Apa itu flex?</h3>
+                <h2>CSS z-index</h2>
 
-                <p>Di Flexbox, ukuran item tidak ditentukan hanya oleh width, tapi oleh tiga hal:</p>
-                <table>
-                    <tr>
-                        <th>Properti</th>
-                        <th>Funsgi</th>
-                    </tr>
-                    <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>Seberapa besar item boleh membesar</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>Seberapa besar item boleh mengecil</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>Ukuran dasar awal item</td>
-                    </tr>
-                </table>
-                	
-                <p>Ketiganya digabung menjadi:</p>
+                <p>z-index digunakan untuk mengatur urutan tumpukan (lapisan) elemen pada sumbu Z
+                (bukan X atau Y, tapi depan–belakang).</p>
+
+                <h3>Masalah yang diselesaikan z-index</h3>
+
+                <p>Ketika elemen:</p>
+                <ul>
+                    <li>saling tumpang tindih</li>
+                    <li>atau berada pada posisi yang sama</li>
+                </ul>
+                
+                <p>Kita perlu menentukan: <br> <br>
+
+                elemen mana yang tampil di atas dan mana di bawah</p>
+
+                <h3>Contoh sederhana</h3>
 <pre>
-    flex: grow shrink basis;
-</pre>
+    &lt;div class="box merah">&lt;/div> <br>
+    &lt;div class="box biru">&lt;/div> <br> <br>
 
-                <p>Contoh:</p>
-<pre>
-    .item { <br>
-        flex: 1 1 200px; <br>
-    }
-</pre>
-                <h3>2. <code>flex-basis</code> — ukuran awal</h3>
+    .box { <br>
+        width: 150px; <br>
+        height: 150px; <br>
+        position: absolute; <br>
+    } <br> <br>
 
-                <p><code>flex-basis</code> adalah lebar awal item sebelum ruang dibagi.</p>
-<pre>
-    .item { <br>
-        flex-basis: 200px; <br>
-    }
-</pre>
+    .merah { <br>
+        background: red; <br>
+        top: 50px; <br>
+        left: 50px; <br>
+        z-index: 1; <br>
+    } <br> <br>
 
-                <p>Artinya: <br> <br>
-
-                “Anggap item ini lebarnya 200px dulu” <br> <br>
-
-                Ini lebih kuat daripada width di Flexbox.</p>
-
-                <h3>3. <code>flex-grow</code> — membagi ruang sisa</h3>
-
-                <p>Jika container punya ruang kosong, <code>flex-grow</code> menentukan: <br> <br>
-
-                Siapa dapat ruang ekstra dan berapa banyak <br> <br>
-
-                Contoh:</p>
-<pre>
-    .item1 { flex-grow: 1; } <br>
-    .item2 { flex-grow: 2; } <br>
-</pre>
-
-                <p>Jika ada 300px ruang kosong:
-                    <ul>
-                        <li>item1 dapat 100px</li>
-                        <li>item2 dapat 200px</li>
-                    </ul>
-                <br>
-                ➡ Dibagi berdasarkan rasio</p>
-
-                <h3>4. flex-shrink — siapa yang menyusut</h3>
-
-                <p>Jika container kekurangan ruang, item akan dipaksa mengecil.</p>
-<pre>
-    .item1 { flex-shrink: 1; } <br> 
-    .item2 { flex-shrink: 0; } <br>
-</pre>
-
-                <p>➡ item1 mengecil <br>
-                ➡ item2 tetap</p>
-
-                <h3>5. Kenapa grow dan shrink tidak bertentangan?</h3>
-
-                <p>Mereka bekerja pada kondisi berbeda:
-                    <ul>
-                        <li>Kondisi	Yang aktif</li>
-                        <li>Ada ruang kosong = <code>flex-grow</code></li>
-                        <li>Kurang ruang = <code>flex-shrink</code></li>
-                    </ul>
-
-                Jadi mereka tidak saling melawan, tapi bergantian.</p>
-
-                <h3>6. flex: 1 artinya apa?</h3>
-<pre> 
-    .item { <br>
-        flex: 1; <br>
+    .biru { <br>
+        background: blue; <br>
+        top: 80px; <br>
+        left: 80px; <br>
+        z-index: 2; <br>
     }
 </pre>
 
-                <p>Itu artinya:</p>
+                <p>👉 Kotak biru tampil di atas karena z-index lebih besar.</p>
+
+                <h3>Aturan utama z-index (INI PENTING)</h3>
+                <p>1️⃣ z-index hanya bekerja pada elemen yang punya position</p>
 <pre>
-    flex: 1 1 0%;
+    position: relative | absolute | fixed | sticky
 </pre>
 
-                <p>Maknanya:
-                    <ul>
-                        <li>semua item sama besar</li>
-                        <li>semua boleh membesar</li>
-                        <li>semua boleh mengecil</li>
-                        <li>basis awal = 0</li>
-                    </ul>
-                    <br>
-                ➡ Paling sering dipakai untuk layout kolom.</p>
-
-                <h3>7. Contoh nyata</h3>
-                <strong>Layout 3 kolom</strong>
+                <p>❌ Tidak bekerja pada:</p>
 <pre>
-    .col { <br>
-        flex: 1; <br>
+    position: static; /* default */
+</pre>
+                <p>2️⃣ Angka lebih besar = lebih depan</p>
+<pre>
+    z-index: 10; <br>
+    z-index: 999; <br>
+    z-index: -1; <br>
+</pre>
+
+                <p>Tidak ada batas maksimal, tapi best practice: <br>
+                ➡ pakai angka kecil & konsisten</p>
+
+                <h3>Stacking Context (konsep kunci)</h3>
+
+                <p>Ini bagian yang paling sering menyebabkan: <br> <br>
+
+                “z-index saya besar tapi tetap kalah 😭”</p>
+
+                <h4>Apa itu stacking context?</h4>
+
+                <p>Stacking context adalah dunia z-index sendiri. <br> <br>
+
+                Jika elemen membuat stacking context baru, <br>
+                anak-anaknya tidak bisa menembus keluar.</p>
+
+                <h4>Elemen yang membuat stacking context baru:</h4>
+                <ul>
+                    <li><code>position + z-index (selain auto)</code></li>
+                    <li><code>opacity < 1</code></li>
+                    <li><code>transform</code></li>
+                    <li><code>filter</code></li>
+                    <li><code>will-change</code></li>
+                    <li><code>position: fixed</code></li>
+                    <li><code>position: sticky (kadang)</code></li>
+                    <li></li>
+                </ul>
+
+                <h4>Contoh masalah klasik</h4>
+<pre>
+    .parent { <br>
+        position: relative; <br>
+        z-index: 1; <br>
+    } <br> <br>
+
+    .child { <br>
+        position: absolute; <br>
+        z-index: 9999; <br>
     }
 </pre>
 
-                <p>➡ Semua kolom sama lebar.</p>
-
-                <strong>Sidebar + konten</strong>
+                <p>Jika ada elemen lain di luar .parent dengan:</p>
 <pre>
-    .sidebar { flex: 0 0 250px; } <br>
-    .content { flex: 1; } <br>
+    z-index: 2;
 </pre>
 
-                <p>➡ sidebar tetap <br>
-                ➡ konten mengisi sisa layar</p>
+                <p>👉 Elemen luar tetap di atas, walaupun child punya 9999 <br> <br>
 
-                <h3>8. Kesalahan umum</h3>
-                <p>
-                    ❌ Pakai width di Flexbox <br>
-                    ❌ Tidak mengatur shrink → item hancur <br>
-                    ❌ Salah paham flex:1
-                </p>
+                Kenapa? <br>
+                Karena child terkunci di stacking context parent.</p>
 
-                <h3>9. Inti penting</h3>
-                <p>Flexbox tidak bekerja pakai ukuran statis — tapi sistem pembagian ruang.</p>
+                <h4>Ilustrasi mental</h4>
+
+                <p>Bayangkan:
+                <ul>
+                    <li>setiap stacking context = kotak kaca</li>
+                    <li>z-index hanya berlaku di dalam kotak itu</li>
+                </ul></p>
+                
+
+                <h3>z-index negatif</h3>
+<pre>
+    .box { <br>
+        position: relative; <br>
+        z-index: -1; <br>
+    }
+</pre>
+
+                <p>Efek:
+                <ul>
+                    <li>elemen masuk ke belakang</li>
+                    <li>bisa tertutup background parent</li>
+                </ul>
+                
+                ⚠️ Hati-hati: bisa membuat elemen tidak bisa diklik</p>
+
+                <h3>z-index & fixed / sticky</h3>
+<pre>
+    position: fixed → selalu relatif ke viewport
+</pre>
+                <p>tapi tetap bisa kalah jika parent membuat stacking context <br> <br>
+
+                Makanya navbar sticky sering perlu:</p>
+<pre>
+    z-index: 100;
+</pre>
+                <h3>Best Practice z-index</h3>
+                <p>❌ Hindari</p>
+<pre>
+    z-index: 9999999;
+</pre>
+                <p>✅ Gunakan skala logis</p>
+<pre>             
+    z-index: 1;    /* konten */ <br>
+    z-index: 10;   /* header */ <br>
+    z-index: 100;  /* modal */ <br>
+    z-index: 1000; /* overlay */ <br>
+</pre>   
+                <p>Kapan z-index tidak perlu?
+                <ul>
+                    <li>Jika elemen tidak overlap</li>
+                    <li>maka tidak perlu z-index sama sekali</li>
+                </ul></p>
+
                 <br> <br>
 
-                <a href="3g-flex-wrapping.html" class="btn-next">3G. Flex Wrapping</a>
-                
+                <a href="6a-mobile-first.html" class="btn-next">6a. Mobile First</a>
             </div>
         </main>
     </div>
