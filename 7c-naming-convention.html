@@ -59,7 +59,7 @@
             <h5><a href="7a-css-variable.html" id="css-variable">1. CSS Variable</a></h5>
             <h5><a href="7b-component-based-css.html" id="component-based-css">2. Component-Based CSS</a></h5>
             <h5><a href="7c-naming-convention.html" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
-            <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="7d-reuseable-layout-patern.html" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
             <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
 
             <h6>BAB 8: CSS Engineer (Mahir)</h6>
@@ -76,7 +76,188 @@
             </header>
 
             <div class="container">
+                <h2>3. Naming Convention (BEM & Utility)</h2>
+
+                <p>Naming convention adalah aturan penamaan class CSS agar:
+                <ul>
+                    <li>mudah dibaca</li>
+                    <li>tidak bentrok</li>
+                    <li>scalable</li>
+                    <li>aman untuk tim besar</li>
+                </ul>
                 
+                Tanpa naming convention, CSS cepat berubah menjadi chaos.</p>
+
+                <h3>Masalah CSS tanpa aturan penamaan</h3>
+<pre>
+    .box { } <br>
+    .box2 { } <br>
+    .box-red { } <br>
+    .box-big { } <br>
+    .bigBox { }
+</pre>
+
+                <p>Masalahnya:
+                <ul>
+                    <li>tidak jelas fungsinya</li>
+                    <li>sulit ditebak hubungannya</li>
+                    <li>rawan konflik</li>
+                    <li>sulit dirawat</li>
+                </ul></p>
+                
+                <h3>Solusi: Naming Convention</h3>
+
+                <p>Dalam Design System modern, dua pendekatan paling populer:
+                <ul>
+                    <li>BEM (Block Element Modifier)</li>
+                    <li>Utility-based naming</li>
+                    <li>Biasanya dipakai bersamaan.</li>
+                </ul></p>
+                
+
+                <h3>A. BEM (Block – Element – Modifier)</h3>
+
+                <p>BEM adalah metode penamaan berbasis komponen. <br> <br>
+
+                Struktur BEM</p>
+<pre>
+    .block <br>
+    .block__element <br>
+    .block--modifier
+</pre>
+                <h4>1. Block</h4>
+
+                <p>Komponen utama (mandiri)</p>
+<pre>
+    .card { } <br>
+    .button { } <br>
+    .navbar { }
+</pre>
+                <h4>2. Element</h4>
+
+                <p>Bagian dari block (tidak berdiri sendiri)</p>
+<pre>
+    .card__title { } <br>
+    .card__content { } <br>
+    .card__footer { } <br>
+</pre>
+
+                <p>HTML:</p>
+<pre>
+    &lt;div class="card"> <br>
+    &lt;h2 class="card__title">Title&lt;/h2> <br>
+    &lt;p class="card__content">Text&lt;/p> <br>
+    &lt;/div>
+</pre>
+                <h4>3. Modifier</h4>
+
+                <p>Variasi dari block atau element</p>
+<pre>
+    .card--highlight { } <br>
+    .button--primary { } <br>
+    .button--disabled { }
+</pre>
+
+                <p>HTML:</p>
+<pre>
+    &lt;button class="button button--primary">Save&lt;/button>
+</pre>
+                <h4>Aturan penting BEM</h4>
+
+                <p>✔ Jangan lompat struktur <br>
+                ❌ .card__title__text <br>
+                ✔ .card__title <br> <br>
+
+                ✔ Modifier tidak berdiri sendiri <br>
+                ❌ .button--primary <br>
+                ✔ .button button--primary <br> <br>
+
+                Kapan BEM sangat cocok?</p>
+                <ul>
+                    <li>Component-based CSS</li>
+                    <li>UI besar</li>
+                    <li>Tim lebih dari 1 orang</li>
+                    <li>Framework modern</li>
+                </ul>
+                
+
+                <h3>B. Utility Naming</h3>
+
+                <p>Utility class adalah class satu fungsi satu tugas.</p>
+<pre>   
+    .mt-4 { margin-top: 1rem; } <br>
+    .text-center { text-align: center; } <br>
+    .d-flex { display: flex; }
+</pre>
+
+                <p>HTML:</p>
+<pre>
+    &lt;div class="card mt-4 text-center">
+</pre>
+                <h4>Kelebihan Utility</h4>
+                <ul>
+                    <li>cepat</li>
+                    <li>fleksibel</li>
+                    <li>minim CSS baru</li>
+                    <li>cocok untuk layout & spacing</li>
+                </ul>
+
+                <h4>Kekurangan jika murni utility</h4>
+<pre>
+    &lt;div class="p-4 bg-white rounded shadow w-full">
+</pre>
+
+                <p>HTML jadi panjang <br> <br>
+
+                makna desain tidak terlihat</p>
+
+                <h3>Best Practice Modern</h3>
+
+                <p>Komponen untuk struktur & makna <br>
+                Utility untuk layout & spacing <br> <br>
+
+                Contoh:</p>
+<pre>
+    &lt;div class="card mt-6"> <br>
+    &lt;h2 class="card__title text-center">Title&lt;/h2> <br>
+    &lt;/div>
+</pre>
+                <h3>Perbandingan Singkat</h3>
+                <table>
+                    <tr>
+                        <th>BEM</th>
+                        <th>Utility</th>
+                    </tr>
+                    <tr>
+                        <td>Berbasis komponen</td>
+                        <td>Berbasis fungsi</td>
+                    </tr>
+                    <tr>
+                        <td>Konsisten</td>
+                        <td>Fleksibel</td>
+                    </tr>
+                    <tr>
+                        <td>CSS lebih panjang</td>
+                        <td>HTML lebih panjang</td>
+                    </tr>
+                    <tr>
+                        <td>Mudah dipahami tim</td>
+                        <td>Cepat prototyping</td>
+                    </tr>
+                </table>
+                	
+
+                <h3>Ringkasan</h3>
+                <ul>
+                    <li>Naming convention = pondasi CSS besar</li>
+                    <li>BEM → struktur & komponen</li>
+                    <li>Utility → layout & spacing</li>
+                    <li>Digabung = sistem paling kuat</li>
+                </ul>
+                
+                <br> <br>
+
+                <a href="7d-reuseable-layout-patern.html" class="btn-next">7d. Reusable Layout Patern</a>
             </div>
         </main>
     </div>

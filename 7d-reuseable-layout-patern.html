@@ -76,177 +76,184 @@
             </header>
 
             <div class="container">
-                <h2>B. Main Axis & Cross Axis (Flexbox)</h2>
-                <h3>1. Mengapa Flexbox punya axis?</h3>
+                4. Reusable Layout Pattern
 
-                <p>Flexbox tidak berpikir dalam:
-                <ul>
-                    <li>kiri – kanan – atas – bawah</li>
-                </ul>
+                Reusable Layout Pattern adalah pola tata letak yang bisa digunakan berulang di banyak halaman tanpa menulis ulang CSS dari nol.
 
-                Flexbox berpikir dalam:
-                <ul>
-                    <li>arah aliran dan arah silang</li>
-                </ul>
+                Ini bukan sekadar CSS, tapi cara berpikir sistematis tentang layout.
 
-                Itulah:
-                <ul>
-                    <li>Main Axis</li>
-                    <li>Cross Axis</li>
-                </ul></p>
+                Apa itu Layout Pattern?
 
-                <h3>2. Apa itu Main Axis?</h3>
-                <p>
-                    Main Axis adalah:
-                    <ul>
-                        <li>arah utama aliran flex item</li>
-                    </ul>
-                    
+                Layout pattern adalah struktur dasar halaman yang sering muncul, seperti:
 
-                    Default:
-                </p>
-<pre>
-    .container { <br>
-        display: flex; <br>
-        flex-direction: row; <br>
-    }
-</pre>
+                Header + Content
 
-                <p>➡ Main axis = horizontal (kiri → kanan)</p>
-<pre>
-    [A] [B] [C]
-</pre>
+                Sidebar + Content
 
-                <h3>3. Apa itu Cross Axis?</h3>
-                <p>
-                    Cross axis adalah:
-                    <ul>
-                        <li>arah yang tegak lurus terhadap main axis</li>
-                        <li>Jika main axis horizontal → cross axis vertical</li>
-                    </ul>
-                </p>
-<pre>
-    Main → <br>
-    [A] [B] [C] <br>
-    ↑ <br>
-    Cross
-</pre>
+                Card Grid
 
-                <h3>4. Mengubah arah main axis</h3>
-<pre>
-    .container { <br>
-        display: flex; <br>
-        flex-direction: column; <br>
-    }
-</pre>
-                <p>
-                    Sekarang: <br> <br>
+                Dashboard Layout
 
-                    Main axis = atas → bawah <br> <br>
+                Form Layout
 
-                    Cross axis = kiri → kanan
-                </p>
+                Jika setiap halaman dibuat berbeda → sulit dirawat.
+                Jika pakai pola → konsisten & scalable.
 
-<pre>
-                [A] <br>
-                [B] <br>
-                [C] <br>
-</pre>
-                
+                Kenapa Reusable Layout itu penting?
 
-                <h3>5. Kenapa ini sangat penting?</h3>
-                <p>
-                    Karena: <br> <br>
+                Tanpa reusable pattern:
 
-                    Semua properti Flexbox mengacu pada axis, bukan arah layar
-                </p>
+                CSS duplikat
 
-                <h3>6. Contoh Properti</h3>
-                <table>
-                    <tr>
-                        <th>Properti</th>
-                        <th>Mengatur</th>
-                    </tr>
-                    <tr>
-                        <td><code>justify-content</code></td>
-                        <td>sepanjang main axis</td>
-                    </tr>
-                    <tr>
-                        <td><code>align-items</code></td>
-                        <td>sepanjang cross axis</td>
-                    </tr>
-                    <tr>
-                        <td><code>align-content</code></td>
-                        <td>cross axis multi-line</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>main axis</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>main axis</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>main axis</td>
-                    </tr>
-                </table>
-                
-                <h3>7. Kesalahan umum</h3>
+                desain tidak konsisten
 
-                <p>Banyak orang mengira:</p>
-<pre>
-    justify-content = horizontal <br>
-    align-items = vertical
-</pre>
+                perubahan satu halaman merusak yang lain
 
-                <p>Itu hanya benar jika flex-direction: row
-                    <br> <br>
-                    Kalau:
-                </p>
-<pre>
-    flex-direction: column;
-</pre>
+                Dengan reusable pattern:
 
-                <p>Maka:</p>
-<pre>
-    justify-content → vertical <br> <br>
+                satu perubahan → seluruh sistem ikut rapi
 
-    align-items → horizontal <br>
+                lebih cepat develop
 
-                <h3>8. Visualisasi</h3>
-    flex-direction: row <br>
-    Main axis   → horizontal <br>
-    Cross axis  ↓ vertical <br> <br>
+                lebih mudah dipelajari tim baru
 
-    flex-direction: column <br>
-    Main axis   ↓ vertical <br>
-    Cross axis  → horizontal <br>
-</pre>
-                <h3>9. Analogi</h3>
-                <p>
-                    Bayangkan kereta:
-                    <ul>
-                        <li>Rel → main axis</li>
-                        <li>Jarak antar rel → cross axis</li>
-                    </ul>
+                Prinsip Dasar Reusable Layout
 
-                    Kereta bergerak di rel, bukan di udara.
-                </p>
-                <h3>10. Ringkasan</h3>
-                <ul>
-                    <li>Flexbox tidak pakai kiri/kanan</li>
-                    <li>Pakai main axis & cross axis</li>
-                    <li>flex-direction menentukan arah main axis</li>
-                    <li>Semua alignment mengikuti axis</li>
-                </ul>
+                Pisahkan struktur & isi
+
+                Gunakan wrapper/layout class
+
+                Jangan campur komponen dengan layout
+
+                Gunakan CSS variable untuk ukuran
+
+                A. Layout Dasar: Page Wrapper
+                .page {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                }
 
 
-                <br>
-                <br>
+                HTML:
 
-                <a href="3c-justify-content.html" class="btn-next">3C Justify Content</a>
+                <div class="page">
+                <header class="header"></header>
+                <main class="main"></main>
+                </div>
+
+
+                ➡ Bisa dipakai di SEMUA halaman
+
+                B. Layout Header + Content
+                .header {
+                height: var(--header-height);
+                }
+
+                .main {
+                flex: 1;
+                }
+
+
+                Kelebihan:
+
+                header tinggi konsisten
+
+                konten otomatis mengisi sisa layar
+
+                C. Sidebar Layout (Dashboard Pattern)
+                .layout {
+                display: flex;
+                min-height: 100vh;
+                }
+
+                .sidebar {
+                width: 260px;
+                flex-shrink: 0;
+                }
+
+                .content {
+                flex: 1;
+                }
+
+
+                HTML:
+
+                <div class="layout">
+                <aside class="sidebar"></aside>
+                <main class="content"></main>
+                </div>
+
+
+                ➡ Cocok untuk admin, dashboard, LMS
+
+                D. Grid Content Layout
+                .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: var(--space-md);
+                }
+
+
+                HTML:
+
+                <div class="grid">
+                <div class="card"></div>
+                <div class="card"></div>
+                </div>
+
+
+                ➡ Responsive otomatis
+
+                E. Container System (Max Width)
+                .container {
+                max-width: 1200px;
+                padding-inline: var(--space-md);
+                margin-inline: auto;
+                }
+
+
+                Tujuan:
+
+                konten tidak terlalu lebar
+
+                nyaman dibaca
+
+                Best Practice Naming
+                Fungsi	Contoh
+                Layout	.layout, .page, .grid
+                Area	.header, .sidebar, .content
+                Komponen	.card, .button
+                Kesalahan Umum
+
+                ❌ Sidebar diberi style konten
+                ❌ Card mengatur lebar halaman
+                ❌ Layout bergantung pada isi
+
+                ✔ Layout mengatur ruang
+                ✔ Komponen mengisi ruang
+
+                Hubungan dengan Design System
+
+                Reusable layout:
+
+                menggunakan CSS variables
+
+                konsisten dengan design tokens
+
+                mudah digabung dengan BEM & utility
+
+                Ringkasan
+
+                Layout ≠ Komponen
+
+                Layout harus reusable
+
+                Gunakan flex/grid
+
+                Gunakan variable ukuran
+
+                Pikirkan pola, bukan halaman
             </div>
         </main>
     </div>
