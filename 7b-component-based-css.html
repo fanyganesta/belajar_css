@@ -11,7 +11,7 @@
     <div class="main-container">
         <aside>
             <h2>Belajar CSS</h2>
-
+            
             <hr>
 
             <h6>BAB 1: Dekorasi (Pemula)</h6>
@@ -57,8 +57,8 @@
 
             <h6>BAB 7: Sistem Desain (Advanced)</h6>
             <h5><a href="7a-css-variable.html" id="css-variable">1. CSS Variable</a></h5>
-            <h5><a href="7c-naming-convention.html" id="component-based-css">2. Component-Based CSS</a></h5>
-            <h5><a href="" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="7b-component-based-css.html" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="7c-naming-convention.html" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
             <h5><a href="" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
             <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
 
@@ -76,140 +76,137 @@
             </header>
 
             <div class="container">
-            
-            <h3>Road Map Belajar CSS by me</h3>
-            <div class="img-box">
-                <img src="Belajar CSS.jpeg" alt="Road Map Belajar CSS by Fany">
-            </div>
-            
-                <p>Menurutku, cara CSS bekerja bisa dijelaskan secara runtut dan mudah dipahami dengan alur <strong>“browser membaca aturan → menentukan prioritas → menerapkan gaya ke elemen HTML”</strong>. Penjelasan ini cocok untuk materi CSS sebagai dekorasi karena menekankan peran CSS dalam “mendandani” HTML.
-                <br><br>
-                Berikut penjelasan yang bisa kamu gunakan:
-            </p>
+                <h2>2. Component-Based CSS</h2>
 
-            <h3>1. CSS Bekerja dengan Cara Memilih Elemen HTML</h3>
+                <p>Component-based CSS adalah pendekatan di mana: <br> <br>
 
-            <p>CSS tidak berdiri sendiri. Ia mencari elemen HTML yang ingin dihias melalui selector.</p>
+                UI dibangun dari potongan-potongan kecil yang mandiri, bisa dipakai ulang, dan konsisten. <br> <br>
 
-            <p>Contoh:</p>
-
-<pre>
-    p{
-        color: blue;
-    }
-</pre>
-
-            <p>
-                Artinya:
+                Seperti Lego:</p>
                 <ul>
-                    <li>CSS mencari semua</li>
-                    <li>Lalu menerapkan warna teks biru</li>
+                    <li>Button</li>
+                    <li>Card</li>
+                    <li>Alert</li>
+                    <li>Modal</li>
+                    <li>Input</li>
                 </ul>
-                👉 Tanpa HTML, CSS tidak punya objek untuk dihias.
-            </p>
 
-            <hr>
+                <p>Bukan halaman → tapi komponen.</p>
 
-            <h3>2. Browser Membaca CSS dari Atas ke Bawah</h3>
-            <p>
-                Saat halaman dibuka:
+                <h3>Masalah CSS tanpa komponen</h3>
+
+                <p>Biasanya terlihat seperti ini:</p>
+<pre>
+    .home button { ... } <br>
+    .profile button { ... } <br>
+    .admin button { ... } <br>
+</pre>
+
+                <p>Artinya:
                 <ul>
-                    <li>Browser memuat HTML</li>
-                    <li>Browser memuat CSS</li>
-                    <li>CSS dibaca berurutan <strong>dari atas ke bawah</strong></li>
-                </ul>
-                Jika ada aturan yang saling bertabrakan, aturan terakhir bisa menimpa aturan sebelumnya, tergantung prioritasnya.
-            </p>
-
-            <hr>
-            <h3>3. CSS Menggunakan Sistem Prioritas (Cascade)</h3>
-
-            <p>
-                Inilah asal nama Cascading Style Sheets.
-
-                Urutan prioritas secara sederhana:
-
-                <ol>
-                    <li>!important</li>
-                    <li>Inline CSS <pre>(style="")</pre></li>
-                    <li>Internal CSS <pre>&lt;style&gt; ... &lt;/style&gt;</pre></li>
-                    <li>External CSS <pre>(.css) <br><br> atau <br><br> &lt;link rel="stylesheet" href="ini-file-css.css" &gt;</pre></li>
-                    <li>Urutan penulisan (yang terakhir menang)</li>    
-                </ol>
-
-                Contoh:
-            </p>
-<pre>
-    p {
-    color: red;
-    }
-
-    p {
-    color: green;
-    }
-</pre>
-
-                <hr>
-                <h3>4. CSS Menghitung Spesifisitas Selector</h3>
-                <p>
-                    Jika dua aturan sama-sama aktif, browser menghitung siapa yang lebih spesifik.
-
-                    Urutan spesifisitas:
-                    <ol>
-                        <li>#id</li>
-                        <li>.class</li>
-                        <li>tag</li>
-                    </ol>
-                    Contoh:
-                </p>
-    
-<pre>
-    p { color: blue; } <br>
-    .text { color: green; } <br>
-    #judul { color: red;}
-
-</pre>
-
-                <p>➡️ Elemen dengan id="judul" akan merah, meskipun punya class atau tag.</p>
-
-                <hr>
-
-                <h3>5. CSS Mewariskan Gaya (Inheritance)</h3>
-                <p>
-                    Beberapa properti CSS diturunkan ke anak elemen <br>
-                    Contoh:
-                </p>
-
-<pre>
-    body {<br>
-        font-family: arial;<br>
-        color: black;<br>
-    }
-</pre>
-
-                <p>
-                    Semua teks di dalam &lt;body&gt; otomatis:
-                    <ul>
-                        <li>Menggunakan Arial</li>
-                        <li>Berwarna hitam</li>
-                    </ul>
-                    👉 Tidak semua properti diwariskan (misalnya margin, padding).
-                </p>
-
-    <hr>
-                <h3>6. CSS Diterapkan ke Layout dan Tampilan</h3>
-                <p>
-                    Setelah aturan dipilih dan diprioritaskan, browser:
-                    <ul>
-                        <li>Menghitung ukuran (box model)</li>
-                        <li>Menentukan posisi (layout)</li>
-                        <li>Menggambar tampilan di layar (render)</li>
-                    </ul>
-                    Inilah tahap akhir CSS “bekerja” sebagai dekorasi visual.
-                </p>
-
-                <a href="1b-properti-visual.html" class="btn-next"> Next: Properti Visual</a>
+                    <li>style tergantung halaman</li>
+                    <li>sulit reuse</li>
+                    <li>perubahan satu tombol bisa merusak halaman lain</li>
+                </ul></p>
                 
+
+                <h3>Cara berpikir component-based</h3>
+
+                <p>Bukan: <br> <br>
+
+                “tombol di halaman A” <br> <br>
+
+                Tapi: <br> <br>
+
+                “komponen Button”</p>
+
+                <h3>Contoh: Button sebagai komponen</h3>
+<pre>
+    .btn { <br>
+        padding: var(--space-sm) var(--space-md); <br>
+        border-radius: var(--radius); <br>
+        font-size: 1rem; <br>
+        cursor: pointer; <br>
+        border: none; <br>
+    }
+</pre>
+
+                <p>Lalu variasi:</p>
+<pre>
+    .btn-primary { <br>
+        background: var(--color-primary); <br>
+        color: white; <br>
+    } <br> <br>
+
+    .btn-secondary { <br>
+        background: var(--color-secondary); <br>
+    }
+</pre>
+
+                <p>HTML:</p>
+<pre>
+    &lt;button class="btn btn-primary">Save&lt;/button> <br>
+    &lt;button class="btn btn-secondary">Cancel&lt;/button> <br>
+</pre>
+                <h3>Komponen tidak tahu di mana dia dipakai</h3>
+
+                <p>Button tidak peduli:
+                <ul>
+                    <li>di sidebar</li>
+                    <li>di modal</li>
+                    <li>di form</li>
+                </ul>
+
+                Itulah kekuatan sistem.</p>
+
+                <h3>Komponen + CSS Variable</h3>
+<pre>
+    .card { <br>
+        background: var(--card-bg, white); <br>
+        padding: var(--space-md); <br>
+        border-radius: var(--radius); <br>
+    }
+</pre>
+                <p>Setiap komponen bisa:
+                <ul>
+                    <li>pakai token global</li>
+                    <li>override token lokal</li>
+                </ul>
+
+                <h3>Keuntungan besar</h3>
+
+                Dengan component-based CSS:</p>
+                <ul>
+                    <li>UI konsisten</li>
+                    <li>bug lebih sedikit</li>
+                    <li>scalable</li>
+                    <li>cocok untuk tim</li>
+                    <li>cocok untuk React, Vue, Laravel Blade, dll</li>
+                </ul>
+
+                <h3>Perbedaan dengan utility-only</h3>
+
+                <p>Component-based: <br> <br>
+
+                “Saya pakai Card” <br> <br>
+
+                Utility: <br> <br>
+
+                “Saya susun Card dari 10 class” <br> <br>
+
+                Biasanya dipakai bersama dalam sistem modern.</p>
+
+                <h3>Ringkas</h3>
+
+                <p>Component-based CSS mengubah:
+                <ul>
+                    <li>halaman → menjadi kumpulan komponen</li>
+                    <li>Dan design system hanya bisa hidup jika UI dibuat dari komponen</li>
+                </ul></p>
+                
+                <br> <br>
+
+                <a href="7c-naming-convention.html" class="btn-next">7c. Naming Convention</a>
             </div>
         </main>
     </div>
