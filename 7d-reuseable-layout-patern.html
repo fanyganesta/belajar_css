@@ -60,7 +60,7 @@
             <h5><a href="7b-component-based-css.html" id="component-based-css">2. Component-Based CSS</a></h5>
             <h5><a href="7c-naming-convention.html" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
             <h5><a href="7d-reuseable-layout-patern.html" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
-            <h5><a href="" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+            <h5><a href="7e-design-tokens.html" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
 
             <h6>BAB 8: CSS Engineer (Mahir)</h6>
             <h5><a href="" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
@@ -76,184 +76,200 @@
             </header>
 
             <div class="container">
-                4. Reusable Layout Pattern
+                <h2>4. Reusable Layout Pattern</h2>
 
-                Reusable Layout Pattern adalah pola tata letak yang bisa digunakan berulang di banyak halaman tanpa menulis ulang CSS dari nol.
+                <p>Reusable Layout Pattern adalah pola tata letak yang bisa digunakan berulang di banyak halaman tanpa menulis ulang CSS dari nol. <br>  <br>
 
-                Ini bukan sekadar CSS, tapi cara berpikir sistematis tentang layout.
+                Ini bukan sekadar CSS, tapi cara berpikir sistematis tentang layout.</p>
 
-                Apa itu Layout Pattern?
+                <h3>Apa itu Layout Pattern?</h3>
 
-                Layout pattern adalah struktur dasar halaman yang sering muncul, seperti:
+                <p>Layout pattern adalah struktur dasar halaman yang sering muncul, seperti:
+                <ul>
+                    <li>Header + Content</li>
+                    <li>Sidebar + Content</li>
+                    <li>Card Grid</li>
+                    <li>Dashboard Layout</li>
+                    <li>Form Layout</li>
+                </ul>
+                
 
-                Header + Content
+                Jika setiap halaman dibuat berbeda → sulit dirawat. <br>
+                Jika pakai pola → konsisten & scalable.</p>
 
-                Sidebar + Content
+                <h3>Kenapa Reusable Layout itu penting?</h3>
 
-                Card Grid
-
-                Dashboard Layout
-
-                Form Layout
-
-                Jika setiap halaman dibuat berbeda → sulit dirawat.
-                Jika pakai pola → konsisten & scalable.
-
-                Kenapa Reusable Layout itu penting?
-
-                Tanpa reusable pattern:
-
-                CSS duplikat
-
-                desain tidak konsisten
-
-                perubahan satu halaman merusak yang lain
+                <p>Tanpa reusable pattern:
+                <ul>
+                    <li>CSS duplikat</li>
+                    <li>desain tidak konsisten</li>
+                    <li>perubahan satu halaman merusak yang lain</li>
+                </ul>
 
                 Dengan reusable pattern:
+                <ul>
+                    <li>satu perubahan → seluruh sistem ikut rapi</li>
+                    <li>lebih cepat develop</li>
+                    <li>lebih mudah dipelajari tim baru</li>
+                </ul></p>
+                
 
-                satu perubahan → seluruh sistem ikut rapi
+                <h3>Prinsip Dasar Reusable Layout</h3>
+                <ul>
+                    <li>Pisahkan struktur & isi</li>
+                    <li>Gunakan wrapper/layout class</li>
+                    <li>Jangan campur komponen dengan layout</li>
+                    <li>Gunakan CSS variable untuk ukuran</li>
+                </ul>
+                
 
-                lebih cepat develop
+                <h4>A. Layout Dasar: Page Wrapper</h4>
+<pre>
+    .page { <br>
+        min-height: 100vh; <br>
+        display: flex; <br>
+        flex-direction: column; <br>
+    }
+</pre>
 
-                lebih mudah dipelajari tim baru
+                <p>HTML:</p>
+<pre>
+    &lt;div class="page"> <br>
+    &lt;header class="header">&lt;/header> <br>
+    &lt;main class="main">&lt;/main> <br>
+    &lt;/div>
+</pre>
 
-                Prinsip Dasar Reusable Layout
+                <p>➡ Bisa dipakai di SEMUA halaman</p>
 
-                Pisahkan struktur & isi
+                <h4>B. Layout Header + Content</h4>
+<pre>
+    .header { <br>
+        height: var(--header-height); <br>
+    } <br> <br>
 
-                Gunakan wrapper/layout class
+    .main { <br>
+        flex: 1; <br>
+    }
+</pre>
 
-                Jangan campur komponen dengan layout
+                <p>Kelebihan:
+                <ul>
+                    <li>header tinggi konsisten</li>
+                    <li>konten otomatis mengisi sisa layar</li>
+                </ul></p>
+                
+                <h4>C. Sidebar Layout (Dashboard Pattern)</h4>
+<pre>
+    .layout { <br>
+        display: flex; <br>
+        min-height: 100vh; <br>
+    } <br> <br>
 
-                Gunakan CSS variable untuk ukuran
+    .sidebar { <br>
+        width: 260px; <br>
+        flex-shrink: 0; <br>
+    } <br> <br>
 
-                A. Layout Dasar: Page Wrapper
-                .page {
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                }
+    .content { <br>
+        flex: 1; <br>
+    }
+</pre>
 
+                <p>HTML:</p>
+<pre>
+    &lt;div class="layout"> <br>
+    &lt;aside class="sidebar">&lt;/aside> <br>
+    &lt;main class="content">&lt;/main> <br>
+    &lt;/div>
+</pre>
 
-                HTML:
+                <p>➡ Cocok untuk admin, dashboard, LMS</p>
 
-                <div class="page">
-                <header class="header"></header>
-                <main class="main"></main>
-                </div>
+                <h4>D. Grid Content Layout</h4>
+<pre>
+    .grid { <br>
+        display: grid; <br>
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); <br>
+        gap: var(--space-md); <br>
+    }
+</pre>
 
+                <p>HTML:</p>
+<pre>
+    &lt;div class="grid"> <br>
+    &lt;div class="card">&lt;/div> <br>
+    &lt;div class="card">&lt;/div> <br>
+    &lt;/div>
+</pre>
 
-                ➡ Bisa dipakai di SEMUA halaman
+                <p>➡ Responsive otomatis</p>
 
-                B. Layout Header + Content
-                .header {
-                height: var(--header-height);
-                }
+                <h4>E. Container System (Max Width)</h4>
+<pre>
+    .container { <br>
+        max-width: 1200px; <br>
+        padding-inline: var(--space-md); <br>
+        margin-inline: auto; <br>
+    }
+</pre>
 
-                .main {
-                flex: 1;
-                }
+                <p>Tujuan:</p>
+                <ul>
+                    <li>konten tidak terlalu lebar</li>
+                    <li>nyaman dibaca</li>
+                </ul>
 
+                <h3>Best Practice Naming</h3>
+                <table>
+                    <tr>
+                        <th>Fungsi</th>
+                        <th>Contoh</th>
+                    </tr>
+                    <tr>
+                        <td>Layout</td>
+                        <td>.layout, .page, .grid</td>
+                    </tr>
+                    <tr>
+                        <td>Area</td>
+                        <td>.header, .sidebar, .content</td>
+                    </tr>
+                    <tr>
+                        <td>Komponen</td>
+                        <td>.card, .button</td>
+                    </tr>
+                </table>
+                	
+                <h3>Kesalahan Umum</h3>
 
-                Kelebihan:
+                <p>❌ Sidebar diberi style konten <br>
+                ❌ Card mengatur lebar halaman <br>
+                ❌ Layout bergantung pada isi <br> <br>
 
-                header tinggi konsisten
+                ✔ Layout mengatur ruang <br>
+                ✔ Komponen mengisi ruang</p>
 
-                konten otomatis mengisi sisa layar
+                <h3>Hubungan dengan Design System</h3>
 
-                C. Sidebar Layout (Dashboard Pattern)
-                .layout {
-                display: flex;
-                min-height: 100vh;
-                }
+                <p>Reusable layout:
+                <ul>
+                    <li>menggunakan CSS variables</li>
+                    <li>konsisten dengan design tokens</li>
+                    <li>mudah digabung dengan BEM & utility</li>
+                </ul>
 
-                .sidebar {
-                width: 260px;
-                flex-shrink: 0;
-                }
+                <h3>Ringkasan</h3>
+                <ul>
+                    <li>Layout ≠ Komponen</li>
+                    <li>Layout harus reusable</li>
+                    <li>Gunakan flex/grid</li>
+                    <li>Gunakan variable ukuran</li>
+                    <li>Pikirkan pola, bukan halaman</li>
+                </ul></p>
 
-                .content {
-                flex: 1;
-                }
+                <br> <br>
 
-
-                HTML:
-
-                <div class="layout">
-                <aside class="sidebar"></aside>
-                <main class="content"></main>
-                </div>
-
-
-                ➡ Cocok untuk admin, dashboard, LMS
-
-                D. Grid Content Layout
-                .grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: var(--space-md);
-                }
-
-
-                HTML:
-
-                <div class="grid">
-                <div class="card"></div>
-                <div class="card"></div>
-                </div>
-
-
-                ➡ Responsive otomatis
-
-                E. Container System (Max Width)
-                .container {
-                max-width: 1200px;
-                padding-inline: var(--space-md);
-                margin-inline: auto;
-                }
-
-
-                Tujuan:
-
-                konten tidak terlalu lebar
-
-                nyaman dibaca
-
-                Best Practice Naming
-                Fungsi	Contoh
-                Layout	.layout, .page, .grid
-                Area	.header, .sidebar, .content
-                Komponen	.card, .button
-                Kesalahan Umum
-
-                ❌ Sidebar diberi style konten
-                ❌ Card mengatur lebar halaman
-                ❌ Layout bergantung pada isi
-
-                ✔ Layout mengatur ruang
-                ✔ Komponen mengisi ruang
-
-                Hubungan dengan Design System
-
-                Reusable layout:
-
-                menggunakan CSS variables
-
-                konsisten dengan design tokens
-
-                mudah digabung dengan BEM & utility
-
-                Ringkasan
-
-                Layout ≠ Komponen
-
-                Layout harus reusable
-
-                Gunakan flex/grid
-
-                Gunakan variable ukuran
-
-                Pikirkan pola, bukan halaman
+                <a href="7e-design-tokens.html" class="btn-next">7e. Design Tokens</a>
             </div>
         </main>
     </div>
