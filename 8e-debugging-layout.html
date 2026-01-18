@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <h2>Belajar CSS</h2>
+            
+            <hr>
+
+            <h6>BAB 1: Dekorasi (Pemula)</h6>
+            <h5><a href="1a-cara-css-bekerja.html" id="cara-css-bekerja">1. Cara CSS Bekerja</a></h5>
+            <h5><a href="1b-properti-visual.html" id="properti-visual">2. Properti Visual</a></h5>
+            <h5><a href="1c-ukuran-besar.html" id="ukuran-besar">3. Ukuran Besar</a></h5>
+            <h5><a href="1d-box-model.html" id="box-model">4. Box Model</a></h5>
+
+            <h6>BAB 2: Mengatur Ruang (Intermediate)</h6>
+            <h5><a href="2a-box-model-advanced.html" id="box-model-advanced">1. Box Model (advanced)</a></h5>
+            <h5><a href="2b-display.html" id="display">2. Display</a></h5>
+            <h5><a href="2c-width-dan-constrain.html" id="width-dan-constrain">3. Width dan Constrain</a></h5>
+            <h5><a href="2d-overflow.html" id="overvlow">4. Overflow</a></h5>
+
+            <h6>BAB 3: CSS Satu Arah (FLEX BOX)</h6>
+            <h5><a href="3a-flex-box.html" id="flex-container-dan-item">1. Flex Container dan Flex Item</a></h5>
+            <h5><a href="3b-main-axis-dan-cross-axis.html" id="main-axis-dan-cross-axis">2. Main Axis dan Cross Axis</a></h5>
+            <h5><a href="3c-justify-content.html" id="justify-content">3. Justify Content</a></h5>
+            <h5><a href="3d-align-items.html" id="align-items">4. Align Items</a></h5>
+            <h5><a href="3e-gap.html" id="gap">5. Gap</a></h5>
+            <h5><a href="3f-flex-grow-flex-shrink-flex-basis.html" id="flex-row-shrink-basis">6. Flex-row / Shrink / Basis</a></h5>
+            <h5><a href="3g-flex-wrapping.html" id="flex-wrapping">7. Flex Wrapping</a></h5>
+
+            <h6>BAB 4: CSS Denah Bangunan (GRID)</h6>
+            <h5><a href="4a-css-grid.html" id="grid-container-dan-item">1. CSS Grid</a></h5>
+            <h5><a href="4b-grid-container-dan-track.html" id="grid-template-column">2. Container dan Track</a></h5>
+            <h5><a href="4c-grid-line-cell-area.html" id="grid-line-cell-area">3. Grid Line, Grid Cell dan Grid Area</a></h5>
+            <h5><a href="4d-grid-area.html" id="grid-area">4. Grid Area</a></h5>
+            <h5><a href="4e-grid-auto-placement.html" id="grid-auto-placement">5. Grid Auto Placement</a></h5>
+
+            <h6>BAB 5: CSS Sebagai Layer (Positioning)</h6>
+            <h5><a href="5a-position-relative.html" id="position-relative">1. Position: relative</a></h5>
+            <h5><a href="5b-position-absolute.html" id="absolute">2. Absolute</a></h5>
+            <h5><a href="5c-position-sticky.html" id="sticky">3. Sticky</a></h5>
+            <h5><a href="5d-z-index.html" id="z-index">4. z-index</a></h5>
+
+            <h6>BAB 6: Sistem Adaptive (Responsive)</h6>
+            <h5><a href="6a-mobile-first.html" id="mobile-first">1. Mobile First</a></h5>
+            <h5><a href="6b-media-query.html" id="media-queries">2. Media Queries</a></h5>
+            <h5><a href="6c-flex-dan-grid-responsive.html" id="flex-dan-grid-responsive">3. Flex dan Grid Responsive</a></h5>
+            <h5><a href="6d-responsive-typography.html" id="responsive-typography">4. Responsive Typography</a></h5>
+            <h5><a href="6e-hide-and-show-element.html" id="hide-and-show-element">5. Hide and Show Element</a></h5>
+
+            <h6>BAB 7: Sistem Desain (Advanced)</h6>
+            <h5><a href="7a-css-variable.html" id="css-variable">1. CSS Variable</a></h5>
+            <h5><a href="7b-component-based-css.html" id="component-based-css">2. Component-Based CSS</a></h5>
+            <h5><a href="7c-naming-convention.html" id="naming-convention">3. Naming Convention (BEM/Utility)</a></h5>
+            <h5><a href="7d-reuseable-layout-patern.html" id="reuseable-layout-patern">4. Reuseable Layout Patern</a></h5>
+            <h5><a href="7e-design-tokens.html" id="design-tokens">5. Design Tokens (Warna dan Spasi)</a></h5>
+
+            <h6>BAB 8: CSS Engineer (Mahir)</h6>
+            <h5><a href="8a-cascade-dan-spesifidity.html" id="cascade-dan-spesifidity">1. Cascade dan Spesifidity (Advance)</a></h5>
+            <h5><a href="8b-inheritance-control.html" id="inheritance-control">2. Inheritance Controle</a></h5>
+            <h5><a href="8c-performance-css.html" id="performance-css">3. Performance CSS</a></h5>
+            <h5><a href="8d-anti-patern-css.html" id="anti-patern-css">4. Anti Patern CSS</a></h5>
+            <h5><a href="8e-debugging-layout.html" id="debugging-layout">5. Debugging Layout</a></h5>
+        </aside>
+
+        <main>
+            <header>
+
+            </header>
+
+            <div class="container">
+                <h2>5. Debugging Layout CSS</h2>
+
+                <p>Debugging layout adalah kemampuan membaca, memahami, dan memperbaiki masalah tampilan CSS secara sistematis, bukan trial–error. <br> <br>
+
+                CSS Engineer tidak menebak, tapi menganalisis.</p>
+
+                <h3>Masalah Layout yang Paling Sering Terjadi</h3>
+                <ul>
+                    <li>Elemen “tidak mau di tengah”</li>
+                    <li>Height tidak mengikuti konten</li>
+                    <li>Overflow horizontal (scroll ke samping)</li>
+                    <li>Z-index tidak bekerja</li>
+                    <li>Flex/Grid “tidak patuh”</li>
+                    <li>Responsive rusak di mobile</li>
+                </ul>
+                
+                <h3>Mindset Debugging CSS</h3>
+
+                <p>❌ Salah: <br> <br>
+
+                “Kenapa ya CSS-nya error?”  <br> <br>
+
+                ✔ Benar: <br> <br>
+
+                “Aturan CSS apa yang sedang aktif, dan kenapa?” <br> <br>
+
+                CSS selalu konsisten, yang sering keliru adalah asumsi kita.</p>
+
+                <h3>Langkah Debugging yang Benar</h3>
+                <h4>1. Aktifkan Border untuk Melihat Box</h4>
+<pre>
+    * {
+        outline: 1px solid red;
+    }
+</pre>
+
+                <p>Atau sementara:</p>
+<pre>
+    .debug { <br>
+        outline: 2px dashed blue; <br>
+    }
+</pre>
+
+                <p>📌 Ini membantu melihat:
+                <ul>
+                    <li>ukuran sebenarnya</li>
+                    <li>margin & padding</li>
+                    <li>elemen mana yang meluber</li>
+                </ul></p>
+                
+                <h4>2. Gunakan DevTools (WAJIB)</h4>
+
+                <p>Shortcut:
+                <ul>
+                    <li>Inspect Element</li>
+                    <li>Tab Elements</li>
+                    <li>Tab Computed</li>
+                    <li>Tab Layout (Flex/Grid)</li>
+                </ul>
+                
+                📌 Perhatikan:
+                <ul>
+                    <li>properti yang dicoret (overridden)</li>
+                    <li>source file & line</li>
+                </ul></p>
+                
+                <h4>3. Cek Box Model</h4>
+
+                <p>Banyak bug karena salah asumsi:</p>
+<pre>
+    width: 100%; <br>
+    padding: 20px; <br>
+</pre>
+
+                <p>📌 Tanpa box-sizing: border-box, elemen jadi lebih besar dari parent. <br> <br>
+
+                ✔ Solusi:</p>
+<pre>
+    * {  <br>
+        box-sizing: border-box; <br>
+    }
+</pre>
+                <h4>4. Debugging Flexbox</h4>
+                <p>Masalah umum: <br> <br>
+
+                “Kenapa justify-content tidak bekerja?” <br> <br>
+
+                Penyebab:</p>
+                <ul>
+                    <li>lupa display: flex</li>
+                    <li>flex-direction salah</li>
+                    <li>main axis disalahpahami</li>
+                </ul>
+                
+                <p>✔ Cek:</p>
+<pre>
+    .container { <br>
+        display: flex; <br>
+        flex-direction: row; <br>
+    }
+</pre>
+
+                <p>📌 Gunakan Flex overlay di DevTools.</p>
+
+                <h4>5. Debugging Height</h4>
+
+                <p>❌ Salah kaprah:</p>
+<pre>
+    .child { <br>
+        height: 100%; <br>
+    }
+</pre>
+
+                <p>📌 height: 100% butuh parent punya height eksplisit. <br> <br>
+
+                ✔ Solusi:</p>
+<pre>
+    .parent { <br>
+        height: 100vh; <br>
+    }
+</pre>
+
+                <p>Atau gunakan: <br> <br>
+
+                <code>min-height</code></p>
+
+                <h4>6. Debugging Overflow Horizontal (Scroll ke samping)</h4>
+
+                <p>Gejala: <br> <br>
+
+                ada scroll kanan kiri tanpa alasan <br> <br>
+
+                Langkah:
+                <ul>
+                    <li>Inspect body</li>
+                    <li>Cari elemen yang lebih lebar dari viewport</li>
+                </ul>
+                
+                Cek:
+                <ul>
+                    <li><code>width: 100vw</code></li>
+                    <li>margin negatif</li>
+                    <li>absolute position</li>
+                </ul>
+                
+                ✔ Bantuan cepat:</p>
+<pre>
+    body { <br>
+        overflow-x: hidden; <br>
+    }
+</pre>
+
+                <p>⚠️ Ini solusi sementara, bukan perbaikan akar masalah.</p>
+
+                <h4>7. Debugging Position & Z-Index</h4>
+
+                <p>Masalah: <br> <br>
+
+                z-index tidak bekerja <br> <br>
+
+                Penyebab umum: <br> <br>
+
+                elemen tidak positioned <br> <br>
+
+                ✔ Wajib:</p>
+<pre>
+    .element { <br>
+        position: relative; <br>
+        z-index: 10;
+    }
+</pre>
+
+                <p>📌 Z-index hanya berlaku pada:
+                <ul>
+                    <li>relative</li>
+                    <li>absolute</li>
+                    <li>fixed</li>
+                    <li>sticky</li>
+                </ul></p>
+
+                <h4>8. Debugging Responsive</h4>
+
+                <p>Langkah:
+                <ul>
+                    <li>resize browser</li>
+                    <li>gunakan device toolbar</li>
+                    <li>cek media query aktif</li>
+                </ul>
+
+                📌 Tips:</p>
+<pre>
+    @media (max-width: 768px) { <br>
+        body { <br>
+            background: red; <br>
+        } <br>
+    }
+</pre>
+
+                <p>Jika background tidak berubah → media query tidak aktif.</p>
+
+                <h4>9. Isolasi Masalah</h4>
+
+                <p>Teknik penting:
+                <ul>
+                    <li>disable CSS satu per satu</li>
+                    <li>comment block tertentu</li>
+                    <li>hapus JS sementara</li>
+                </ul>
+
+                📌 Cari aturan paling kecil yang menyebabkan bug.</p>
+
+                <h4>10. Checklist Debugging CSS Engineer</h4>
+
+                <p>✔ Apakah selector terlalu spesifik? <br>
+                ✔ Apakah property tertimpa? <br>
+                ✔ Apakah box model benar? <br>
+                ✔ Apakah parent punya ukuran? <br>
+                ✔ Apakah flex/grid aktif? <br>
+                ✔ Apakah overflow muncul?</p>
+
+                <h3>Skill Level Debugging</h3>
+                <table>
+                    <tr>
+                        <th>Level</th>
+                        <th>Ciri</th>
+                    </tr>
+                    <tr>
+                        <td>Pemula</td>
+                        <td>Coba-coba</td>
+                    </tr>
+                    <tr>
+                        <td>Menengah</td>
+                        <td>Inspect</td>
+                    </tr>
+                    <tr>
+                        <td>Mahir</td>
+                        <td>Analisis cascade</td>
+                    </tr>
+                    <tr>
+                        <td>Engineer</td>
+                        <td>Isolasi & sistematis</td>
+                    </tr>
+                </table>
+                	
+                <h3>Kesimpulan BAB 8</h3>
+
+                <p>CSS Engineer:
+                <ul>
+                    <li>menguasai cascade & specificity</li>
+                    <li>mengontrol inheritance</li>
+                    <li>menulis CSS efisien</li>
+                    <li>menghindari anti pattern</li>
+                    <li>mahir debugging</li>
+                </ul>
+                
+                CSS bukan soal hafalan, tapi pemahaman sistem.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
