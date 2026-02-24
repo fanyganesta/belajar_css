@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+
+    <!-- reference: https://www.cheddarflow.com/wp-content/uploads/2024/09/finviz-dashboard.webp -->
+    <style>
+        :root{
+            --dark: rgb(36, 46, 53);
+            --light: rgb(252, 252, 252);
+            --primary: rgb(131, 181, 255);
+            --success: rgb(14, 177, 14);
+            --warning: rgb(211, 195, 54);
+            --danger: rgb(243, 60, 60);
+            --border: rgb(59, 73, 85);
+        }
+
+        body{
+            font-family: "Poppins", arial;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+        /* MAIN CONTAINERS */
+
+        .main-container{
+            background-color: var(--dark);
+            display: grid;
+            height: 100vh;
+            width: 100%;
+            grid-template-rows: 1fr 2.5fr 4fr 2.5fr;  
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+            border-radius: 7px;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+
+
+
+
+        /* RESULT CONTAINERS */
+
+        .result-containers{
+            grid-row: 1/2;
+            grid-column: 1/2;
+            column-gap: 10px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+        }
+
+        .result-box{
+            width: 25%;
+            height: 100%;
+            border: 2px solid var(--border);
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-rows: 1fr 1fr 5px;
+        }
+
+        .labels{
+            grid-row: 1/2;
+            grid-column: 1/2;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        .labels .l-label, .values .l-label{
+            color: var(--success);
+        }
+
+        .labels .r-label, .values .r-label{
+            color: var(--danger);
+        }
+
+        .values{
+            grid-row: 2/3;
+            grid-column: 1/2;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        .bars{
+            grid-row: 3/4;
+            grid-column: 1/2;
+            width: 100%;
+            min-width: 0;
+            height: 100%;
+            background-color: var(--danger);
+            border-radius: 5px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            width: 0%; /* Start dari 0 untuk animasi */
+            background-color: #4CAF50; /* Warna default hijau */
+            transition: width 1s ease-out;
+            border-radius: 5px;
+        }
+
+
+
+
+        /* GRAPH CONTAINERS */
+
+        .graph-containers{
+            grid-row: 2/3;
+            grid-column: 1/2;
+            height: 100%;
+            min-width: 0;
+            width: 100%;
+            display: flex;
+            column-gap: 10px;
+        }
+
+        .graph-box{
+            border: 2px solid var(--border);
+            width: 25%;
+            min-width: 0;
+            height: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+
+
+
+        /* COUNTRY CONTAINERS */
+
+        .country-containers{
+            grid-row: 3/4;
+            grid-column: 1/2;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            column-gap: 10px;
+        }
+
+        .country-box{
+            width: 33%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .country-box table{
+            width: 100%;
+            font-size: 0.7rem;
+        }
+
+        .country-box td{
+            padding: 0 5px;
+        }
+
+        .tk, .sg{
+            color: var(--primary);
+            text-align: left;
+        }
+
+        .ls, .vl{
+            color: var(--light);
+            text-align: right;
+        }
+
+        .ch{
+            color: var(--success);
+            text-align: right;
+        }
+
+
+
+
+        /* ACTION CONTAINERS */
+
+        .action-containers{
+            grid-row: 4/5;
+            grid-column: 1/2;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            column-gap: 10px;
+        }
+
+        .action-box{
+            width: 33%;
+            height: 100%;
+            border: 2px solid var(--border);
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+
+
+    <div class="main-container">
+        <div class="result-containers">
+            <div class="result-box">
+                <div class="labels">
+                    <label for="" class="l-label">
+                        Label 1
+                    </label>
+                    <label for="" class="r-label">
+                        Label 2
+                    </label>
+                </div>
+                <div class="values">
+                    <label for="" class="l-label">
+                        17.32%
+                    </label>
+                    <label for="" class="r-label">
+                        82.68%
+                    </label>
+                </div>
+                <div class="bars">
+                    <div class="bar-fill"></div>
+                </div>
+            </div>
+            <div class="result-box">
+                <div class="labels">
+                    <label for="" class="l-label">
+                        Label 1
+                    </label>
+                    <label for="" class="r-label">
+                        Label 2
+                    </label>
+                </div>
+                <div class="values">
+                    <label for="" class="l-label">
+                        57.32%
+                    </label>
+                    <label for="" class="r-label">
+                        42.68%
+                    </label>
+                </div>
+                <div class="bars">
+                    <div class="bar-fill"></div>
+                </div>
+            </div>
+            <div class="result-box">
+                <div class="labels">
+                    <label for="" class="l-label">
+                        Label 1
+                    </label>
+                    <label for="" class="r-label">
+                        Label 2
+                    </label>
+                </div>
+                <div class="values">
+                    <label for="" class="l-label">
+                        27.32%
+                    </label>
+                    <label for="" class="r-label">
+                        72.68%
+                    </label>
+                </div>
+                <div class="bars">
+                    <div class="bar-fill"></div>
+                </div>
+            </div>
+            <div class="result-box">
+                <div class="labels">
+                    <label for="" class="l-label">
+                        Label 1
+                    </label>
+                    <label for="" class="r-label">
+                        Label 2
+                    </label>
+                </div>
+                <div class="values">  
+                    <label for="" class="l-label">
+                        77.32%
+                    </label>
+                    <label for="" class="r-label">
+                        22.68%
+                    </label>
+                </div>
+                <div class="bars">
+                    <div class="bar-fill"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="graph-containers">
+            <div class="graph-box">
+                
+                <div style="position: relative; height:100%; width:100%">
+                    <canvas id="myChart1"></canvas>
+                </div>
+
+
+            </div>
+            <div class="graph-box">
+                
+                <div style="position: relative; height:100%; width:100%">
+                    <canvas id="myChart2"></canvas>
+                </div>
+
+
+
+            </div>
+            <div class="graph-box">
+                
+                <div style="position: relative; height:100%; width:100%">
+                    <canvas id="myChart3"></canvas>
+                </div>
+
+
+
+            </div>
+            <div class="graph-box">
+                
+                <div style="position: relative; height:100%; width:100%">
+                    <canvas id="myChart4"></canvas>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="country-containers">
+            <div class="country-box">
+                <table>
+                    <tbody id="stock-table-body">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="country-box">
+                <table>
+                    <tbody id="stock-table-body2">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="country-box">
+
+            </div>
+        </div>
+
+        <div class="action-containers">
+            <div class="action-box">
+                
+            </div>
+            <div class="action-box">
+
+            </div>
+            <div class="action-box">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // 1. Buat fungsi pembuat grafik
+        function buatGrafik(idElement, labelData, angkaData, warna) {
+            new Chart(document.getElementById(idElement), {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [{
+                        label: labelData,
+                        data: angkaData,
+                        backgroundColor: warna,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        // 2. Panggil fungsi untuk 4 canvas berbeda
+        buatGrafik('myChart1', 'Chart 1', [11, 21, 22, 30, 20, 10, 13, 4, 18, 28], 'rgba(54, 162, 235, 1)');
+        buatGrafik('myChart2', 'Chart 2', [51, 12, 23, 15, 45, 35, 21, 22, 30, 20], 'rgba(75, 192, 192, 1)');
+        buatGrafik('myChart3', 'Chart 3', [12, 2, 22, 43, 25, 35, 12, 23, 15, 45], 'rgba(255, 206, 86, 1)');
+        buatGrafik('myChart4', 'Chart 4', [8, 13, 4, 18, 28, 11, 2, 22, 43, 25], 'rgba(153, 102, 255, 1)');
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Ambil semua kotak hasil
+            const boxes = document.querySelectorAll('.result-box');
+
+            boxes.forEach(box => {
+                // 1. Cari label nilai kiri di dalam box ini saja
+                const valueLabel = box.querySelector('.values .l-label');
+                const barFill = box.querySelector('.bar-fill');
+
+                if (valueLabel && barFill) {
+                    // 2. Ambil teks (misal "97.32%"), buang tanda % agar jadi angka
+                    const percentage = valueLabel.innerText.replace('%', '').trim();
+
+                    // 3. Terapkan ke lebar bar
+                    // Gunakan setTimeout sedikit agar animasi transisi CSS terlihat saat page load
+                    setTimeout(() => {
+                        barFill.style.width = percentage + '%';
+                    }, 100);
+                }
+            });
+        });
+    </script>
+
+
+
+    <script>
+        const stockData = [
+            { ticker: 'SGN', last: 0.67, change: '414.70%', volume: '460.98M', signal: 'Top Gainers' },
+            { ticker: 'GSIW', last: 5.72, change: '151.76%', volume: '41.78M', signal: 'Top Gainers' },
+            { ticker: 'TBIO', last: 2.78, change: '104.43%', volume: '49.48M', signal: 'Top Gainers' },
+            { ticker: 'ZEO', last: 2.33, change: '104.39%', volume: '55.35M', signal: 'Top Gainers' },
+            { ticker: 'XCUR', last: 3.61, change: '57.64%', volume: '15.63M', signal: 'Top Gainers' },
+            { ticker: 'EWTX', last: 28.01, change: '46.91%', volume: '8.71M', signal: 'New High' },
+            { ticker: 'LASE', last: 10.30, change: '22.47%', volume: '1.01M', signal: 'New High' },
+            { ticker: 'ORGN', last: 1.82, change: '10.35%', volume: '2.39M', signal: 'New High' },
+            { ticker: 'SOC', last: 27.65, change: '7.31%', volume: '275.48K', signal: 'New High' },
+            { ticker: 'ETON', last: 5.82, change: '-1.52%', volume: '138.93K', signal: 'Overbought' },
+            { ticker: 'CSLR', last: 3.19, change: '10.76%', volume: '460.63K', signal: 'Overbought' },
+            { ticker: 'ZEO', last: 2.33, change: '104.39%', volume: '55.35M', signal: 'Top Gainers' },
+            { ticker: 'XCUR', last: 3.61, change: '57.64%', volume: '15.63M', signal: 'Top Gainers' },
+            { ticker: 'EWTX', last: 28.01, change: '46.91%', volume: '8.71M', signal: 'New High' },
+            { ticker: 'LASE', last: 10.30, change: '22.47%', volume: '1.01M', signal: 'New High' },
+            { ticker: 'ORGN', last: 1.82, change: '10.35%', volume: '2.39M', signal: 'New High' },
+            { ticker: 'EWTX', last: 28.01, change: '46.91%', volume: '8.71M', signal: 'New High' },
+            { ticker: 'LASE', last: 10.30, change: '22.47%', volume: '1.01M', signal: 'New High' },
+            { ticker: 'ORGN', last: 1.82, change: '10.35%', volume: '2.39M', signal: 'New High' },
+            { ticker: 'RCG', last: 1.98, change: '-0.25%', volume: '7.69K', signal: 'Insider Buying' }
+        ];
+
+
+        function renderTable(data) {
+        const tableBody = document.getElementById('stock-table-body');
+        const tableBody2 = document.getElementById('stock-table-body2');
+        let html = '';
+
+        data.forEach(item => {
+            // Logika warna teks untuk kolom 'Change'
+            const isNegative = item.change.includes('-');
+            const color = isNegative ? '#ff4757' : '#2ed573';
+
+            html += `
+                <tr style="border-bottom: 1px solid #ddd; text-align: center;">
+                    <td class="tk">${item.ticker}</td>
+                    <td class="ls">${item.last}</td>
+                    <td class="ch">${item.change}</td>
+                    <td class="vl">${item.volume}</td>
+                    <td class="sg">${item.signal}</td>
+                </tr>
+            `;
+        });
+
+        tableBody.innerHTML = html;
+        tableBody2.innerHTML = html;
+    }
+
+    // Jalankan fungsi
+    renderTable(stockData);
+    </script>
+</body>
+</html>
