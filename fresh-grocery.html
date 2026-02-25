@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        body{
+            font-family: "Poppins", arial;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root{
+            --img: rgb(113, 113, 113);
+            --primary:  rgb(131, 181, 255);
+            --black: rgb(20, 19, 19);
+            --sm-padd: 7px; 
+        }
+
+        .img{
+            width: 100%;
+            height: 100%;
+            border-radius: 7px;
+            background-color: var(--img);
+        }
+
+        .btn{
+            background-color: var(--black);
+            align-self: center;
+            padding: 6px 16px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 7px;
+        }
+
+
+
+
+        /* header start */
+
+        .header-container{
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: 67px;
+            width: 100%;
+        }
+
+        header{
+            border-bottom: 1px solid var(--black);
+        }
+
+        .nav-primary{
+            width: 100%;
+            grid-column: 1/2;
+            /* background-color: red; */
+            padding: var(--sm-padd);
+            box-sizing: border-box;
+        }
+
+        .logo{
+            padding: var(--sm-padd);
+        }
+
+        .nav-secondary{
+            padding: var(--sm-padd);
+        }
+
+        .sub-menu{
+            display: flex;
+            justify-content: center;
+            padding: 0 var(--sm-padd);
+            font-size: 0.7rem;
+        }
+
+        .sub-menu a{
+            text-decoration: none;
+            padding: 2px 7px
+        }
+
+        /* header end */
+
+
+
+
+        /* first section */
+        section{
+            padding: var(--sm-padd);
+        }
+
+        .first-section{
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            "text"
+            "image";
+            width: 100%;
+            height: 400px;
+            box-sizing: border-box;
+            /* border: 1px solid black */
+        }
+
+        .tagline{
+            grid-area: text;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            transform: translateY(-1rem);
+        }
+
+        .hero-img{
+            grid-area: image;
+        }
+
+
+        
+    </style>
+
+    <!-- reference: https://i.pinimg.com/736x/36/99/10/369910cb2f515ab51c9d04b45c707e1c.jpg -->
+
+    <header>
+        <div class="header-container">
+            <nav class="nav-primary">
+                <div class="hamburger img">
+
+                </div>
+            </nav>
+            <!-- <img src="" alt="logo"> -->
+            <div class="logo">
+                <div class="img"></div>
+            </div>
+            <nav class="nav-secondary">
+                <div class="my-account img">
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <nav class="sub-menu">
+            <a href="#">menu 1</a>
+            <a href="#">menu 2</a>
+            <a href="#">menu 3</a>
+            <a href="#">menu 4</a>
+            <a href="#">menu 5</a>
+        </nav>
+    </header>
+    <section class="first-section">
+        <div class="tagline">
+            <h1>Make healthy life with fresh grocery</h1>
+            <a href="#" class="btn">Shop Here</a>
+        </div>
+        <div class="hero-img img">
+
+        </div>
+    </section>
+</body>
+</html>
