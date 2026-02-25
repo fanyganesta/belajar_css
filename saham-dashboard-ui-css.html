@@ -154,22 +154,41 @@
             column-gap: 10px;
         }
 
-        .country-box{
+        .outer-box{
             width: 33%;
-            height: 100%;
+            /* height:100%; */
+        }
+
+        .country-head{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+            column-gap: 10px;
+            font-size: 0.7rem;
+            padding: 0 10px 0 10px;
+            box-sizing: border-box;
+        }
+
+        .country-head label{
+            color: var(--light);
+        }
+
+        .country-box{
+            width: 100%;
+            /* height: 100%; */
             padding: 10px;
             box-sizing: border-box;
             border: 2px solid var(--border);
             border-radius: 5px;
         }
 
-        .country-box table{
-            width: 100%;
+        .grid-table{
+            display: grid;
+            overflow-y: auto;
+            grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
             font-size: 0.7rem;
-        }
-
-        .country-box td{
-            padding: 0 5px;
+            color: var(--light);
+            column-gap: 10px;
         }
 
         .tk, .sg{
@@ -187,8 +206,71 @@
             text-align: right;
         }
 
+        .proportion-box{
+            display: grid;
+            grid-auto-flow: dense;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            gap: 5px;
+        }
 
+        .a{
+            grid-column: span 2;
+            grid-row: span 2;
+            background-color: green;
+            padding: 5px;
+            box-sizing: border-box;
+        }
 
+        .b{
+            grid-column: span 3;
+            grid-row: span 1;
+            background-color: rgb(8, 150, 8)
+        }
+
+        .c{
+            grid-column: span 5;
+            grid-row: span 2;
+            background-color: rgb(44, 196, 44)
+        }
+        
+        .d{
+            grid-column: span 3;
+            grid-row: span 1;
+            background-color: rgb(51, 146, 51)
+        }
+
+        .e{
+           grid-column: span 4;
+           grid-row: span 4;
+           background-color: rgb(98, 185, 98)
+        }
+
+        .f{
+            grid-column: span 3;
+            grid-row: span 3;
+            background-color: rgb(17, 128, 17)
+        }
+
+        .g{
+            grid-column: span 2;
+            grid-row: span 2;
+            background-color: rgb(14, 148, 14)
+        }
+
+        .h{
+            grid-column: span 1;
+            grid-row: span 1;
+            background-color: var(--success)
+        }
+
+        .proportion-box div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--light);
+
+        }
 
         /* ACTION CONTAINERS */
 
@@ -201,14 +283,76 @@
             column-gap: 10px;
         }
 
-        .action-box{
+        .outer-action{
             width: 33%;
-            height: 100%;
+        }
+
+        .header-action{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            font-size: 0.7rem;
+            color: var(--light);
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .header-news{
+            padding: 0;
+            display: grid;
+            column-gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .header-news label{
+            padding: 0 10px;
+        }
+        
+        .action-box{
+            width: 100%;
             border: 2px solid var(--border);
             border-radius: 5px;
             padding: 10px;
             box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            color: var(--primary);
+            font-size: 0.7rem;
         }
+
+        .ticker-box{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .signal-box{
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto 1fr;
+        }
+
+        .news-container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 100%;
+            column-gap: 10px;
+            color: var(--primary);
+            font-size: 0.7rem;
+        }
+
+        .news-box{
+            border: 2px solid var(--border);
+            border-radius: 7px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        .change-value{
+            color: var(--success);
+            text-align: right;
+        }
+
     </style>
 
 
@@ -341,34 +485,113 @@
         </div>
 
         <div class="country-containers">
-            <div class="country-box">
-                <table>
-                    <tbody id="stock-table-body">
-
-                    </tbody>
-                </table>
+            <div class="outer-box">
+                <div class="country-head">
+                    <label class="tk">Ticker</label>
+                    <label class="ls">Last</label>
+                    <label class="ch">Change</label>
+                    <label class="vl">Volume</label>
+                </div>
+                <div class="country-box">
+                    <div id="grid-table" class="grid-table">
+                        
+                    </div>
+                </div>
             </div>
-            <div class="country-box">
-                <table>
-                    <tbody id="stock-table-body2">
-
-                    </tbody>
-                </table>
+            <div class="outer-box">
+                <div class="country-head">
+                    <label class="tk">Ticker</label>
+                    <label class="ls">Last</label>
+                    <label class="ch">Change</label>
+                    <label class="vl">Volume</label>
+                </div>
+                <div class="country-box">
+                    <div id="grid-table2" class="grid-table">
+                        
+                    </div>
+                </div>
             </div>
-            <div class="country-box">
-
+            <div class="outer-box">
+                <div class="country-head">
+                    <label for="">&nbsp;</label>
+                </div>
+                <div class="country-box proportion-box">
+                    <div class="a">MRKA</div>
+                    <div class="b">PSAS</div>
+                    <div class="c">PSAS</div>
+                    <div class="d">MRKA</div>
+                    <div class="e">PSAS</div>
+                    <div class="f">MRKA</div>
+                    <div class="g">GBAS</div>
+                    <div class="h">MR</div>
+                    <div class="b">PSAS</div>
+                    <div class="d">GBAS</div>
+                    <div class="g">MRKA</div>
+                    <div class="a">GBAS</div>
+                    <div class="f">YKSA</div>
+                    <div class="h">PS</div>
+                    <div class="b">MRKA</div>
+                    <div class="h">GB</div>
+                    <div class="h">YK</div>
+                    <div class="h">MR</div>
+                    <div class="h">GB</div>
+                    <div class="f">PSAS</div>
+                    <div class="a">MRKA</div>
+                    <div class="h">YK</div>
+                    <div class="h">MR</div>
+                    <div class="h">PS</div>
+                    <div class="h">YK</div>
+                    <div class="h">MR</div>
+                    <div class="h">GB</div>
+                    <div class="h">MR</div>
+                    <div class="h">PS</div>
+                    <div class="h">GB</div>
+                </div>
             </div>
         </div>
 
         <div class="action-containers">
-            <div class="action-box">
-                
-            </div>
-            <div class="action-box">
+            <div class="outer-action">
+                <div class="header-action">
+                    <label for="">Ticker</label>
+                    <label for="">Signal</label>
+                </div>
+                <div class="action-box ">
+                    <div class="ticker-box ticker-grid">
 
-            </div>
-            <div class="action-box">
+                    </div>
+                    <div class="signal-box signal-grid">
 
+                    </div>
+                </div>
+            </div>
+            <div class="outer-action">
+                <div class="header-action">
+                    <label for="">Ticker</label>
+                    <label for="">Signal</label>
+                </div>
+                <div class="action-box">
+                    <div class="ticker-box ticker-grid2"></div>
+                    <div class="signal-box signal-grid2"></div>
+                </div>
+            </div>
+            <div class="outer-action">
+                <div class="header-action header-news">
+                    <label for="">Major News</label>
+                    <label for="">Minor News</label>
+                    <label for="">Latest News</label>
+                </div>
+                <div class="news-container">
+                    <div class="news-box">
+
+                    </div>
+                    <div class="news-box">
+
+                    </div>
+                    <div class="news-box">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -433,10 +656,8 @@
         });
     </script>
 
-
-
     <script>
-        const stockData = [
+        const stockDataGr = [
             { ticker: 'SGN', last: 0.67, change: '414.70%', volume: '460.98M', signal: 'Top Gainers' },
             { ticker: 'GSIW', last: 5.72, change: '151.76%', volume: '41.78M', signal: 'Top Gainers' },
             { ticker: 'TBIO', last: 2.78, change: '104.43%', volume: '49.48M', signal: 'Top Gainers' },
@@ -461,8 +682,8 @@
 
 
         function renderTable(data) {
-        const tableBody = document.getElementById('stock-table-body');
-        const tableBody2 = document.getElementById('stock-table-body2');
+        const grTableBody2 = document.getElementById('grid-table2');
+        const grTableBody = document.getElementById('grid-table');
         let html = '';
 
         data.forEach(item => {
@@ -471,22 +692,146 @@
             const color = isNegative ? '#ff4757' : '#2ed573';
 
             html += `
-                <tr style="border-bottom: 1px solid #ddd; text-align: center;">
-                    <td class="tk">${item.ticker}</td>
-                    <td class="ls">${item.last}</td>
-                    <td class="ch">${item.change}</td>
-                    <td class="vl">${item.volume}</td>
-                    <td class="sg">${item.signal}</td>
-                </tr>
+                    <div class="tk">${item.ticker}</div>
+                    <div class="ls">${item.last}</div>
+                    <div class="ch">${item.change}</div>
+                    <div class="vl">${item.volume}</div>
+                    <div class="sg">${item.signal}</div>
             `;
         });
 
-        tableBody.innerHTML = html;
-        tableBody2.innerHTML = html;
-    }
+        grTableBody.innerHTML = html;
+        grTableBody2.innerHTML = html;
+        }
 
-    // Jalankan fungsi
-    renderTable(stockData);
+        // Jalankan fungsi
+        renderTable(stockDataGr);
     </script>
+
+
+
+
+    <script>
+        const tradingData = {
+            // Data Tickers (List kode di sebelah kiri)
+            tickers: [
+                ["BSCO", "BBAI", "IBDP", "FLUD"],
+                ["EMNT", "BILZ", "TBIL", "IBDP"],
+                ["RWK", "TBPH", "ESCA", "KGS"],
+                ["RAVI", "UYLD", "SHUS", "KNOW"],
+                ["ON", "JOY", "GNOM", "MAG"],
+                ["MOS", "BMRA", "PLL", "MXE"],
+                ["HSRT", "SATX", "LNW", "BSL"],
+                ["TBIL", "VOC", "TKR", "ZIM"]
+            ]
+        };
+
+        const tickerWrapper = document.querySelector('.ticker-grid');
+        tradingData.tickers.flat().forEach(ticker => {
+            tickerWrapper.innerHTML += 
+                `<div class="grid-cell">${ticker}</div>`;
+
+        });
+
+        const signalTrading = {
+            // Data Signals (Legenda di sebelah kanan)
+            signals: [
+                { icon: "📈", name: "Trendline Supp." },
+                { icon: "📉", name: "Trendline Resist." },
+                { icon: "---", name: "Horizontal S/R" },
+                { icon: "↗️", name: "Wedge Up" },
+                { icon: ">", name: "Wedge" },
+                { icon: "↘️", name: "Wedge Down" },
+                { icon: "7", name: "Triangle Asc." },
+                { icon: "◣", name: "Triangle Desc." }
+            ]
+        };
+
+        const signalWrapper = document.querySelector('.signal-grid');
+        signalTrading.signals.flat().forEach(signal => {
+            signalWrapper.innerHTML += 
+                `<div class="grid-cell">${signal.icon}</div>
+                <div class="grid-cell">${signal.name}</div>`;
+
+        });
+    </script>
+
+
+    <script>
+        const tradingData2 = {
+            // Data Tickers (List kode di sebelah kiri)
+            tickers: [
+                ["BSCO", "BBAI", "IBDP", "FLUD"],
+                ["EMNT", "BILZ", "TBIL", "IBDP"],
+                ["RWK", "TBPH", "ESCA", "KGS"],
+                ["RAVI", "UYLD", "SHUS", "KNOW"],
+                ["ON", "JOY", "GNOM", "MAG"],
+                ["MOS", "BMRA", "PLL", "MXE"],
+                ["HSRT", "SATX", "LNW", "BSL"],
+                ["TBIL", "VOC", "TKR", "ZIM"]
+            ]
+        };
+
+        const tickerWrapper2 = document.querySelector('.ticker-grid2');
+        tradingData2.tickers.flat().forEach(ticker => {
+            tickerWrapper2.innerHTML += 
+                `<div class="grid-cell">${ticker}</div>`;
+
+        });
+
+        const signalTrading2 = {
+            // Data Signals (Legenda di sebelah kanan)
+            signals: [
+                { icon: "📈", name: "Trendline Supp." },
+                { icon: "📉", name: "Trendline Resist." },
+                { icon: "---", name: "Horizontal S/R" },
+                { icon: "↗️", name: "Wedge Up" },
+                { icon: ">", name: "Wedge" },
+                { icon: "↘️", name: "Wedge Down" },
+                { icon: "7", name: "Triangle Asc." },
+                { icon: "◣", name: "Triangle Desc." }
+            ]
+        };
+
+        const signalWrapper2 = document.querySelector('.signal-grid2');
+        signalTrading2.signals.flat().forEach(signal => {
+            signalWrapper2.innerHTML += 
+                `<div class="grid-cell">${signal.icon}</div>
+                <div class="grid-cell">${signal.name}</div>`;
+
+        });
+    </script>
+
+
+
+
+    <script>
+        const majorNewsData = [
+            { ticker: "NVDA", change: "+5.28%", status: "high" },
+            { ticker: "AAPL", change: "+3.88%", status: "normal" },
+            { ticker: "AMZN", change: "+1.64%", status: "normal" },
+            { ticker: "DRI", change: "+9.14%", status: "high" },
+            { ticker: "GOOG", change: "+1.93%", status: "normal" },
+            { ticker: "GOOGL", change: "+1.85%", status: "normal" },
+            { ticker: "MSFT", change: "+1.95%", status: "normal" },
+            { ticker: "TSLA", change: "+6.86%", status: "high" },
+            { ticker: "UBER", change: "+3.10%", status: "normal" }
+        ];
+
+        const allMajorNewsWrappers = document.querySelectorAll('.news-box');
+        allMajorNewsWrappers.forEach(wrapper => {
+            
+            majorNewsData.forEach(item => {
+            // Cek apakah statusnya high untuk kasih background spesial
+            const highlightClass = item.status === 'high' ? 'high-gain' : '';
+
+            wrapper.innerHTML += `
+                <div class="ticker-name">${item.ticker}</div>
+                <div class="change-value ${highlightClass}">${item.change}</div>
+            `;
+            });
+            
+        })
+        </script>
 </body>
 </html>
