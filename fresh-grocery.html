@@ -29,13 +29,16 @@
         }
 
         .btn{
+            display: inline-block;
             background-color: var(--black);
             align-self: center;
             padding: 6px 16px;
             color: white;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             border-radius: 7px;
+            box-sizing: border-box;
+            text-align: center;
         }
 
 
@@ -79,7 +82,8 @@
 
         .sub-menu a{
             text-decoration: none;
-            padding: 2px 7px
+            padding: 2px 7px;
+            box-sizing: border-box;
         }
 
         /* header end */
@@ -88,6 +92,15 @@
 
 
         /* first section */
+
+        main{
+            display: flex;
+            flex-direction: column;
+            row-gap: 25px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
         section{
             padding: var(--sm-padd);
         }
@@ -119,7 +132,117 @@
         }
 
 
-        
+
+
+        /* SECOND SECTION */
+        .sub-title{
+            text-align: center;
+        }
+
+        .category-container{
+            display: flex;
+            width: 100%;
+            column-gap: 10px;
+            row-gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .category-box{
+            flex: 0 0 calc(50% - 5px);
+            display: grid;
+            grid-template-rows: auto auto;
+        }
+
+        .category-box:hover{
+            cursor:pointer;
+        }
+
+        .category-box .img{
+            grid-row: 1/2;
+            aspect-ratio: 1/1;
+        }
+
+        .category-box label{
+            grid-row: 2/3;
+            text-align: center;
+        }
+
+        .second-category{
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+        }
+
+        .second-category div{
+            background-color: rgb(185, 184, 184);
+            padding: 17px 125px 30px 17px;
+            border-radius: 7px;
+        }
+
+        .second-category label{
+            font-size: 0.7rem;
+            color: white;
+            background-color: rgb(58, 54, 54);
+            padding: 6px 14px;
+            border-radius: 7px;
+        }
+
+        .second-category h3{
+            font-size: 1.5rem;
+        }
+
+
+        .featured-products{
+            display: grid;
+            grid-template-rows: auto auto;
+            row-gap: 10px;
+        }
+
+        .featured-products h2{
+            transform: translateY(-17px);
+        }
+
+        .product-container{
+            display: flex;
+            width: 100%;
+            column-gap: 10px;
+            row-gap: 15px;
+            flex-wrap: wrap;
+            /* border: 1px solid black; */
+        }
+
+        .product-box{
+            flex: 0 0 calc(50% - 5px);
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+        }
+
+        .product-box .img{
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+
+        .product-name{
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .product-fake-price{
+            text-decoration:line-through;
+            font-size: 0.7rem
+        }
+
+        .price-label{
+            display: flex;
+            column-gap: 5px;
+            justify-content: center;
+        }
+
+        .product-price{
+            font-size: 0.8rem
+        }
+
+
     </style>
 
     <!-- reference: https://i.pinimg.com/736x/36/99/10/369910cb2f515ab51c9d04b45c707e1c.jpg -->
@@ -150,14 +273,180 @@
             <a href="#">menu 5</a>
         </nav>
     </header>
-    <section class="first-section">
-        <div class="tagline">
-            <h1>Make healthy life with fresh grocery</h1>
-            <a href="#" class="btn">Shop Here</a>
-        </div>
-        <div class="hero-img img">
+    
+    <main>
+        <section class="first-section">
+            <div class="tagline">
+                <h1>Make healthy life with fresh grocery</h1>
+                <a href="#" class="btn">Shop Here</a>
+            </div>
+            <div class="hero-img img">
 
-        </div>
-    </section>
+            </div>
+        </section>
+
+        <section class="second-section">
+            <div class="sub-title">
+                <h2>Featured Categories</h2>
+            </div>
+            <div class="category-container">
+                <div class="category-box">
+                    <div class="img">
+
+                    </div>
+                    <label for="">Category X</label>
+                </div>
+                <div class="category-box">
+                    <div class="img">
+
+                    </div>
+                    <label for="">Category X</label>
+                </div>
+                <div class="category-box">
+                    <div class="img">
+
+                    </div>
+                    <label for="">Category X</label>
+                </div>
+                <div class="category-box">
+                    <div class="img">
+
+                    </div>
+                    <label for="">Category X</label>
+                </div>
+                <div class="category-box">
+                    <div class="img">
+
+                    </div>
+                    <label for="">Category X</label>
+                </div>
+            </div>
+            <div class="second-category">
+                <div class="first-col">
+                    <label for="">New Vegtables</label>
+                    <h3>Purely Fresh Vegetables</h3>
+
+                    <a href="#" class="btn">Click Here</a>
+                </div>
+                <div class="second-col">
+                    <label for="">New Fruits</label>
+                    <h3>Fresh Fruits Pure Quality</h3>
+
+                    <a href="#" class="btn">Click Here</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="third-section">
+            <div class="featured-products">
+                <div class="label">
+                    <label for="">Products</label>
+                    <h2>Featured Products</h2>
+                </div>
+                <div class="product-container">
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                    <div class="product-box">
+                        <div class="img">
+
+                        </div>
+                        <label for="" class="product-name">Product Name</label>
+                        <div class="price-label">
+                            <label for="" class="product-fake-price">Rp. 140.000</label>
+                            <label for="" class="product-price">Rp. 99.000</label>
+                        </div>
+                        <a href="#" class="btn">Detail Product</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
 </body>
 </html>
